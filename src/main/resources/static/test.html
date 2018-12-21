@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>hello world</h1>
+
+    <input type="text" id="username">
+
+<script>
+    var usernameHome=document.getElementById("username");
+    var username=usernameHome.value;
+
+    // var data=new Object();
+    // data.username=username;
+
+    var data=new Object();
+    data = {username:username};
+
+    data=JSON.stringify(data);
+
+    var xml =  new  XMLHttpRequest();
+    xml.open("POST",'http://localhost:8080/hello',true)
+    xml.send(data);
+    xml.onreadystatechange = function () {
+        if(xml.readyState == 4){
+            if(xml.status == 200){
+                console.log(xml.responseText);
+            }
+        }
+    }
+</script>
+</body>
+</html>
