@@ -27,7 +27,6 @@ public class UserController {
         JSONObject result=new JSONObject();
         String username=data.getString("username");
         String password=data.getString("password");
-        int flag=0;         //记录查询结果
         for (User user:userService.SelectAllUser()
              ) {
             if(user.getUsername().equals(username))
@@ -35,6 +34,7 @@ public class UserController {
                 if(user.getPassword().equals(password))
                 {
                     if (user.getUsertype()==1){
+                        session.setAttribute("seller",username);     //存入卖家，让商家和普通用户登录时共用部分接口
                         session.setAttribute("userName",username);
                         session.setAttribute("userType",user.getUsertype());
                         result.put("status",1);
@@ -64,7 +64,7 @@ public class UserController {
     @RequestMapping(value = "/register",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
     public String register(@RequestBody JSONObject data){
         JSONObject result=new JSONObject();
-        System.out.println(data);
+//        System.out.println(data);
         for (String name:userService.getAllUserName()    //判断用户名是否被注册了
              ) {
             if(name.equals(data.getString("username"))){
