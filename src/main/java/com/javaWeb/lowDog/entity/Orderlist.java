@@ -8,6 +8,7 @@ public class Orderlist {
     private String username;
     private int number;
     private Date buydate;
+    private int iscomment;
 
     public int getOrderid() {
         return orderid;
@@ -47,5 +48,13 @@ public class Orderlist {
 
     public void setBuydate(Date buydate) {
         this.buydate = buydate;
+    }
+
+    public int getIscomment() {
+        return iscomment;
+    }
+
+    public void setIscomment(int iscomment) {
+        this.iscomment = iscomment;
     }
 }

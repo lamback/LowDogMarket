@@ -2,6 +2,7 @@ package com.javaWeb.lowDog.entity;
 
 public class Typeinmarket {
     private int typeinmarketid;
+    private String username;
     private String type;
 
     public int getTypeinmarketid() {
@@ -10,6 +11,14 @@ public class Typeinmarket {
 
     public void setTypeinmarketid(int typeinmarketid) {
         this.typeinmarketid = typeinmarketid;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getType() {

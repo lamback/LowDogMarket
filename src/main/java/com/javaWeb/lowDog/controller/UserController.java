@@ -27,6 +27,7 @@ public class UserController {
         JSONObject result=new JSONObject();
         String username=data.getString("username");
         String password=data.getString("password");
+        int flag=0;         //记录查询结果
         for (User user:userService.SelectAllUser()
              ) {
             if(user.getUsername().equals(username))
@@ -34,25 +35,27 @@ public class UserController {
                 if(user.getPassword().equals(password))
                 {
                     if (user.getUsertype()==1){
-                        if (user.getUsertype()==2)
-                        {
-                            session.setAttribute("userName",username);        //登录成功，将用户名和用户类型存入session
-                            session.setAttribute("userType",user.getUsertype());
-                            return result.put("status",2).toString();      //管理员
-                        }
                         session.setAttribute("userName",username);
                         session.setAttribute("userType",user.getUsertype());
-                        return result.put("status",1).toString();    //商家
+                        result.put("status",1);
+                        return result.toString();   //商家
+                    }
+                    if (user.getUsertype()==2)
+                    {
+                        session.setAttribute("userName",username);        //登录成功，将用户名和用户类型存入session
+                        session.setAttribute("userType",user.getUsertype());
+                        result.put("status",2);
+                        return result.toString();      //管理员
                     }
                     session.setAttribute("userName",username);
                     session.setAttribute("userType",user.getUsertype());
-                    return result.put("status",0).toString();  //普通用户
+                    result.put("status",0);
+                    return result.toString(); //普通用户
                 }
-                return result.put("status",3).toString();   //账号错误
             }
-            return result.put("status",3).toString();
         }
-        return result.put("status",3).toString();
+        result.put("status",3);
+        return result.toString();
     }
 
     /*
@@ -61,10 +64,13 @@ public class UserController {
     @RequestMapping(value = "/register",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
     public String register(@RequestBody JSONObject data){
         JSONObject result=new JSONObject();
+        System.out.println(data);
         for (String name:userService.getAllUserName()    //判断用户名是否被注册了
              ) {
-            if(name.equals(data.getString("username")))
-                return result.put("status",0).toString();
+            if(name.equals(data.getString("username"))){
+                result.put("status",0);
+                return result.toString();
+            }
         }
         if(data.getString("gender")!= null)       //判断是普通用户还是商家注册
         {
@@ -76,15 +82,25 @@ public class UserController {
             user.setPhone(data.getString("phone"));
             user.setAddress(data.getString("address"));
 
+            System.out.println(user.getUsername());
             if(userService.addNormalUser(user))          //注册普通用户
-                return result.put("status",1).toString();
-            return result.put("status",0).toString();
+            {
+              result.put("status",1);
+              return result.toString();
+            }
+            result.put("status",0);
+            return result.toString();
         }
 
         if(userService.addSeller(data.getString("username"),data.getString("password"),
                 data.getInteger("usertype"),data.getString("phone"),data.getString("address")))   //商家注册
-            return result.put("status",1).toString();
-        return result.put("status",0).toString();
+        {
+            result.put("status",1);
+            return result.toString();
+        }
+
+        result.put("status",0);
+        return result.toString();
     }
 
     /*
@@ -101,12 +117,18 @@ public class UserController {
             temp.put("address",seller.getAddress());
             result.add(temp);
         }
-        return result.toJSONString();
+        return result.toString();
     }
 
     /*
-        商家管理，删除某个商家
+        商家管理，删除某个商家,并删除该商家的所有商品
      */
+    @RequestMapping(value = "/deleteSeller",method = RequestMethod.POST,produces ="application/json;charset=UTF-8" )
+    public void deleteSeller(@RequestBody JSONObject data){
+        String username=data.getString("username");
+        userService.deleteSeller(username);
+
+    }
 
 }
 

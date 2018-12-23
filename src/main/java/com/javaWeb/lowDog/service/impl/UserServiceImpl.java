@@ -37,6 +37,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Boolean deleteSeller(String username) {
+        userMapper.deleteGoodsBySeller(username);
+        return userMapper.deleteSellerByUsername(username);
+    }
+
+
+
+    @Override
     public List<String> getAllUserName() {
         return userMapper.getAllUserName();
     }

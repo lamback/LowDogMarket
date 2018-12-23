@@ -34,8 +34,11 @@ public interface UserService {
      */
     List<User>  getAllSellers();
 
-//    /*
-//        通过用户名查询，删除某个商家
-//     */
-//    Boolean deleteSellerByUsername(String username);
+    /*
+        删除某个商家,并附带其所有的商品
+     */
+    Boolean deleteSeller(String username);
+
+
+
 }
