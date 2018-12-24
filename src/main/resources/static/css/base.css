@@ -139,7 +139,7 @@ img{ border: 0px;}
 .bg-c000000{ background-color: #000000;}
 .bg-ce23435{ background-color: #e23435;}
 .bg-c1d1d1d{ background-color: #1d1d1d;}
-.bg_icon{ background-image: url("../Image/icon.png"); background-repeat: no-repeat; }
+.bg_icon{ background-image: url("../image/icon.png"); background-repeat: no-repeat; }
 .add-sele{background-position: 0px 0px;}
 .topnav_line{background-position: -13px 0px;}
 .secbtn{background-position: -15px 0px;}
