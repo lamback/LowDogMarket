@@ -4,18 +4,28 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.javaWeb.lowDog.entity.Goods;
 import com.javaWeb.lowDog.entity.Orderlist;
+import com.javaWeb.lowDog.entity.Util;
+import com.javaWeb.lowDog.service.GoodsService;
 import com.javaWeb.lowDog.service.OrderListService;
+import com.javaWeb.lowDog.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class OrderListController {
     @Autowired
     OrderListService orderListService;
 
+    @Autowired
+    GoodsService goodsService;
+
+    @Autowired
+    ShoppingCartService shoppingCartService;
     /*
         查看订单
      */
@@ -27,6 +37,7 @@ public class OrderListController {
             int goodsid=order.getGoodsid();
             JSONObject temp=new JSONObject();
             Goods goods=orderListService.getGoodsInOrder(goodsid);
+            temp.put("goodsid",goods.getGoodsid());
             temp.put("name",goods.getName());
             temp.put("type",goods.getType());
             temp.put("photo",goods.getPhoto());
@@ -44,4 +55,27 @@ public class OrderListController {
         return result.toString();
     }
 
+    /*
+        提交订单
+     */
+    @RequestMapping(value = "/submitOrder",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
+    public void submitOrder(@RequestBody JSONArray data, HttpSession session) {
+        session.setAttribute("username","aaa");
+        for (int i=0;i<data.size();i++){
+            JSONObject temp=data.getJSONObject(i);
+
+            int goodsid=temp.getInteger("goodsid");
+            Goods goods=goodsService.getGoodsNewsByGoodsID(goodsid);
+            int number=shoppingCartService.getNumber(goodsid);
+            Orderlist orderlist=new Orderlist();
+            orderlist.setGoodsid(goodsid);
+            orderlist.setUsername(session.getAttribute("username").toString());
+            orderlist.setNumber(number);
+            orderlist.setBuydate(Util.getTime());
+            orderlist.setIscomment(0);
+
+            orderListService.addToOrder(orderlist);
+            shoppingCartService.deleteGoodsInCart(goodsid);
+        }
+    }
 }

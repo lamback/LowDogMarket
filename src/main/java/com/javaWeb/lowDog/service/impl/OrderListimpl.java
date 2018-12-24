@@ -24,4 +24,9 @@ public class OrderListimpl implements OrderListService {
     public Goods getGoodsInOrder(int goodsid) {
         return orderListMapper.getGoodsInOrder(goodsid);
     }
+
+    @Override
+    public Boolean addToOrder(Orderlist orderlist) {
+        return orderListMapper.addToOrder(orderlist);
+    }
 }

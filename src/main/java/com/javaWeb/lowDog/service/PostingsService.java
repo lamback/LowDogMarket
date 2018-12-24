@@ -11,4 +11,9 @@ public interface PostingsService {
         进入微淘板块，展示所有帖子
      */
     List<Postings> getAllPostings();
+
+    /*
+        点赞
+     */
+    Boolean changePraiseNumber(int postingsid);
 }

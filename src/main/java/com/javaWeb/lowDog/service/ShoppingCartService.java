@@ -23,4 +23,10 @@ public interface ShoppingCartService {
         修改购物车数量或者删除
      */
     Boolean changeNumberInCart(int goodsid,int action);
+
+    /*
+        加入订单
+     */
+    int  getNumber(int goodsid);
+    Boolean deleteGoodsInCart(int goodsid);
 }

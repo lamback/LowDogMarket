@@ -14,4 +14,9 @@ public interface OrderListService {
      */
     List<Orderlist> getAllOrder();
     Goods getGoodsInOrder(int goodsid);
+
+    /*
+        提交订单
+     */
+    Boolean addToOrder(Orderlist orderlist);
 }

@@ -40,5 +40,9 @@ public interface UserService {
     Boolean deleteSeller(String username);
 
 
+    /*
+     用于返回状态
+     */
+    String findUserType(String username);
 
 }

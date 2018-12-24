@@ -32,5 +32,6 @@ public interface UserMapper {
     @Delete("delete from goods where seller=#{username}")
     Boolean deleteGoodsBySeller(String username);
 
-
+    @Select("select usertype from user where username=#{username}")
+    String findUserType(String username);
 }

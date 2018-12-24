@@ -18,4 +18,9 @@ public class Postingsimpl implements PostingsService {
     public List<Postings> getAllPostings() {
         return postingsMapper.getAllPostings();
     }
+
+    @Override
+    public Boolean changePraiseNumber(int postingsid) {
+        return postingsMapper.changePraiseNumber(postingsid);
+    }
 }
