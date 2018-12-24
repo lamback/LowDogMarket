@@ -4,6 +4,7 @@ import com.javaWeb.lowDog.dao.GoodsMapper;
 import com.javaWeb.lowDog.dao.TypeInMarketMapper;
 import com.javaWeb.lowDog.entity.Goods;
 import com.javaWeb.lowDog.entity.SellersRanking;
+import com.javaWeb.lowDog.entity.Typeinmarket;
 import com.javaWeb.lowDog.service.GoodsService;
 import com.javaWeb.lowDog.service.TypeInMarketService;
 import org.springframework.stereotype.Service;
@@ -72,5 +73,10 @@ public class GoodsServiceimpl implements GoodsService,TypeInMarketService {
     @Override
     public Boolean deleteTypeInMarket(String type,String seller) {
         return typeInMarketMapper.deleteTypeInMarket(type,seller);
+    }
+
+    @Override
+    public List<Typeinmarket> allTypesInMarket(String username) {
+        return typeInMarketMapper.allTypesInMarket(username);
     }
 }
