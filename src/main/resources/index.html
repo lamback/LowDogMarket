@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>土狗网首页_商城</title>
+<link rel="stylesheet" href="static/css/base.css">
+<link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/footer.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/goodsdetail.css" type="text/css">
+<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="static/js/banner.index.js"></script>
+<script type="text/javascript" src="static/js/hun.index.js"></script>
+</head>
+<body>
+<!--web-top start-->
+<div class="w-all w-minw bg-cf5f5f5 ovhidden">
+    <div class="w-main m-auto">
+        <span class="fs-14 line-h30 ftc-6b6b6b dsblock fl"> 欢迎来到土狗网 </span>
+        <div class="fl" id="loginText">
+
+        </div>
+        <ul class="topnav fr">
+            <li class="fl"><a href="#" class="fs-14 ftc-6b6b6b line-h30 fl m-l-20 m-r-20">我的订单</a></li>
+            <li class="fl"><a href="#" class="fs-14 ftc-6b6b6b line-h30 fl m-l-20 m-r-20">我的收藏</a></li>
+
+            <li class="fl"><a href="#" class="fs-14 ftc-6b6b6b line-h30 fl m-l-20 m-r-20">我的地址</a></li>
+
+            <li class="fl"><a href="#" class="fs-14 ftc-6b6b6b line-h30 fl m-l-20 m-r-20">帮助中心</a></li>
+            <li class="fl"><a href="#" class="fs-14 ftc-6b6b6b line-h30 fl m-l-20">网站导航</a></li>
+        </ul>
+    </div>
+</div>
+<!--web-top end-->
+<div class="w-main m-auto m-t-30 m-b-16 ovhidden"> 
+    <!--web logo start--> 
+    <a href="#" class="logo_top fl"><img src="static/image/lowdog-logo.png" width="180px" height="80px" alt="商城logo"/></a>
+    <!--web logo end--> 
+    <!--web search start-->
+    <div class="search m-l-230 w-455 m-t-5 fl">
+        <form action="#" method="get" id="searchform" name="searchform" onSubmit="return checkSearchForm()" class="search-form">
+            <input class="w-380 p-l-8 fl fs-14 ftc-999999 bd-s-ce23435 line-h36 hg-36" type="text" name="keywords" id="keyword" value="请输入关键字" onfocus="if(this.value == '请输入关键字')this.value = ''" onblur="if(this.value == '')this.value='请输入关键字'" autocomplete="off">
+            <input type="hidden" value="k1" name="dataBi">
+            <button type="submit" class="w-65 line-h38 hg-38 bg-ce23435 bg_icon secbtn tx-ind fl">提交</button>
+        </form>
+        <div class="w-455 fl" id="hotkeywords"> <a href="#" class="hot-item ftc-4b4b4b fs-14 line-h30 m-r-15 fl">旅行包</a> <i class="dsblock bg_icon topnav_line fl tx-ind w-1 hg-30">旅行包</i> <a href="#" class="hot-item ftc-4b4b4b fs-14 line-h30 m-r-15 m-l-15 fl">皮鞋</a> <i class="dsblock bg_icon topnav_line fl tx-ind w-1  hg-30">皮鞋</i> <a href="#" class="hot-item ftc-4b4b4b fs-14 line-h30 m-r-15 m-l-15 fl">年货先到家</a> <i class="dsblock bg_icon topnav_line fl tx-ind w-1  hg-30">年货先到家</i> <a href="#" class="hot-item ftc-4b4b4b fs-14 line-h30 m-r-15 m-l-15 fl">皮革</a> </div>
+    </div>
+    <!--web search end--> 
+    <!--web Shopping Cart start--> 
+    <a class="w-160 bd-s-ce23435 line-h38 hg-38 fr curpter text-c m-t-5 fs-14 ftc-999999 dsblock"> <i class="dsblock bg_icon cart_icon w-26 curpter m-l-15 tx-ind fl">购物车</i> 我的购物车  </a>
+    <!--web Shopping Cart end--> 
+</div>
+<!--web nav start-->
+<div class="w-all w-minw ovhidden bd-bs-ed4f2c">
+    <div class="w-main m-auto">
+        <ul class="w-main nav">
+            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45 navactive">首页</a></li>
+            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">商城</a></li>
+            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">活动专区</a></li>
+            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">限时抢购</a></li>
+            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">天天特价</a></li>
+            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">优惠套餐</a></li>
+            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">品牌街</a></li>
+            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">我能兑换</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+<!--web nav end--> 
+<!--web banner start-->
+<div class="w-all w-minw banner">
+    <div id="full-screen-slider">
+        <ul id="slides">
+            <li style="background:url('static/image/showpage1.jpg') center top no-repeat;"><a href="javascript:void(0)"></a></li>
+            <li style="background:url('static/image/showpage2.jpg') center top no-repeat;"><a href="javascript:void(0)"></a></li>
+            <li style="background:url('static/image/showpage3.jpg') center top no-repeat;"><a href="javascript:void(0)"></a></li>
+        </ul>
+    </div>
+</div>
+
+<!--web banner end--> 
+
+
+<!--web home Sales charts start-->
+<div class="w-1220 m-auto bd-ts-e6e6e6 ovhidden">
+    <div class="scroll_suv ovhidden w-1220">
+        <div class="hd m-t-25 ovhidden w-main m-auto">
+            <h2 class="fs-20 ftc-6b6b6b font-b9 fl"><span class="w-28 dsblock tx-ind bg_icon suv_icon hg-30 fl m-r-12">销量排行榜</span>销量排行榜</h2>
+            <div class="fr"> <a class="dsblock curpter w-26 hg-30 fl bg_icon prev prev_icon m-r-5"></a> <a class="dsblock curpter w-26 hg-30 fl bg_icon next next_icon"></a> </div>
+        </div>
+        <div class="bd w-1220">
+            <ul class="piclist" id="piclist">  <!--销售排行榜-->
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(".scroll_suv").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:5,trigger:"click"});
+
+    </script>
+</div>
+<!--web home Sales charts end--> 
+
+<!--web home Advertisement start-->
+<div class="w-main m-auto m-t-15"> <a href="#" class="dsblock w-595 hg-120 fl homead"><img src="static/image/ad1.jpg" alt=""/></a> <a href="#" class="dsblock w-595 hg-120 homead fr"><img src="static/image/ad2.jpg" alt=""/></a> </div>
+<!--web home Advertisement end-->
+
+<!--web home Fiery scramble start-->
+<div class="w-1220 m-auto bd-ts-e6e6e6 ovhidden m-t-30 m-b-40">
+    <div class="scroll_suv ovhidden w-1220">
+        <div class="hd m-t-25 ovhidden w-main m-auto">
+            <h2 class="fs-20 ftc-6b6b6b font-b9 fl"><span class="w-28 dsblock tx-ind bg_icon fiery_icon hg-30 fl m-r-12"></span>火热抢购&nbsp;</h2>
+            <h2 class="fs-20 ftc-6b6b6b  fl" id="typeeshow">
+
+            </h2>
+
+        </div>
+        <div class="bd w-1220">
+            <ul class="piclist" id="piclist1"> //各种类型
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+                <li> </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(".scroll_suv").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:5,trigger:"click"});
+    </script> 
+</div>
+<!--web home Fiery scramble end-->
+
+
+<!--web footer start-->
+<div class="backf">
+
+    <div class="footer-head">
+        <img src="static/Image/footer/footer1.PNG" class="image"/>
+    </div>
+    <div id="footer">
+        <ul>
+            <li class="sy">支付方式</li>
+            <li><a href="#" >在线支付</a></li>
+            <li><a href="#">货到付款</a></li>
+            <li><a href="#">发票说明</a></li>
+            <li><a href="#">余额宝</a></li>
+
+        </ul>
+        <ul>
+            <li class="sy">购物指南</li>
+            <li><a href="#">免费注册</a></li>
+            <li><a href="#">申请会员</a></li>
+            <li><a href="#">开通支付宝</a></li>
+            <li><a href="#">支付宝充值</a></li>
+        </ul>
+        <ul>
+            <li class="sy">商家服务</li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">客服服务</a></li>
+            <li><a href="#">物流服务</a></li>
+            <li><a href="#">缺货赔付</a></li>
+        </ul>
+        <ul>
+            <li class="sy">关于我们</li>
+            <li><a href="#">知识产权</a></li>
+            <li><a href="#">网站合作</a></li>
+            <li><a href="#">规则意见</a></li>
+            <li><a href="#">帮助中心</a></li>
+        </ul>
+        <ul>
+            <li class="sy">其他服务</li>
+            <li><a href="#">诚聘英才</a></li>
+            <li><a href="#">法律声明</a></li>
+        </ul>
+
+        <div class="joinus">
+            <p class="joinus-font">加入我们</p>
+            <img src="static/Image/footer/footer2.PNG" class="joinus-image"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="foot">
+        <p>使用本网站即表示接受  土狗商城用户协议</p>
+        <p>版权所有&copy;南昌大学计科165班——RNG项目组</p>
+        <p>Design by@肖裕钊&nbsp;邹林葱&nbsp;钟毅&nbsp;秦文成&nbsp;童一&nbsp;黄文鑫&nbsp;王顺</p>
+    </div>
+</div>
+<!--web footer end-->
+</body>
+</html>
