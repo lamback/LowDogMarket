@@ -1,0 +1,217 @@
+.orderContainer{
+    width: 80%;
+    height: 550px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.orderContainer .order-header{
+    width: 100%;
+    border: #7f7d7c 1px solid;
+    margin-bottom: 20px;
+}
+.orderContainer .style-list1{
+    width: 34%;
+    float: left;
+}
+.orderContainer .style-list2{
+    width: 10%;
+    float: left;
+}
+
+.orderContainer .style-list3{
+    width: 8%;
+    float: left;
+}
+
+.orderContainer .style-list4{
+    width: 11%;
+    float:left;
+}
+
+.orderContainer .style-list5{
+    width: 13%;
+    float:left;
+}
+
+.orderContainer .style-list6{
+    width: 11%;
+    float:left;
+}
+
+.orderContainer .style-list7{
+    width: 13%;
+    float: left;
+}
+
+.clear-header{
+    clear:both;
+    height: 20px;
+}
+
+.list-clear{
+    clear: both;
+    height: 0;
+}
+
+.list-in-clear{
+    clear:both;
+    height: 10px;
+}
+.orderContainer .order-header p{
+    font-size: 15px;
+    color: #302e2d;
+    text-align: center;
+    background-color: #f0f0f0;
+    height: 40px;
+}
+
+.orderContainer .order-info samp{
+    font-size: 15px;
+    color: #000;
+    position: relative;
+    top: 45px;
+}
+
+
+.orderContainer .order-header p samp{
+    position: relative;
+    top: 8px;
+}
+
+.orderContainer .order-list{
+    width: 100%;
+    border: #bfbdbc 1px solid;
+}
+
+.order-list-header{
+    height: 38px;
+    background-color: #f0f0f0;
+}
+
+.order-list-header samp{
+    color: #7f7d7c;
+    position: relative;
+    top: 10px;
+}
+
+.order-list .time-id{
+    width: 34%;
+    float: left;
+}
+
+.orderContainer .order-list .sellername{
+    width: 10%;
+    text-align: center;
+    float: left;
+}
+
+.orderContainer .order-list .null{
+    width: 8%;
+    float: left;
+}
+
+.orderContainer .order-list .callwithme{
+    width: 11%;
+    float: left;
+    text-align: center;
+}
+
+.order-list-header .infosamp{
+    font-size: 13px;
+    position: relative;
+    top: 10px;
+}
+
+.order-info{
+    width: 100%;
+    height: 100px;
+    border: #bfbdbc 1px;
+    margin-top: 0;
+}
+
+.list1{
+    width:34%;
+    height: 100%;
+    border-right: #bfbdbc 1px solid;
+    float: left;
+}
+.list2{
+    width:10%;
+    height: 100%;
+    border-right: #bfbdbc 1px solid;
+    text-align: center;
+    float: left;
+}
+.list3{
+    width:8%;
+    height: 100%;
+    border-right: #bfbdbc 1px solid;
+    text-align: center;
+    float: left;
+}
+.list4{
+    width:11%;
+    height: 100%;
+    border-right: #bfbdbc 1px solid;
+    text-align: center;
+    float: left;
+}
+.list5{
+    width:13%;
+    height: 100%;
+    border-right: #bfbdbc 1px solid;
+    text-align: center;
+    float: left;
+}
+.list6{
+    width:11%;
+    height: 100%;
+    border-right: #bfbdbc 1px solid;
+    text-align: center;
+    float: left;
+}
+.list7{
+    width: 12%;
+    height: 100%;
+    text-align: center;
+    float: left;
+}
+
+.order-image{
+    width: 90px;
+    height: 90px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    float: left;
+}
+
+.order-div{
+    width: 245px;
+    height: 70px;
+    margin-top: 25px;
+    float: left;
+    font-size: 12px;
+    color: #001;
+}
+
+.order-div span{
+    font-size: 12px;
+    color: #7f7d7c;
+}
+
+.commentsState{
+    width: 80px;
+    height: 40px;
+    position: relative;
+    top: 25px;
+}
+
+.foot-clear{
+    clear:both;
+    height: 20px;
+}
+

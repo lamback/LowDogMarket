@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录界面</title>
+	<!-- pc端 -->
+	<meta name="renderer" content="webkit"  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
+	<!--引入css-->
+	<link rel="stylesheet" href="css/common.css"> 
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/logIn.css">
+	<!--引入js-->
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+	<script src="js/swiper.min.js"></script>
+</head>
+<body>
+	
+	<!-- 右下侧登录框 -->
+	<div class="regFrm">
+		<form id="homePageForm" action="#">
+		<!-- 登录标题 -->
+		<div class="regTitle">
+			<span class="square"></span>
+			<span>用户登录</span>
+		</div>
+		<!-- 用户输入信息 -->
+		<div class="regInput">
+			<div class="iconBack" id="icPB">
+				<i class="icon iconfont icon-person"></i>
+			</div>
+			<input id="username" type="text" placeholder="用户名" class="userInput">
+			<div class="prompt" id="proPhone"></div>
+		</div>
+		
+		<div class="regInput">
+			<div class="iconBack" id="icWB">
+				<i class="icon iconfont icon-mima"></i>
+			</div>
+			<input type="password" placeholder="密码" class="userInput" id="password">
+			<div class="prompt" id="proPassword"></div>
+		</div>
+
+		<div class="regInput">
+			<div class="codeInput">
+				<input type="text" class="userInput" placeholder="验证码" id="code" >
+				<div class="iconBack" id="icCB">
+					<div id="codeNums">
+						
+					</div>
+				</div>
+				<span id="changeCode">看不清？换图片</span>
+				<div class="prompt" id="proCode"></div>
+			</div>
+			
+		</div>
+		<!-- 提交 -->
+		<div class="submit">
+			<div class="subTop">
+				<input id="sub" type="button" value="同意协议并提交">
+			</div>
+			<div class="subBot">
+				<a href="register.html" class="left_a">用户注册</a>
+					<a href="#">忘记密码？</a>
+			</div>
+		</div>
+	</form>
+	</div>
+	
+	<script src="js/logIn.js"></script>
+</body>
+</html>
