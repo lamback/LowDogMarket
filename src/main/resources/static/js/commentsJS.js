@@ -10,6 +10,7 @@ function onCommentReady(){
     var getval=thisURL.split('?')[1];
     var showval=getval.split('=')[1];
     goodsID=showval;
+    console.log(showval);
     getCommentAccount();
 }
 

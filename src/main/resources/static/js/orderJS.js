@@ -1,10 +1,9 @@
-
 var resultJSON; //从后台服务器接收的json数据
 
 //请求服务器端获取数据，并存到resultJSON中
 function requestJSON(){
     $.ajax({
-        url:allOrderList, //请求接口
+        url: "allOrderList", //请求接口
         type: "post",  //提交方式
         //data:
         dataType:"json",  //接收数据类型
@@ -14,20 +13,20 @@ function requestJSON(){
     })
 }
 
-function comment1(){
-    window.location.href="commentsPage.html";
+function consols(){
+    alert("ceshi ");
 }
 
 function onOrderReady(){
-    //requestJSON();
+    requestJSON();
          //该段代码仅用于测试
-    resultJSON={data:[
-            {goodsid:12,name:'特步球鞋', type:'男鞋', photo:'image/product/product1.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'1'},
-            {goodsid:32,name:'特步球鞋', type:'男鞋', photo:'image/product/product2.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'0'},
-            {goodsid:22,name:'特步球鞋', type:'男鞋', photo:'image/product/product3.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'1'},
-            {goodsid:14,name:'特步球鞋', type:'男鞋', photo:'image/product/product4.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'0'},
-            {goodsid:56,name:'特步球鞋', type:'男鞋', photo:'image/product/product1.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'1'}
-        ]};
+    //resultJSON={data:[
+           // {goodsid:12,name:'特步球鞋', type:'男鞋', photo:'image/product/product1.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'1'},
+           // {goodsid:32,name:'特步球鞋', type:'男鞋', photo:'image/product/product2.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'0'},
+           // {goodsid:22,name:'特步球鞋', type:'男鞋', photo:'image/product/product3.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'1'},
+           // {goodsid:14,name:'特步球鞋', type:'男鞋', photo:'image/product/product4.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'0'},
+           // {goodsid:56,name:'特步球鞋', type:'男鞋', photo:'image/product/product1.PNG', information:'精品球鞋，大甩卖',price:'122.98', seller:'商家1', sellnumber:'12', address:'赣州',number:'2',buydate:'2018-12-01',iscomment:'1'}
+       // ]};
     //测试端结束
     var orderContainer=document.getElementById("orderContainer");
     if(resultJSON!=null){
@@ -65,7 +64,7 @@ function onOrderReady(){
 
 //评论
 function comment(goodsID){
-    document.location("/commentsPage.html?goodsID="+goodsID);
+    location.href="localhost:8080/commentPage.html?goodID="+goodsID;
 }
 
 //获取订单号

@@ -11,14 +11,12 @@ function getGoodsType() {           //获取商品种类
         success: function (result) {
             var type=document.getElementById("typeshow");
              typelen=result.length;
-             alert(result);
             for(var i=0;i<typelen;i++)
             {
+
                 type.innerHTML+="<a class=\"ftc-626262 fs-20 \" href=\"javascript:getGoodsByType('"+result[i].type+"')\">"+result[i].type+"&nbsp;</a>"
+
             }
-        },
-        error:function (result) {
-            alert(1+result);
         }
     })
 }
@@ -42,7 +40,7 @@ function getGoodsByType(type) {
                     information1=result[i1].information;
                     goodsid1=result[i1].goodsid;
                 lilist1[i1].innerHTML+="<div class='pic f1'><a href='//localhost:8080/goodsdetail.html?goodsid="+goodsid1+"'>";
-                lilist1[i1].innerHTML+="<img src="+photo1+"/></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/good.html?goodsid="+goodsid1+"' class='dsblock w-all fl'> ";
+                lilist1[i1].innerHTML+="<img src="+photo1+"/></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/goodsdetail.html?goodsid="+goodsid1+"' class='dsblock w-all fl'> ";
                 lilist1[i1].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+information1+"</h3></a></div>";
          }
         }
@@ -68,12 +66,12 @@ window.onload = function () {
 			else
 			{
                 loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
-                loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
+                loginText.innerHTML+="<a href='../register.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
 			}
         },
 		error:function () {
             loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
-            loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
+            loginText.innerHTML+="<a href='../register.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
         }
 
     })
