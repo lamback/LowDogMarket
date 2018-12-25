@@ -1391,21 +1391,21 @@
                 var dataObj = eval("("+xmlHttp.responseText+")");
                 //xmlHttp.
                 for(var i=0;i<dataObj.data.length;i++){
-                    var text = dataObj.data[i].comments;
-                    var Id = dataObj.data[i].username;
-                    var time = dataObj.data[i].postingsdate;
-                    var PraiseNumber = parseInt(dataObj.data[i].praise);
+                    var text = dataObj.comments;
+                    var Id = dataObj.username;
+                    var time = dataObj.postingsdate;
+                    var PraiseNumber = parseInt(dataObj.praise);
                     var xinId = "xin"+i;
                     document.getElementById("PageContent").innerHTML +=
                         "<article class=\"format-standard type-post hentry\">\n" +
                         "                    <header>\n" +
                         "                        <h3 class=\"post-title\">\n" +
                         "                            <div style=\"float: left\">\n" +
-                        "                                <img class=\"contentDiv\" src=\"https://tse1-mm.cn.bing.net/th?id=OET.f33cc5ac789549cab352b47f8dce1966&w=272&h=272&c=7&rs=1&o=5&pid=1.9\">\n"+
+                        "                                <img class=\"contentDiv\" src=\"\">\n"+
                         "                            </div>\n" +
                         "\n" +
                         "                            <div style=\"padding-left: 64px;\">\n" +
-                        "                                <a href=\"#\">"+Id+"</a>\n" +
+                        "                                <a href=\"static/image/photo.jpg\">"+Id+"</a>\n" +
                         "                                <p class=\"time-font\">"+time+"</p>\n" +
                         "                            </div>\n" +
                         "                        </h3>\n" +
@@ -1421,33 +1421,33 @@
 
                     var PicNumber = 0;
                     Img1 = new Image();
-                    if (typeof (dataObj.data[i].photo1)!="undefined"){
-                        Img1.src = dataObj.data[i].photo1;
+                    if (typeof (dataObj.photo1)!="undefined"){
+                        Img1.src = dataObj.photo1;
                         PicNumber+=1;
                     }
                     Img2 = new Image();
-                    if (typeof (dataObj.data[i].photo2)!="undefined"){
-                        Img2.src = dataObj.data[i].photo2;
+                    if (typeof (dataObj.photo2)!="undefined"){
+                        Img2.src = dataObj.photo2;
                         PicNumber+=1;
                     }
                     Img3 = new Image();
-                    if (typeof (dataObj.data[i].photo3)!="undefined"){
-                        Img3.src = dataObj.data[i].photo3;
+                    if (typeof (dataObj.photo3)!="undefined"){
+                        Img3.src = dataObj.photo3;
                         PicNumber+=1;
                     }
                     Img4 = new Image();
-                    if (typeof (dataObj.data[i].photo4)!="undefined"){
-                        Img4.src = dataObj.data[i].photo4;
+                    if (typeof (dataObj.photo4)!="undefined"){
+                        Img4.src = dataObj.photo4;
                         PicNumber+=1;
                     }
                     Img5 = new Image();
-                    if (typeof (dataObj.data[i].photo5)!="undefined"){
-                        Img5.src = dataObj.data[i].photo5;
+                    if (typeof (dataObj.photo5)!="undefined"){
+                        Img5.src = dataObj.photo5;
                         PicNumber+=1;
                     }
                     Img6 = new Image();
-                    if (typeof (dataObj.data[i].photo6)!="undefined"){
-                        Img6.src = dataObj.data[i].photo6;
+                    if (typeof (dataObj.photo6)!="undefined"){
+                        Img6.src = dataObj.photo6;
                         PicNumber+=1;
                     }
                     switch (PicNumber) {
