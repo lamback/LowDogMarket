@@ -11,12 +11,14 @@ function getGoodsType() {           //获取商品种类
         success: function (result) {
             var type=document.getElementById("typeshow");
              typelen=result.length;
+             alert(result);
             for(var i=0;i<typelen;i++)
             {
-
                 type.innerHTML+="<a class=\"ftc-626262 fs-20 \" href=\"javascript:getGoodsByType('"+result[i].type+"')\">"+result[i].type+"&nbsp;</a>"
-
             }
+        },
+        error:function (result) {
+            alert(1+result);
         }
     })
 }
@@ -65,13 +67,13 @@ window.onload = function () {
 			}
 			else
 			{
-                loginText.innerHTML+="<a href='//localhost:8080/login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
-                loginText.innerHTML+="<a href='//localhost:8080/login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
+                loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
+                loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
 			}
         },
 		error:function () {
-            loginText.innerHTML+="<a href='//localhost:8080/login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
-            loginText.innerHTML+="<a href='//localhost:8080/login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
+            loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
+            loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
         }
 
     })

@@ -14,6 +14,10 @@ function requestJSON(){
     })
 }
 
+function comment1(){
+    window.location.href="commentsPage.html";
+}
+
 function onOrderReady(){
     //requestJSON();
          //该段代码仅用于测试

@@ -85,11 +85,11 @@ function check(){
 			},
 			function(status){
 				if(status==0){
-					window.location.href="index.html";
-				}else if(status==1){
-					window.location.href="index.html";
+					location.href="index.html";
+                }else if(status==1){
+					location.href="index.html";
 				}else if(status==2){
-					window.location.href="index.html";
+					location.href="index.html";
 				}else{
 					alert("账号或者密码有误，请确认账号和密码");
 				}

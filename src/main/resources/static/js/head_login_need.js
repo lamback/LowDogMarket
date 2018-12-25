@@ -14,13 +14,13 @@ window.onload=function ()
                 loginText.innerHTML+="<span class='fs-14 line-h30 ftc-6b6b6b dsblock fl'>Hello!"+result.username+"</span>";
             }
             else
-            {   window.location.href="//localhost:8080/login.html";     //未登录则跳转到登录界面
+            {   window.location.href="../login.html";     //未登录则跳转到登录界面
                 loginText.innerHTML+="<a href='#' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
                 loginText.innerHTML+="<a href='#' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
             }
         },
         error:function () {
-            window.location.href="//localhost:8080/login.html";         //未登录则跳转到登录界面
+            window.location.href="../login.html";         //未登录则跳转到登录界面
             loginText.innerHTML+="<a href='#' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
             loginText.innerHTML+="<a href='#' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
         }
