@@ -67,7 +67,7 @@
             <td class="num">
                 <a href="javascript:;" @click="changeMoney(item,-1)">-</a>&nbsp;&nbsp;
                 <input type="text" v-model="item.number"  disabled/>
-                <input type="hidden" :id="item.goodsid" name="goodsid" v-model="item.productId" style="display: none">&nbsp;&nbsp;
+                <input type="hidden" :id="item.goodsid" name="goodsid" v-model="item.goodsid" style="display: none">&nbsp;&nbsp;
                 <a href="javascript:;" @click="changeMoney(item,1)">+</a>
             </td>
             <td class="redcolor">{{item.price*item.number | formatMoney}}</td>
