@@ -9,25 +9,29 @@ function getGoodsType() {           //获取商品种类
         dataType: "json",//预期服务器返回的数据类型
         url: "/getTypeListInHomePage" ,//url
         success: function (result) {
+            var type=document.getElementById("typeshow");
              typelen=result.length;
             for(var i=0;i<typelen;i++)
             {
-                var type=document.getElementById("typeshow");
-                type.innerHTML+="<a class=\"ftc-626262\" href=\"javascript:getGoodsByType("+result[i].type+")\">"+result[i].type+"&nbsp;</a>"
+
+                type.innerHTML+="<a class=\"ftc-626262 fs-20 \" href=\"javascript:getGoodsByType('"+result[i].type+"')\">"+result[i].type+"&nbsp;</a>"
+
             }
         }
     })
 }
 function getGoodsByType(type) {
-    var ul1=document.getElementById("piclist1");
+
 
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: "/salesRanking" ,//url
+            url: "/getGoodsByType" ,//url
             data:type,          //传一个种类过去
+            contentType:"application/json;charset=utf-8",
             success: function (result) {        //传回该类型所有商品
-                for(let a=0;a<result.length;a++) ul.innerHTML+="<li></li>";
+                var ul1=document.getElementById("piclist1");
+                for(let a=0;a<result.length;a++) ul1.innerHTML+="<li></li>";
                 var lilist1=ul1.getElementsByTagName("li");
                 for(var i1=0;i1<result.length;i1++)
                 {
@@ -35,7 +39,7 @@ function getGoodsByType(type) {
                     photo1=result[i1].photo;
                     information1=result[i1].information;
                     goodsid1=result[i1].goodsid;
-                lilist1[i1].innerHTML+="<div class='pic f1'><a href='//localhost:8080/good.html?goodsid="+goodsid1+"'>";
+                lilist1[i1].innerHTML+="<div class='pic f1'><a href='//localhost:8080/goodsdetail.html?goodsid="+goodsid1+"'>";
                 lilist1[i1].innerHTML+="<img src="+photo1+"/></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/good.html?goodsid="+goodsid1+"' class='dsblock w-all fl'> ";
                 lilist1[i1].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+information1+"</h3></a></div>";
          }
