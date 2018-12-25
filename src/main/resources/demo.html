@@ -1328,8 +1328,7 @@
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("post","/getAllPostings",true);
         xmlHttp.onreadystatechange=function(){
-            if (xmlHttp.readyState==4&&xmlHttp.status==200)
-            {
+            if (xmlHttp.readyState==4&&xmlHttp.status==200) {
                 var dataObj = eval("("+xmlHttp.responseText+")");
                 //xmlHttp.
                 for(var i=0;i<dataObj.data.length;i++){
