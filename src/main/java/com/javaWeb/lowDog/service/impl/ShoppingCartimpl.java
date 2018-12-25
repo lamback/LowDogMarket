@@ -49,5 +49,15 @@ public class ShoppingCartimpl implements ShoppingCartService {
         return true;
     }
 
+    @Override
+    public int getNumber(int goodsid) {
+        return shoppingCartMapper.getNumber(goodsid);
+    }
+
+    @Override
+    public Boolean deleteGoodsInCart(int goodsid) {
+        return shoppingCartMapper.deleteGoodsInCart(goodsid);
+    }
+
 
 }

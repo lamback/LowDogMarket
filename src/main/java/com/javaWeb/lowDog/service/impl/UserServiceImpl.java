@@ -42,6 +42,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.deleteSellerByUsername(username);
     }
 
+    @Override
+    public String findUserType(String username) {
+        return userMapper.findUserType(username);
+    }
 
 
     @Override
