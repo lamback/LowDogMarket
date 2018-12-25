@@ -1,10 +1,11 @@
 package com.javaWeb.lowDog.dao;
 
+import com.javaWeb.lowDog.entity.Goods;
 import com.javaWeb.lowDog.entity.Shoppingcart;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Mapper
 public interface ShoppingCartMapper {
@@ -13,4 +14,23 @@ public interface ShoppingCartMapper {
 
     @Select("select count(*) from shoppingcart where goodsid=#{goodsid}")
     int  isInCart(int goodsid);
+
+    @Select("select * from shoppingcart where username=#{username}")
+    List<Shoppingcart> getAllGoodsID(String username);
+
+    @Select("select * from goods where goodsid=#{goodsid}")
+    Goods showCart(@Param("goodsid") int goodsid);
+
+    @Update("update shoppingcart set number=number+1 where goodsid=#{goodsid}")
+    Boolean addNumber(int goodsid);
+
+    @Update("update shoppingcart set number=number-1 where goodsid=#{goodsid}")
+    Boolean minusNumber(int goodsid);
+
+    @Delete("delete from shoppingcart where goodsid=#{goodsid}")
+    Boolean deleteGoodsInCart(int goodsid);
+
+    @Select("select number from shoppingcart where goodsid=#{goodsid}")
+    int  getNumber(int goodsid);
+
 }

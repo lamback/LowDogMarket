@@ -2,10 +2,8 @@ package com.javaWeb.lowDog.dao;
 
 import com.javaWeb.lowDog.entity.Goods;
 import com.javaWeb.lowDog.entity.SellersRanking;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import com.javaWeb.lowDog.entity.Verifygoods;
+import org.apache.ibatis.annotations.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -38,5 +36,8 @@ public interface GoodsMapper {
 
     @Select("select seller,count(sellnumber) sellernumber from goods group by seller")
     List<SellersRanking> sellersRanking();
+
+    @Insert("insert into goods(name,type,photo,photo2,photo3,photo4,information,price,seller,address) values(#{name},#{type},#{photo},#{photo2},#{photo3},#{photo4},#{information},#{price},#{seller},#{address})")
+    Boolean AddGoods(Verifygoods verifygoods);
 
 }

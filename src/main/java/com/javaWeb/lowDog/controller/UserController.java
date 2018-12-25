@@ -130,6 +130,29 @@ public class UserController {
 
     }
 
+    /*
+        判断用户类型以及是否登录
+     */
+    @RequestMapping(value = "/judgeUser",method = RequestMethod.POST,produces ="application/json;charset=UTF-8" )
+    public String judgeUser (HttpSession session){
+        JSONObject result=new JSONObject();
+//        session.setAttribute("username","aaa");
+        Object username=session.getAttribute("username");
+        if(username==null)
+        {
+            result.put("status","0");
+            result.put("usertype","-1");
+        }
+        else {
+            result.put("status","1");
+            result.put("username",username.toString());
+            String userType=userService.findUserType(username.toString());
+            result.put("usertype",userType);
+        }
+
+        return result.toString();
+    }
+
 }
 
 
