@@ -1,0 +1,162 @@
+html,body{
+	width:100%;
+	height:100%;
+}
+/* 背景图 */
+body{
+	background:url(../img/login_background.jpg) no-repeat;
+	background-position:fixed;
+	background-size:cover;
+}
+/* 左上角图片 */
+#leftPic{
+	position:absolute;
+	left:5%;
+	top:5%;
+	width:120px;
+}
+/* 正确的提示颜色 */
+.ok{
+	width:30px;
+	height:35px;
+	background:#90EE90;
+	border:1px solid #090 ;
+	text-align:center;
+	line-height:35px;
+	border-radius:5px 0 0 5px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+
+/* 错误的提示颜色 */
+.error{
+	width:30px;
+	height:35px;
+	background:#fcc;
+	border:1px solid #f46;
+	text-align:center;
+	line-height:35px;
+	border-radius:5px 0 0 5px;
+	display:inline-block;
+	vertical-align:middle;
+	
+}
+/* 右下侧注册框 */
+/* 整个form表单 */
+.regFrm{
+	background:#fff;
+	width:400px;
+	height:650px;
+	position:absolute;
+	top:20px;
+	right:600px;
+	box-shadow:0px 0px 7px #666;
+	border-top:1px solid #f46;
+}
+/* 注册标题 */
+.regFrm .regTitle{
+	width:400px;
+	height:50px;
+	/* background:#fcc; */
+	line-height:64px;
+	font-size:14px;
+	margin-left:25px;
+	margin-top:5px;
+}
+.regFrm .square{
+	display:inline-block;
+	width:6px;
+	height:20px;
+	background:rgb(255,111,50);
+	vertical-align:middle;
+	margin-right:10px;
+	margin-left:15px;
+}
+/* form表单中的用户输入部分 */
+.regFrm .regInput{
+	width:360px;
+	height:64px;
+	/* border:1px solid #f46; */
+	margin-left:10%;
+	margin-top:8px;
+}
+.regFrm .regInput i{
+	font-size:20px;
+	color:#090;
+}
+.regFrm .iconBack{
+	width:30px;
+	height:35px;
+	background:#90EE90;
+	border:1px solid #090 ;
+	text-align:center;
+	line-height:35px;
+	border-radius:5px 0 0 5px;
+	display:inline-block;
+	vertical-align:middle;
+}
+.regFrm .regInput input{
+	width:280px;
+	height:35px;
+	border:1px solid #090;
+	border-radius:0 5px 5px 0;
+	display:inline-block;
+	vertical-align:middle;
+	margin-left:-5px;
+}
+.prompt{
+	font-size:6px;
+	width:310px;
+	height:50px;
+	color:#f46;
+	/* background:#f66; */
+}
+
+.regFrm .regInput .codeInput input{
+	width:150px;
+}
+.regFrm .regInput .codeInput button{
+	width:78px;
+	height:35px;
+	border-radius:5px;
+	background:#f46;
+	color:#fff;
+	font-size:11px;
+}
+
+/* form表单中的提交部分 */
+.regFrm .submit{
+	width:360px;
+	height:120px;
+	/* border:1px solid #f46; */
+	margin:0 auto;
+
+}
+.regFrm .submit .subTop{
+	width:360px;
+	height:70px;
+	/* background:#faa; */
+}
+
+.regFrm .submit .subTop input{
+	width:350px;
+	height:40px;
+	background:rgb(255,111,50);
+	color:#fff;
+	border-radius:10px;
+	font-size:15px;
+	margin-top:10px;
+	margin-left:2%;
+	text-align:center;
+}
+.regFrm .submit .subBot{
+	width:350px;
+	margin-left:2%;
+	display:flex;
+	justify-content:space-between;
+}
+.regFrm .submit .subBot .left_a{
+	float:left;
+}
+
