@@ -12,8 +12,6 @@ function getGoodsType() {           //获取商品种类
              typelen=result.length;
             for(var i=0;i<typelen;i++)
             {
-                goodstype[i]=result[i].type;
-                alert(goodstype+"111"+result[i].type);
                 type.innerHTML+="<a class=\"ftc-626262\" href=\"javascript:getGoodsByType("+result[i].type+")\">"+result[i].type+"&nbsp;</a>"
             }
         }
