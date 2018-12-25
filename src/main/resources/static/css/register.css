@@ -4,8 +4,8 @@ html,body{
 }
 /* 背景图 */
 body{
-	background:url(../img/login_background.jpg) no-repeat;
-	background-position:fixed;
+	background:url(../image/login_background.jpg) no-repeat;
+	/*background-position:fixed;*/
 	background-size:cover;
 }
 /* 左上角图片 */
