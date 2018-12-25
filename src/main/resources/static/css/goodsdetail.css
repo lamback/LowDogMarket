@@ -85,12 +85,7 @@ img{
 	height:36px;
 	width:200px;
 	background:#FFF;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	background-repeat: no-repeat;/*取消背景图片重复*/
-	background-image:url(../image/shopdetail/search.png);
+
 	margin:0px;
 	background-position: 10px center;
 	padding:0;
@@ -190,7 +185,7 @@ img{
 }
 
 .showpage {
-	 width:400px; 
+	 width:400px;
 	 position:relative;
 	 }
 .showpage a { 
@@ -218,10 +213,13 @@ img{
 	height:575px;
 	margin-top: 35px;
 	margin-left: 20px;
-	position:absolute;
+	position:relative;
 	top:0px;
 	left:420px;
 	z-index:1;
+}
+.centerbox .goodsID{
+	display: none;
 }
 .centerbox .imgname{
 	font-size:24px;
@@ -297,35 +295,18 @@ img{
 		margin-left:30px;
 		margin-top:25px;
 	}
-.centerbox .buy a{
-	
-	display:block;
-	width:200px;
-	height:50px;
-	color:#000;
-	border:1px solid #ccc;
-	float:left;
-	font-size:16px;
-	font-weight:bold;
-	font-family:Microsoft YaHei,arial;
-	margin-left:10px;
-	background-color:#fff;
-	text-align:center;
-	line-height:50px;
+
+.enterbutton{
+	width: 100%;
 }
-.cartlogo{
-	position: relative;
-	top: 10px;
-}
-.centerbox .buy a .add2Cart{
-	color: #000;
-	font-size:16px;
-	font-weight:bold;
-	font-family:Microsoft YaHei,arial;
+
+.centerbox .address-sellaccount .account{
+	color: red;
+	margin-right: 20px;
 }
 .number .buynumber{
-	font-size: 20px;
-	color: #000;
+	font-size: 15px;
+	color: #7f7d7c;
 }
 .share{
 	height: 30px;
@@ -350,8 +331,8 @@ img{
 }
 
 .service .service-main{
-	font-size: 17px;
-	color:#000;
+	font-size: 15px;
+	color: #373737;
 }
 .service .service-image{
 	width: 30px;
@@ -366,8 +347,8 @@ img{
 }
 
 .pay .pay-main{
-	font-size: 17px;
-	color:#000;
+	font-size: 15px;
+	color:#373737;
 }
 .pay .pay-image{
 	width: 40px;
@@ -378,25 +359,66 @@ img{
 }
 
 #firstbuy{
+	text-align: center;
+	width: 202px;
+	height: 52px;
 	background-color: #ff475d;
 	color:#fff;
+	font-size: 17px;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+.add2Cart{
+	text-align: center;
+	width: 202px;
+	height: 52px;
+	background-color: #fff;
+	position: relative;
+	top: 8px;
+}
+
+.cartlogo{
+	width: 40px;
+	height: 40px;
+	position: relative;
+	top: 3px;
+}
+
+.centerbox .buy .add2Cart .cart-font{
+	width: 80px;
+	height: 52px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	color: #000;
+	position:relative;
+	top: -11px;
 }
 
 /*下边商品评价及其他*/	
 .evaluate{
 	width:1200px;
-	height: auto;
 	margin:0 auto;
+	overflow:hidden;
 	position:relative;
 }
 .classify{
 	width:198px;
 	height:auto;
+	float: left;
 }
 .classify .shopim {
-	width:198px;height:210px;
+	width:198px;
+	height:210px;
 	border:1px solid #ccc;
 
+}
+.classify .shopim .shopname-font{
+	color:#000;
+	font-size:14px;
+	font-weight:bold;
+	line-height:55px;
 }
 .classify .shopim .name{
 	height:55px;width:198px;
@@ -521,37 +543,11 @@ img{
 	background:url(../image/shopdetail/search.png) no-repeat;
 	border:none;
 	}
-/*tab部分*/
-.tabbedPanels {
-	position:absolute;
-	top:0;
-	right:0;
-	width: 980px;
-	margin:10px auto;
-	border: 1px #000000 solid;
+
+.tabbedPanels{
+	float: right;
 }
 
-.tabbedPanels .tabs{
-	width:950px;
-	height:50px;
-	border-bottom:1px solid #000;
-	margin-bottom:20px;
-}
-.tabbedPanels .tabs li{
-	float:left;
-}
-.tabbedPanels .tabs li a{
-	width:100px;
-	height:40px;
-	margin-bottom:10px;
-	font-size:16px;
-	font-weight:bold;
-	margin-left:50px;
-	text-decoration:none;
-	color:#000;
-	line-height:40px;
-	text-align:center;
-}
 .number{
 
 	position: relative;
@@ -573,10 +569,37 @@ img{
 .centerbox .buy image{
 	margin-top: 10px;
 }
+
+.tabbedPanels {
+	width: 980px;
+	margin:10px auto;
+	border:1px #000000 solid;
+}
+.tabbedPanels .tabs{
+	width:950px;
+	height:50px;
+	border-bottom:2px solid #000;
+	margin-bottom:20px;
+}
+.tabbedPanels .tabs li{
+	float:left;
+}
+.tabbedPanels .tabs li a{
+	width:100px;
+	height:40px;
+	margin-bottom:10px;
+	font-size:16px;
+	font-weight:bold;
+	margin-left:50px;
+	text-decoration:none;
+	color:#000;
+	line-height:40px;
+	text-align:center;
+}
 .tabs li a.active{
 	border-bottom:3px solid #F30;
-		
 	}
+
 .panelContainer{
 	width:950px;
 	margin:0 auto;
@@ -584,14 +607,35 @@ img{
 }
 .panel .sell{
 	font-weight:bold;
-	font-size:20px;
+	font-size:17px;
 	color:#000;
-	text-decoration:underline;}
+}
+.panel .sellname{
+	font-size: 25px;
+	color: #7f7d7c;
+	font-weight: bold;
+	margin-left: 20px;
+	font-family: 华文隶书;
+}
+.panel .goodstype{
+	font-size: 15px;
+	color: #7f7d7c;
+	margin: 20px;
+}
+.panel .goodsInfo-image{
+	width: 950px;
+	margin: 0;
+}
 .panel p{
 	margin-bottom:20px;
 }
 .panel img{
 	margin-left:10px;
+}
+.comments-time{
+	font-size:13px;
+	color: #7f7d7c;
+	margin-left: 16px;
 }
 .panel .judge{
 	font-size:14px;
@@ -604,7 +648,7 @@ img{
 	margin-left:15px;
 }
 .panel .judge01{
-	height:200px;
+	height:100px;
 	position:relative;
 }
 .panel .judge01 .idimg{

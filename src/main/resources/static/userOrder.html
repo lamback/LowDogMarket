@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单页面</title>
+    <link href="css/orderStyle.css" rel="stylesheet" type="text/css">
+    <script src="js/orderJS.js"></script>
+    <link href="css/goodsdetail.css" rel="stylesheet" type="text/css">
+    <link href="css/footer.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/goodsdetailcommon.js"></script>
+    <script src="js/goodsdetail.js"></script>
+</head>
+<body onload="onOrderReady()">
+<!-----header部分------->
+<div class="header">
+    <div class="top">
+        <div class="top1">
+            <a href="#">登录</a>
+            <a href="#">注册</a>
+            <a href="#"><img src="image/index_img/top1.jpg">我的购物车</a>
+            <a href="#"><img src="image/index_img/top3.jpg">联系我们</a>
+        </div>
+    </div>
+    <!-----logo_search部分------->
+    <div class="logobg">
+        <div class="center">
+            <div class="logo">
+                <!-------------------项目logo------------------------->
+                <img src="#" width="249" height="55">
+            </div>
+            <form id="searchForm">
+                <input type="text" id="searchTxt">
+                <input type="submit" value="搜  索" id="search_btn">
+            </form>
+        </div>
+    </div>
+    <!-----主导航部分------->
+    <div class="bottom">
+        <div class="menu"><a href="#">全部商品分类</a></div>
+        <div class="nav">
+            <a href="#" class="now">首页</a>
+            <a href="#">团购促销</a>
+            <a href="#">名师荟萃</a>
+            <a href="#">艺品驿站</a>
+            <a href="#">欧式摆件</a>
+        </div>
+    </div>
+</div>
+
+<!---订单列表--->
+<div id="orderContainer" class="orderContainer">
+    <div class="order-header">
+        <p class="style-list1"><samp>宝贝详情</samp></p>
+        <p class="style-list2"><samp>单价</samp></p>
+        <p class="style-list3"><samp>数量</samp></p>
+        <p class="style-list4"><samp>商品操作</samp></p>
+        <p class="style-list5"><samp>实付款</samp></p>
+        <p class="style-list6"><samp>交易状态</samp></p>
+        <p class="style-list7"><samp>评论状态</samp></p>
+    </div>
+
+    <div class="clear-header"></div>
+
+    <!-------订单一------------>
+    <div class="order-list">
+        <div class="order-list-header">
+            <p class="time-id"><samp>&nbsp;&nbsp;下单时间：</samp><samp class="time">2018-12-15</samp><samp class="id">&nbsp;&nbsp;订单号：</samp><samp class="idmunber">2566549145865</samp></p>
+            <p class="sellername"><samp class="seller">狐狸兄弟</samp></p>
+            <p class="null"><img src="image/order-image/null.PNG" height="39px"/></p>
+            <p class="callwithme"><img class="callwithme-image" src="image/order-image/callwithme.PNG" height="38px"/></p>
+        </div>
+        <div class="list-clear"></div>
+        <div class="order-info">
+            <div class="list1">
+                <img src="image/order-image/order-image.PNG" class="order-image"/>
+                <div class="order-div">
+                    商品名：<span class="info">特步球鞋</span><br/>
+                    类型：<span class="info">男鞋</span><br/>
+                    商品详情：<span class="info">精品球鞋，大甩卖精品球鞋</span>
+                </div>
+            </div>
+            <p class="list2"><samp class="infosamp">￥14.12</samp></p>
+            <p class="list3"><samp class="infosamp">2</samp></p>
+            <p class="list4"><samp class="infosamp">运费险已失效！</samp></p>
+            <p class="list5"><samp class="infosamp">￥18.23</samp></p>
+            <p class="list6"><samp class="infosamp" >订单已完成！</samp></p>
+            <p class="list7"><button class="commentsState" onclick="comment()">去评论</button></p>
+        </div>
+    </div>
+    <div class="list-in-clear"></div>
+    <!-----订单一结束----------->
+    <!-----订单二------->
+    <div class="order-list">
+        <div class="order-list-header">
+            <p class="time-id"><samp>&nbsp;&nbsp;下单时间：</samp><samp class="time">2018-12-15</samp><samp class="id">&nbsp;&nbsp;订单号：</samp><samp class="idmunber">2566549145865</samp></p>
+            <p class="sellername"><samp class="seller">狐狸兄弟</samp></p>
+            <p class="null"><img src="image/order-image/null.PNG" height="39px"/></p>
+            <p class="callwithme"><img class="callwithme-image" src="image/order-image/callwithme.PNG" height="38px"/></p>
+        </div>
+        <div class="list-clear"></div>
+        <div class="order-info">
+            <div class="list1">
+                <img src="image/order-image/order-image.PNG" class="order-image"/>
+                <div class="order-div">
+                    商品名：<span class="info">特步球鞋</span><br/>
+                    类型：<span class="info">男鞋</span><br/>
+                    商品详情：<span class="info">精品球鞋，大甩卖精品球鞋</span>
+                </div>
+            </div>
+            <p class="list2"><samp class="infosamp">￥14.12</samp></p>
+            <p class="list3"><samp class="infosamp">2</samp></p>
+            <p class="list4"><samp class="infosamp">运费险已失效！</samp></p>
+            <p class="list5"><samp class="infosamp">￥18.23</samp></p>
+            <p class="list6"><samp class="infosamp" >订单已完成！</samp></p>
+            <p class="list7"><button class="commentsState" onclick="comment()">去评论</button></p>
+        </div>
+    </div>
+    <div class="list-in-clear"></div>
+
+</div>
+
+<!----订单列表结束----->
+
+<div class="foot-clear"></div>
+
+
+<!----bottom_页脚部分----->
+<div class="backf">
+
+    <div class="footer-head">
+        <img src="image/footer/footer1.PNG" class="image"/>
+    </div>
+    <div id="footer">
+        <ul>
+            <li class="sy">支付方式</li>
+            <li><a href="#" >在线支付</a></li>
+            <li><a href="#">货到付款</a></li>
+            <li><a href="#">发票说明</a></li>
+            <li><a href="#">余额宝</a></li>
+
+        </ul>
+        <ul>
+            <li class="sy">购物指南</li>
+            <li><a href="#">免费注册</a></li>
+            <li><a href="#">申请会员</a></li>
+            <li><a href="#">开通支付宝</a></li>
+            <li><a href="#">支付宝充值</a></li>
+        </ul>
+        <ul>
+            <li class="sy">商家服务</li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">客服服务</a></li>
+            <li><a href="#">物流服务</a></li>
+            <li><a href="#">缺货赔付</a></li>
+        </ul>
+        <ul>
+            <li class="sy">关于我们</li>
+            <li><a href="#">知识产权</a></li>
+            <li><a href="#">网站合作</a></li>
+            <li><a href="#">规则意见</a></li>
+            <li><a href="#">帮助中心</a></li>
+        </ul>
+        <ul>
+            <li class="sy">其他服务</li>
+            <li><a href="#">诚聘英才</a></li>
+            <li><a href="#">法律声明</a></li>
+        </ul>
+
+        <div class="joinus">
+            <p class="joinus-font">加入我们</p>
+            <img src="image/footer/footer2.PNG" class="joinus-image"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="foot">
+        <p>使用本网站即表示接受  土狗商城用户协议</p>
+        <p>版权所有&copy;南昌大学计科165班——RNG项目组</p>
+        <p>Design by@肖裕钊&nbsp;邹林葱&nbsp;钟毅&nbsp;秦文成&nbsp;童一&nbsp;黄文鑫&nbsp;王顺</p>
+    </div>
+</div>
+</body>
+</html>
