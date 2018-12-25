@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传商品</title>
+    <link rel="stylesheet" href="css/managerFirstPageCss.css">
+    <style type="text/css">
+        .addForm form{
+            width: 380px;
+            height: 200px;
+            /*background-color: #aaa;*/
+            /*background-color: blue;*/
+            margin: 80px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+    <div class="ncuLogin"><img src="image/南昌大学login.jpg" alt="" ></div>
+    <div class="address">我的店铺</div>
+    <div class="manager"><img src="image/头像.png" alt="头像" height="18px" width="18px">
+        管理员<br>
+        <a href="">返回</a>
+    </div>
+</div>
+<div class="nav">
+        <div class="content">
+            <ul>
+                <li style=" background-color: rgba(250,250,250,0.5);"><a href="shopManage.html"><img src="image/首页-选中.png" alt="" height="40px" width="40px;"></a></li>
+                <li><a href="addGoods.html">上传商品</a></li>
+                <li><a href="undoGoods.html">撤销商品</a></li>
+                <li><a href="#">销售详情</a></li>
+                <li><a href="#">发帖子</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div class="addForm">
+    <form action="URL" method="post" id="formid"><!--URL填管理员审核的页面链接-->
+        <table>
+            <tr>
+                <td>商品名</td>
+                <td>
+                    <input type="text" name="name">
+                </td>
+             </tr>
+            <tr>
+                <td>种类：</td>
+                <td>
+                    <select name="category" id="">
+                        <option value="dress">女装男装</option>
+                        <option value="product">母婴用品</option>
+                        <option value="food">汇吃美食</option>
+                        <option value="furniture">家装建材</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                   <td>图片：</td>
+                   <td><input type="text" placeholder="图片地址" name="photo">
+                </td>
+            </tr>
+            <tr>
+                <td>简介：</td>
+                <td><input type="text" name="information"></td>
+            </tr>
+            <tr>
+                <td>价格：</td>
+                <td><input type="text" placeholder="请保留两位小数" name="price">
+                </td>
+            </tr>
+            <tr>
+                <td>商家：</td>
+                <td><input type="text" name="author"></td>
+            </tr>
+            <tr>
+                <td>地址：</td>
+                <td><input type="text" name="address"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="上传"style="color:rgb(255,66,0)"></td>
+                <td><input type="reset" value="取消" style=
+"color:rgb(255,66,0)"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+var formObject = {};
+
+var formArray =$("#formid").serializeArray();
+
+$.each(formArray,function(i,item){
+
+formObject[item.name] = item.value;
+
+});
+var formJson = JSON.stringify(formObject);
+
+var xmlHttp=false;
+    if(window.XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+    }
+    else if(window.ActiveXObject){
+        try{
+            xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+        }catch (e){
+            try{
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }catch (e){
+                window.alert("不支持ajax")
+            }
+        }
+    }
+    xmlHttp.open("POST","http://localhost:8080/verifyGoods",true);//填入提交地址
+    xmlHttp.send(formJson);
+    xmlHttp.onreadystatechange=function(){
+        if(xmlHttp.readyState == 4){
+            if(xmlHttp.status == 200){
+               alert("上传成功");
+            }
+        }
+       }
+</script>
+</body>
+</html>

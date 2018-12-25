@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>撤销商品</title>
+    <link rel="stylesheet" href="css/managerFirstPageCss.css">
+    <script src="js/showGood.js"></script>
+    <style type="text/css">
+    .main{
+		margin-left:30%;
+		width:800px;
+		text-align:center;
+		 }
+	.main table{
+		margin-left:150px;
+		text-align:center;}
+    </style>
+</head>
+<body>
+<div class="top">
+    <div class="ncuLogin"><img src="image/南昌大学login.jpg" alt="" ></div>
+    <div class="address">我的店铺</div>
+    <div class="manager"><img src="image/头像.png" alt="头像" height="18px" width="18px">
+        管理员<br>
+        <a href="">返回</a>
+    </div>
+</div>
+<div class="nav">
+        <div class="content">
+            <ul>
+                <li style=" background-color: rgba(250,250,250,0.5);"><a href="shopManage.html"><img src="image/首页-选中.png" alt="" height="40px" width="40px;"></a></li>
+                <li><a href="addGoods.html">上传商品</a></li>
+                <li><a href="undoGoods.html">撤销商品</a></li>
+                <li><a href="#">销售详情</a></li>
+                <li><a href="#">发帖子</a></li>
+            </ul>
+        </div>
+    </div>
+<div class="main">
+    <table>
+    <tr>
+    <td id="goodsid">编号：<br></td>
+
+    <td id = "goodsname">商品名：<br></td>
+
+    <td id = "goodstype">商品类型：<br></td>
+    
+    <td id="goodsprice">商品价格：<br></td>  
+     
+     <td><input type="button" value="撤销" name="undo" onClick="delete()"></td>
+     </tr>
+</table>
+</div>
+      
+</body>
+</html>

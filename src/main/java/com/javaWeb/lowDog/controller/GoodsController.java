@@ -75,7 +75,7 @@ public class GoodsController {
     public String getgetGoodsByTypeInMarket (@RequestBody JSONObject data, HttpSession session) {
         JSONArray result=new JSONArray();
         String type=data.getString("type");
-//        session.setAttribute("seller","seller1");
+//        session.setAttribute("seller","aaa");
         String seller=session.getAttribute("seller").toString();
         for (Goods goods:goodsService.getgetGoodsByTypeInMarket(type,seller)
         ) {

@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel='stylesheet' id='bootstrap-css-css' href='css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
     <link rel='stylesheet' id='responsive-css-css' href='css/responsive5152.css?ver=1.0' type='text/css' media='all' />
-    <script type="text/javascript" src="js/head_login_notneed.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/weitao.js"></script>
+
     <style>
         /* General ------------------------------------------------------------------------------------------------------------*/
         body {
@@ -1253,7 +1255,8 @@
 
     </style>
 </head>
-<body onload="initAJAX()">
+
+<body >
 <div class="w-all w-minw bg-cf5f5f5 ovhidden">
     <div class="w-main m-auto">
         <span class="fs-14 line-h30 ftc-6b6b6b dsblock fl"> 欢迎来到土狗网 </span>
@@ -1286,16 +1289,16 @@
     </div>
     <!--web search end-->
     <!--web Shopping Cart start-->
-    <a class="w-160 bd-s-ce23435 line-h38 hg-38 fr curpter text-c m-t-5 fs-14 ftc-999999 dsblock"> <i class="dsblock bg_icon cart_icon w-26 curpter m-l-15 tx-ind fl">购物车</i> 我的购物车  </a>
+    <a href="Cart.html" class="w-160 bd-s-ce23435 line-h38 hg-38 fr curpter text-c m-t-5 fs-14 ftc-999999 dsblock"> <i class="dsblock bg_icon cart_icon w-26 curpter m-l-15 tx-ind fl">购物车</i> 我的购物车  </a>
     <!--web Shopping Cart end-->
 </div>
 <!--web nav start-->
 <div class="w-all w-minw ovhidden bd-bs-ed4f2c">
     <div class="w-main m-auto">
         <ul class="w-main nav">
-            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45 navactive">首页</a></li>
+            <li class="fl"><a href="index.html" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45 ">首页</a></li>
             <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">商城</a></li>
-            <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">活动专区</a></li>
+            <li class="fl"><a href="weiPosting.html" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45 navactive ">微淘</a></li>
             <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">限时抢购</a></li>
             <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">天天特价</a></li>
             <li class="fl"><a href="#" class="fl dsblock p-l-13 p-r-13 m-l-20 fs-16 ftc-626262 line-45">优惠套餐</a></li>
@@ -1383,26 +1386,26 @@
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("post","/getAllPostings",true);
         xmlHttp.onreadystatechange=function(){
-            if (xmlHttp.readyState==4&&xmlHttp.status==200)
-            {
+            if (xmlHttp.readyState==4&&xmlHttp.status==200) {
+
                 var dataObj = eval("("+xmlHttp.responseText+")");
                 //xmlHttp.
                 for(var i=0;i<dataObj.data.length;i++){
-                    var text = dataObj.data[i].comments;
-                    var Id = dataObj.data[i].username;
-                    var time = dataObj.data[i].postingsdate;
-                    var PraiseNumber = parseInt(dataObj.data[i].praise);
+                    var text = dataObj.comments;
+                    var Id = dataObj.username;
+                    var time = dataObj.postingsdate;
+                    var PraiseNumber = parseInt(dataObj.praise);
                     var xinId = "xin"+i;
                     document.getElementById("PageContent").innerHTML +=
                         "<article class=\"format-standard type-post hentry\">\n" +
                         "                    <header>\n" +
                         "                        <h3 class=\"post-title\">\n" +
                         "                            <div style=\"float: left\">\n" +
-                        "                                <img class=\"contentDiv\" src=\"https://tse1-mm.cn.bing.net/th?id=OET.f33cc5ac789549cab352b47f8dce1966&w=272&h=272&c=7&rs=1&o=5&pid=1.9\">\n"+
+                        "                                <img class=\"contentDiv\" src=\"\">\n"+
                         "                            </div>\n" +
                         "\n" +
                         "                            <div style=\"padding-left: 64px;\">\n" +
-                        "                                <a href=\"#\">"+Id+"</a>\n" +
+                        "                                <a href=\"static/image/photo.jpg\">"+Id+"</a>\n" +
                         "                                <p class=\"time-font\">"+time+"</p>\n" +
                         "                            </div>\n" +
                         "                        </h3>\n" +
@@ -1410,7 +1413,7 @@
                         "                    <p id=\"textQ\">"+text+"</p>\n" +
                         "                    <div class=\"showImg\">\n"+"</div>\n" +
                         "                    <div class=\"post-meta clearfix\" style=\"width: 900px\">\n" +
-                        "<span class=\"dzs\">"+PraiseNumber+ "人觉得很赞"+"</span>"+
+                        "<span class=\"dzs\">"+PraiseNumber+"</span>"+
                         "                        <span class=\"like-count like\" id=" +xinId+
                         "  onclick=\"dz(" +i+ ")\">&#10084;</span>\n" +
                         "                    </div>\n" +
@@ -1418,33 +1421,33 @@
 
                     var PicNumber = 0;
                     Img1 = new Image();
-                    if (typeof (dataObj.data[i].photo1)!="undefined"){
-                        Img1.src = dataObj.data[i].photo1;
+                    if (typeof (dataObj.photo1)!="undefined"){
+                        Img1.src = dataObj.photo1;
                         PicNumber+=1;
                     }
                     Img2 = new Image();
-                    if (typeof (dataObj.data[i].photo2)!="undefined"){
-                        Img2.src = dataObj.data[i].photo2;
+                    if (typeof (dataObj.photo2)!="undefined"){
+                        Img2.src = dataObj.photo2;
                         PicNumber+=1;
                     }
                     Img3 = new Image();
-                    if (typeof (dataObj.data[i].photo3)!="undefined"){
-                        Img3.src = dataObj.data[i].photo3;
+                    if (typeof (dataObj.photo3)!="undefined"){
+                        Img3.src = dataObj.photo3;
                         PicNumber+=1;
                     }
                     Img4 = new Image();
-                    if (typeof (dataObj.data[i].photo4)!="undefined"){
-                        Img4.src = dataObj.data[i].photo4;
+                    if (typeof (dataObj.photo4)!="undefined"){
+                        Img4.src = dataObj.photo4;
                         PicNumber+=1;
                     }
                     Img5 = new Image();
-                    if (typeof (dataObj.data[i].photo5)!="undefined"){
-                        Img5.src = dataObj.data[i].photo5;
+                    if (typeof (dataObj.photo5)!="undefined"){
+                        Img5.src = dataObj.photo5;
                         PicNumber+=1;
                     }
                     Img6 = new Image();
-                    if (typeof (dataObj.data[i].photo6)!="undefined"){
-                        Img6.src = dataObj.data[i].photo6;
+                    if (typeof (dataObj.photo6)!="undefined"){
+                        Img6.src = dataObj.photo6;
                         PicNumber+=1;
                     }
                     switch (PicNumber) {
@@ -1531,13 +1534,10 @@
             if ((xmlHttp2.readyState==4&&xmlHttp2.status==200)){
                 var Id = "xin"+i;
                 var xin = document.getElementById(Id);
-                var dataObj = eval("("+xmlHttp2.responseText+")");
-                var PraiseNumber = dataObj.data[i].praise;
-                PraiseNumber = parseInt(PraiseNumber)+1;
-                document.getElementsByClassName("dzs")[i].innerHTML=PraiseNumber+ "人觉得很赞";
+                var num = parseInt(document.getElementsByClassName("dzs")[i].innerHTML.toString());
                 if (xin.style.color=="rgb(204, 204, 204)"||xin.style.color==""){
                     xin.style.color="#f00";
-
+                    document.getElementsByClassName("dzs")[i].innerHTML = (num+1);
                 }
                 else{
                     //xin.style.color="#ccc";

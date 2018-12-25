@@ -5,14 +5,16 @@
     <link href="css/SellerFirstPage.css" rel="stylesheet"/>
     <script src="js/SellerFirstPage.js"></script>
     <script src="js/commons.js"></script>
-    <title>RNG网上书店</title>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/footer.css">
+    <title>我的店铺</title>
     <style type="text/css">
         .headOFall div{
             display: inline;
             color:gold;
         }
     </style>
-<body onload="initAJAX(),showBooks('literature')">
+<body onload="initAJAX(),showTypesInmaket()">
     <div class="headOFall" id="father2">
         <!--<div class="user">user,您好！</div>-->
         <a href="#">客服</a>&nbsp;&nbsp;
@@ -21,7 +23,7 @@
         <a href="#">注销</a>
     </div>
 
-    <div class="top">RNG网上书店
+    <div class="top">我的店铺
     </div>
 
     <div class="all">
@@ -43,15 +45,16 @@
     <!--<div class="test" style="width: 922px;height: 50px; background-color:#aaa; margin: 0 auto;"></div>-->
 
     <div class="classification">
-            <ul>
-                <li><a href="#" id="literature" onclick="showBooks('literature')">文学</a></li>
-                <li><a href="#" id="novel" onclick="showBooks('novel')">小说</a></li>
-                <li><a href="#" id="art" onclick="showBooks('art')">艺术</a></li>
-                <li><a href="#" id="history" onclick="showBooks('history')">历史</a></li>
-                <li><a href="#">儿童</a></li>
-                <li><a href="#">网文</a></li>
-                <li><a href="#">古籍</a></li>
-                <li><a href="#">教材</a></li>
+            <ul id="type">
+                <!--<li><a href="#" id="literature" onclick="showBooks('literature')"></a></li>-->
+                <!--<li><a href="#" id="novel" onclick="showBooks('novel')"></a></li>-->
+                <!--<li><a href="#" id="art" onclick="showBooks('art')"></a></li>-->
+                <!--<li><a href="#" id="history" onclick="showBooks('history')"></a></li>-->
+                <!--<li><a href="#"></a></li>-->
+                <!--<li><a href="#"></a></li>-->
+                <!--<li><a href="#"></a></li>-->
+                <!--<li><a href="#"></a></li>-->
+
             </ul>
     </div>
 
@@ -70,5 +73,138 @@
         <!--</div>-->
     </div>
 
+    <script>
+        function showTypesInmaket() {
+            var username;
+            $.ajax({
+                type: "POST",//方法类\
+                dataType: "json",//预期服务器返回的数据类型
+                url: "/judgeUser",//url
+                error:function () {
+                    // alert("ERROR");
+                },
+                success: function (result) {
+                    username=result.username;
+                    // alert(username);
+                    // alert(username);
+                    var data = JSON.stringify({username:username});
+                    // alert(data);
+                    $.ajax({
+                        type: "POST",//方法类
+                        data:data,
+                        contentType:'application/json;charset=utf-8',
+                        dataType: "json",//预期服务器返回的数据类型
+                        url:"/allTypesInMarket",//url
+                        error:function () {
+                            // alert(2);
+                            // alert("ERROR");
+                        },
+                        success: function (result) {
+                            for (var i=0;i<result.length;i++) {
+                                var typeFather=document.getElementById("type");
+                                var type = document.createElement("li");
+                                //如果传参数，多加一个单引号
+                                type.innerHTML = "<a href=\"#\" onclick=\"showGoodsInMarket('" + result[i].type + "')\">"+result[i].type+"</a>";
+                                typeFather.appendChild(type);
+                            }
+                        }});
+                }});
+        }
+
+        function showGoodsInMarket(type){
+            var data2 = JSON.stringify({type:type});
+            $.ajax({
+                type: "POST",//方法
+                data:data2,
+                contentType:'application/json;charset=utf-8',
+                dataType: "json",//预期服务器返回的数据类型
+                url: "/getgetGoodsByTypeInMarket",//url
+                error:function () {
+                    alert("ERROR")
+                },
+                success: function (result) {
+                    var showBookArea=document.getElementsByClassName("showBookArea");
+                    showBookArea[0].innerHTML=null;
+                    for(var i=0;i<result.length;i++){
+                        var book=document.createElement("div");
+                        book.className="book";
+                        //需要传goodsid
+                        book.innerHTML=" <a href='#'><img src=\""+result[i].photo+"\" ></a>\n" +
+                            "            <div class=\"message\">\n" +
+                            "              <strong>"+result[i].name+"</strong>\n" +
+                            "                <br>\n" +
+                            "                作者："+result[i].information+"\n" +
+                            "                <br>\n" +
+                            "                ¥"+result[i].price+"\n" +
+                            "                <br>\n" +
+                                result[i].sellnumber+"人付款"+
+                            "            </div>";
+                        // console.log(showBookArea);
+                        showBookArea[0].appendChild(book);
+                    }
+                }});
+
+        }
+
+    </script>
+
+    <!----bottom_页脚部分----->
+    <div class="backf">
+
+        <div class="footer-head">
+            <img src="image/footer/footer1.PNG" class="image"/>
+        </div>
+        <div id="footer">
+            <ul>
+                <li class="sy">支付方式<>
+                <li><a href="#" >在线支付</a><>
+                <li><a href="#">货到付款</a><>
+                <li><a href="#">发票说明</a><>
+                <li><a href="#">余额宝</a><>
+
+            </ul>
+            <ul>
+                <li class="sy">购物指南<>
+                <li><a href="#">免费注册</a><>
+                <li><a href="#">申请会员</a><>
+                <li><a href="#">开通支付宝</a><>
+                <li><a href="#">支付宝充值</a><>
+            </ul>
+            <ul>
+                <li class="sy">商家服务<>
+                <li><a href="#">联系我们</a><>
+                <li><a href="#">客服服务</a><>
+                <li><a href="#">物流服务</a><>
+                <li><a href="#">缺货赔付</a><>
+            </ul>
+            <ul>
+                <li class="sy">关于我们<>
+                <li><a href="#">知识产权</a><>
+                <li><a href="#">网站合作</a><>
+                <li><a href="#">规则意见</a><>
+                <li><a href="#">帮助中心</a><>
+            </ul>
+            <ul>
+                <li class="sy">其他服务<>
+                <li><a href="#">诚聘英才</a><>
+                <li><a href="#">法律声明</a><>
+            </ul>
+
+            <div class="joinus">
+                <p class="joinus-font">加入我们</p>
+                <img src="image/footer/footer2.PNG" class="joinus-image"/>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="foot">
+            <p>使用本网站即表示接受  土狗商城用户协议</p>
+            <p>版权所有&copy;南昌大学计科165班——RNG项目组</p>
+            <p>Design by@肖裕钊&nbsp;邹林葱&nbsp;钟毅&nbsp;秦文成&nbsp;童一&nbsp;黄文鑫&nbsp;王顺</p>
+        </div>
+    </div>
+
+</body>
+</html>
 </body>
 </html>
