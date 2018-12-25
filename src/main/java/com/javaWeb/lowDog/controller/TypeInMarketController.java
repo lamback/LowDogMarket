@@ -27,10 +27,10 @@ public class TypeInMarketController {
         JSONArray result=new JSONArray();
 
         String username=data.getString("username");
-        System.out.println(username);
+//        System.out.println(username);
         for (Typeinmarket typeinmarket:typeInMarketService.allTypesInMarket(username)
         ) {
-            System.out.println(1);
+//            System.out.println(1);
             JSONObject temp=new JSONObject();
             temp.put("typeinmarketid",typeinmarket.getTypeinmarketid());
             temp.put("type",typeinmarket.getType());

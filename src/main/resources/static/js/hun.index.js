@@ -7,12 +7,13 @@ function getGoodsType() {           //获取商品种类
     $.ajax({
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
-        url: "/salesRanking" ,//url
+        url: "/getTypeListInHomePage" ,//url
         success: function (result) {
              typelen=result.length;
             for(var i=0;i<typelen;i++)
             {
                 goodstype[i]=result[i].type;
+                alert(goodstype+"111"+result[i].type);
                 type.innerHTML+="<a class=\"ftc-626262\" href=\"javascript:getGoodsByType("+result[i].type+")\">"+result[i].type+"&nbsp;</a>"
             }
         }
@@ -73,12 +74,11 @@ window.onload = function () {
     })
 
     getGoodsType();
-    getGoodsByType();
 
     $.ajax({
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
-        url: "/servlets/add" ,//url
+        url: "/salesRanking" ,//url
         success: function (result) {
             var ul = document.getElementById ("piclist");
 

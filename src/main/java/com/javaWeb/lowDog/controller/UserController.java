@@ -136,7 +136,7 @@ public class UserController {
     @RequestMapping(value = "/judgeUser",method = RequestMethod.POST,produces ="application/json;charset=UTF-8" )
     public String judgeUser (HttpSession session){
         JSONObject result=new JSONObject();
-//        session.setAttribute("username","aaa");
+        session.setAttribute("username","aaa");
         Object username=session.getAttribute("username");
         if(username==null)
         {
