@@ -35,7 +35,8 @@ creatCodeNums();
 
 
 //点击提交按钮发生的事件
-$("#sub").click(function(){
+ $("#sub").click(function(){
+	alert(1);
 	if ($(".userInput").val() == "") {
 		$("#proPhone").text("用户名为必填");
 		$("#proPhone").css("color","#f46");
@@ -75,26 +76,54 @@ $("#sub").click(function(){
 
 //检验账号与密码
 function check(){
-	var name = $("#name").val();
+	var name = $("#username").val();
     var password = $("#password").val();
-	$.post(
-			"/login",
-			{
-				"name":name,
-            	"password":password,
-			},
-			function(status){
-				if(status==0){
-					window.location.href="index.html";
-				}else if(status==1){
-					window.location.href="index.html";
-				}else if(status==2){
-					window.location.href="index.html";
-				}else{
-					alert("账号或者密码有误，请确认账号和密码");
-				}
-			}
-		)
+    alert(123);
+    var data2 = JSON.stringify({username:name,password:password});
+    $.ajax({
+        type:"POST",
+        url:"/login",
+        dataType:"JSON",
+        contentType:"application/json;charset=utf-8",
+        data:data2,
+        success:function (result) {
+            if(result.status==0){
+                window.location.href="index.html";
+            }else if(result.status==1){
+                window.location.href="index.html";
+            }else if(result.status==2){
+                window.location.href="index.html";
+            }else{
+                alert("账号或者密码有误，请确认账号和密码");
+            }
+        },
+        error:function () {
+            alert(43434);
+        }
+    })
+
+
+
+	// $.post(
+	// 		"/login",
+	// 		{
+	// 			"name":name,
+    //         	"password":password,
+	// 		},
+	// 		function(status){
+	// 			if(status==0){
+	// 				window.location.href="index.html";
+	// 			}else if(status==1){
+	// 				window.location.href="index.html";
+	// 			}else if(status==2){
+	// 				window.location.href="index.html";
+	// 			}else{
+	// 				alert("账号或者密码有误，请确认账号和密码");
+	// 			}
+	// 		}
+	// 	)
+
+
 }
 
 
