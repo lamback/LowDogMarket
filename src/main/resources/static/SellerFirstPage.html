@@ -6,7 +6,8 @@
     <script src="js/SellerFirstPage.js"></script>
     <script src="js/commons.js"></script>
     <script src="js/jquery.min.js"></script>
-    <title>RNG网上书店</title>
+    <link rel="stylesheet" href="css/footer.css">
+    <title>我的店铺</title>
     <style type="text/css">
         .headOFall div{
             display: inline;
@@ -80,7 +81,7 @@
                 dataType: "json",//预期服务器返回的数据类型
                 url: "/judgeUser",//url
                 error:function () {
-                    alert("ERROR");
+                    // alert("ERROR");
                 },
                 success: function (result) {
                     username=result.username;
@@ -95,14 +96,15 @@
                         dataType: "json",//预期服务器返回的数据类型
                         url:"/allTypesInMarket",//url
                         error:function () {
-                            alert(2);
-                            alert("ERROR");
+                            // alert(2);
+                            // alert("ERROR");
                         },
                         success: function (result) {
                             for (var i=0;i<result.length;i++) {
                                 var typeFather=document.getElementById("type");
                                 var type = document.createElement("li");
-                                type.innerHTML = "<a href=\"#\" onclick=\"showGoodsInMarket(" + result[i].type + ")\">"+result[i].type+"</a>";
+                                //如果传参数，多加一个单引号
+                                type.innerHTML = "<a href=\"#\" onclick=\"showGoodsInMarket('" + result[i].type + "')\">"+result[i].type+"</a>";
                                 typeFather.appendChild(type);
                             }
                         }});
@@ -110,9 +112,10 @@
         }
 
         function showGoodsInMarket(type){
+            var data2 = JSON.stringify({type:type});
             $.ajax({
                 type: "POST",//方法
-                data:{type:type},
+                data:data2,
                 contentType:'application/json;charset=utf-8',
                 dataType: "json",//预期服务器返回的数据类型
                 url: "/getgetGoodsByTypeInMarket",//url
@@ -122,7 +125,7 @@
                 success: function (result) {
                     var showBookArea=document.getElementsByClassName("showBookArea");
                     showBookArea[0].innerHTML=null;
-                    for(var i=0;i<result.size();i++){
+                    for(var i=0;i<result.length;i++){
                         var book=document.createElement("div");
                         book.className="book";
                         //需要传goodsid
@@ -144,5 +147,64 @@
         }
 
     </script>
+
+    <!----bottom_页脚部分----->
+    <div class="backf">
+
+        <div class="footer-head">
+            <img src="image/footer/footer1.PNG" class="image"/>
+        </div>
+        <div id="footer">
+            <ul>
+                <li class="sy">支付方式<>
+                <li><a href="#" >在线支付</a><>
+                <li><a href="#">货到付款</a><>
+                <li><a href="#">发票说明</a><>
+                <li><a href="#">余额宝</a><>
+
+            </ul>
+            <ul>
+                <li class="sy">购物指南<>
+                <li><a href="#">免费注册</a><>
+                <li><a href="#">申请会员</a><>
+                <li><a href="#">开通支付宝</a><>
+                <li><a href="#">支付宝充值</a><>
+            </ul>
+            <ul>
+                <li class="sy">商家服务<>
+                <li><a href="#">联系我们</a><>
+                <li><a href="#">客服服务</a><>
+                <li><a href="#">物流服务</a><>
+                <li><a href="#">缺货赔付</a><>
+            </ul>
+            <ul>
+                <li class="sy">关于我们<>
+                <li><a href="#">知识产权</a><>
+                <li><a href="#">网站合作</a><>
+                <li><a href="#">规则意见</a><>
+                <li><a href="#">帮助中心</a><>
+            </ul>
+            <ul>
+                <li class="sy">其他服务<>
+                <li><a href="#">诚聘英才</a><>
+                <li><a href="#">法律声明</a><>
+            </ul>
+
+            <div class="joinus">
+                <p class="joinus-font">加入我们</p>
+                <img src="image/footer/footer2.PNG" class="joinus-image"/>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="foot">
+            <p>使用本网站即表示接受  土狗商城用户协议</p>
+            <p>版权所有&copy;南昌大学计科165班——RNG项目组</p>
+            <p>Design by@肖裕钊&nbsp;邹林葱&nbsp;钟毅&nbsp;秦文成&nbsp;童一&nbsp;黄文鑫&nbsp;王顺</p>
+        </div>
+    </div>
+
+</body>
+</html>
 </body>
 </html>

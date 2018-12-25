@@ -1390,11 +1390,11 @@
 
                 var dataObj = eval("("+xmlHttp.responseText+")");
                 //xmlHttp.
-                for(var i=0;i<dataObj.data.length;i++){
-                    var text = dataObj.data[i].comments;
-                    var Id = dataObj.data[i].username;
-                    var time = dataObj.data[i].postingsdate;
-                    var PraiseNumber = parseInt(dataObj.data[i].praise);
+                for(var i=0;i<dataObj.length;i++){
+                    var text = dataObj[i].comments;
+                    var Id = dataObj[i].username;
+                    var time = dataObj[i].postingsdate;
+                    var PraiseNumber = parseInt(dataObj[i].praise);
                     var xinId = "xin"+i;
                     document.getElementById("PageContent").innerHTML +=
                         "<article class=\"format-standard type-post hentry\">\n" +

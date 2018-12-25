@@ -3,7 +3,7 @@
 var goodstype;          //商品类型数组
 var typelen;            //类型总数
 function getGoodsType() {           //获取商品种类
-    var type=document.getElementById("typeshow");
+
     $.ajax({
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
@@ -12,6 +12,7 @@ function getGoodsType() {           //获取商品种类
              typelen=result.length;
             for(var i=0;i<typelen;i++)
             {
+                var type=document.getElementById("typeshow");
                 type.innerHTML+="<a class=\"ftc-626262\" href=\"javascript:getGoodsByType("+result[i].type+")\">"+result[i].type+"&nbsp;</a>"
             }
         }
