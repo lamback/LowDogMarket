@@ -101,7 +101,7 @@ var vm=new Vue({
                     type: "POST",//方法类型
                     dataType: "json",//预期服务器返回的数据类型
                     url: "/changeNumberInCart" ,//url
-                    data: $(product.productId).serialize(),action
+                    data: $('#'+product.goodsid).serialize(),action
                 });
 				if (product.number<1) {
 					product.number=1;
@@ -162,7 +162,7 @@ var vm=new Vue({
                 type: "POST",//方法类型
                 dataType: "json",//预期服务器返回的数据类型
                 url: "/changeNumberInCart" ,//url
-                data: $(item.goodsid).serialize()
+                data: $('#'+item.goodsid).serialize()
             })
 		},
 		//增加订单
@@ -173,7 +173,7 @@ var vm=new Vue({
                         type: "POST",//方法类型
                         dataType: "json",//预期服务器返回的数据类型
                         url: "/submitOrder" ,//url
-                        data: $(item.goodsid).serialize(),
+                        data: $('#'+item.goodsid).serialize(),
                         success: function (result) {
                             console.log(result);//打印服务端返回的数据(调试用)
                         }
