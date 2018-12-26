@@ -30,7 +30,7 @@ function load(){
                     "                    <div class=\"post-meta clearfix\" style=\"width: 900px\">\n" +
                     "<span class=\"dzs\">"+PraiseNumber+"</span>"+
                     "                        <span class=\"like-count like\" id=" +xinId+
-                    "  onclick=\"dz(" +j+ ")\">&#10084;</span>\n" +
+                    "  onclick=\"dz(" +i+ ")\">&#10084;</span>\n" +
                     "                    </div>\n" +
                     "                </article>";
 
@@ -139,6 +139,6 @@ window.onload=function ()
             loginText.innerHTML+="<a href='../register.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
         }
 
-    })
+    });
     load();
 };
