@@ -1419,9 +1419,9 @@
                         Img1.src = data[i].photo1;
                         Img1.height = 100;
                         Img1.width = 100;
-
                         PicNumber+=1;
-                    }document.getElementsByClassName("showImg")[i].appendChild(Img1);
+                    }
+                    document.getElementsByClassName("showImg")[i].appendChild(Img1);
                     Img2 = new Image();
                     if (typeof (data[i].photo2)!="undefined"){
                         Img2.src = data[i].photo2;
