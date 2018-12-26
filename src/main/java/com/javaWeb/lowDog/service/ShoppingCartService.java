@@ -11,7 +11,7 @@ public interface ShoppingCartService {
     /*
         商品加入购物车
      */
-    Boolean addGoodsToCart(Shoppingcart shoppingcart,int goodsid);
+    Boolean addGoodsToCart(Shoppingcart shoppingcart,int goodsid,String username);
 
     /*
         展示购物车中的所有商品

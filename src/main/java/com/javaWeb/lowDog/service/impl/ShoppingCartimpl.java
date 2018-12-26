@@ -16,8 +16,8 @@ public class ShoppingCartimpl implements ShoppingCartService {
 
 
     @Override
-    public Boolean addGoodsToCart(Shoppingcart shoppingcart,int goodsid) {
-        if(shoppingCartMapper.isInCart(goodsid)==1)
+    public Boolean addGoodsToCart(Shoppingcart shoppingcart,int goodsid,String username) {
+        if(shoppingCartMapper.isInCart(goodsid,username)==1)
             return false;
         shoppingCartMapper.addGoodsToCart(shoppingcart);
         return true;
