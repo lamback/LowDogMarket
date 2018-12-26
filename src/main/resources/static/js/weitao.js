@@ -47,40 +47,40 @@ function load(){
                 Img2 = new Image();
                 if (typeof (data[i].photo2)!="undefined"){
                     Img2.src = data[i].photo2;
-                    Img2.height = 100;
-                    Img2.width = 100;
+                    Img2.height = 200;
+                    Img2.width = 200;
                     document.getElementsByClassName("showImg")[j].appendChild(Img2);
                     PicNumber+=1;
                 }
                 Img3 = new Image();
                 if (typeof (data[i].photo3)!="undefined"){
                     Img3.src = data[i].photo3;
-                    Img3.height = 100;
-                    Img3.width = 100;
+                    Img3.height = 200;
+                    Img3.width = 200;
                     document.getElementsByClassName("showImg")[j].appendChild(Img3);
                     PicNumber+=1;
                 }
                 Img4 = new Image();
                 if (typeof (data[i].photo4)!="undefined"){
                     Img4.src = data[i].photo4;
-                    Img4.height = 100;
-                    Img4.width = 100;
+                    Img4.height = 200;
+                    Img4.width = 200;
                     document.getElementsByClassName("showImg")[j].appendChild(Img4);
                     PicNumber+=1;
                 }
                 Img5 = new Image();
                 if (typeof (data[i].photo5)!="undefined"){
                     Img5.src = data[i].photo5;
-                    Img5.height = 100;
-                    Img5.width = 100;
+                    Img5.height = 200;
+                    Img5.width = 200;
                     document.getElementsByClassName("showImg")[j].appendChild(Img5);
                     PicNumber+=1;
                 }
                 Img6 = new Image();
                 if (typeof (data[i].photo6)!="undefined"){
                     Img6.src = data[i].photo6;
-                    Img6.height = 100;
-                    Img6.width = 100;
+                    Img6.height = 200;
+                    Img6.width = 200;
                     document.getElementsByClassName("showImg")[j].appendChild(Img6);
                     PicNumber+=1;
                 }
