@@ -137,9 +137,7 @@ function like(i,P_id){
 
 window.onload=function ()
 {
-
     var loginText=document.getElementById("loginText");
-
 
     $.ajax({
         type: "POST",//方法类型
