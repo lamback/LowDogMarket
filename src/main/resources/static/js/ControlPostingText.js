@@ -1,20 +1,20 @@
 var nowPic = 0;
-var ph1,ph2,ph3,ph4,ph5,ph6;
+    var ph1,ph2,ph3,ph4,ph5,ph6;
 
-var fileInput = document.querySelector('input[type=file]'),
-    previewImg = document.getElementsByClassName("showPic")[0];
-fileInput.addEventListener('change', function () {
-    var file = this.files[0];
-    var reader = new FileReader();
-    // 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
-    reader.addEventListener("load", function () {
-        previewImg.src = reader.result;
+    var fileInput = document.querySelector('input[type=file]'),
+        previewImg = document.getElementsByClassName("showPic")[0];
+    fileInput.addEventListener('change', function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        // 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
+        reader.addEventListener("load", function () {
+            previewImg.src = reader.result;
+        }, false);
+        // 调用reader.readAsDataURL()方法，把图片转成base64
+        reader.readAsDataURL(file);
     }, false);
-    // 调用reader.readAsDataURL()方法，把图片转成base64
-    reader.readAsDataURL(file);
-}, false);
-function upload() {
-    var filename = document.getElementById("importFile").value;
+    function upload() {
+        var filename = document.getElementById("importFile").value;
     // 这时的filename不是 importFile 框中的值
     var s = getPath(document.getElementById("importFile"));
     if (s!="") nowPic+=1;

@@ -2,7 +2,7 @@
 body {
     background-color: #fff;
 }
-
+.like{font-size:50px;color:#ccc;cursor: pointer;}
 
 .time-font{
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
