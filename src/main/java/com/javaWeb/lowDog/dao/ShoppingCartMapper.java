@@ -12,8 +12,8 @@ public interface ShoppingCartMapper {
     @Insert("insert into shoppingcart(cartid,goodsid,number,username)values(#{cartid},#{goodsid},#{number},#{username})")
     Boolean addGoodsToCart(Shoppingcart shoppingcart);
 
-    @Select("select count(*) from shoppingcart where goodsid=#{goodsid}")
-    int  isInCart(int goodsid);
+    @Select("select count(*) from shoppingcart where goodsid=#{goodsid} and username=#{username}")
+    int  isInCart(@Param("goodsid") int goodsid,@Param("username") String username);
 
     @Select("select * from shoppingcart where username=#{username}")
     List<Shoppingcart> getAllGoodsID(String username);

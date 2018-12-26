@@ -93,7 +93,7 @@
                         var index=url.indexOf('=');
                         var username=url.substring(index+1,length);
                         // console.log(url+":"+username);
-                        alert(username);
+                        // alert(username);
                     }
                     else {
                         var username=result.username;
@@ -128,8 +128,9 @@
 
         function showGoodsInMarket(type){
             var data2 = JSON.stringify({type:type});
+            alert(data2);
             $.ajax({
-                type: "POST",//方法
+                type:"POST",//方法
                 data:data2,
                 contentType:'application/json;charset=utf-8',
                 dataType: "json",//预期服务器返回的数据类型
@@ -144,7 +145,7 @@
                         var book=document.createElement("div");
                         book.className="book";
                         //需要传goodsid  <a href="#"><img src="image/2.jpg" alt=""></a>
-                        book.innerHTML="<a href=\"goodsdetail.html?goodsid=28\"><img src=\""+result[i].photo+"\" alt=\"\"></a>\n" +
+                        book.innerHTML="<a href=\"goodsdetail.html?goodsid="+result[i].goodsid+"\"><img src=\""+result[i].photo+"\" alt=\"\"></a>\n" +
                             "<div class=\"message\">\n" +
                             "    <strong>"+result[i].name+"</strong>\n" +
                             "    <br>\n" +
@@ -170,6 +171,7 @@
                 url: "/judgeUser",//url
                 error:function () {
                     // alert("ERROR");
+                    // alert(1122)
                 },
                 success: function (result) {
                     if (result.usertype==0){
@@ -178,7 +180,7 @@
                         var index=url.indexOf('=');
                         username=url.substring(index+1,length);
                         // console.log(url+":"+username);
-                        alert(username);
+                        // alert(username);
                     }
                     else {
                         username=result.username;
@@ -196,6 +198,7 @@
                         dataType: "json",//预期服务器返回的数据类型
                         url:"/allTypesInMarket",     //url
                         error:function () {
+                            // alert(2);
                             // alert(2);
                             alert("ERROR");
                         },

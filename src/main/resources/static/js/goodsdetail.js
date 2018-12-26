@@ -257,9 +257,9 @@ function add2Cart() {
                     contentType:"application/json;charset=utf-8",
                     success: function (data) {
                         var receiveJSON =data;
-                        if (receiveJSON.status == 1) {
+                        if (data.status == 1) {
                             alert("已成功加入购物车！");
-                        } else if (receiveJSON.status == 0) {
+                        } else if (data.status == 0) {
                             alert("购物车中已存在此商品！");
                         }
                     },
