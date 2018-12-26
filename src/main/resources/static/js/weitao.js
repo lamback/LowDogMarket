@@ -115,7 +115,7 @@ function load(){
 function like(i,P_id){
     var data=JSON.stringify({postingsid:P_id})
     $.ajax( {
-        url:"/getAllPostings",
+        url:"/changePraiseNumber",
         type: "POST",
         data:data,
         contentType:'application/json;charset=utf-8',
