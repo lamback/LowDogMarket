@@ -121,8 +121,9 @@
     background-color: #fff;
 }
 .commentBox-start{
+    margin-top: 60px;
     width: 35%;
-    height:100%;
+    height:80%;
     float: left;
 }
 .commentBox-submit{
@@ -139,4 +140,26 @@
     width: 70px;
     height: 35px;
     margin-top: 15px;
+}
+
+.add-photo{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.commentBox-start .showdiv{
+    height: 30px;
+}
+.commentBox-start .showdiv div{
+    height: 30px;
+}
+.commentBox-start .showdiv div p{
+    font-size:24px;
+    position: relative;
+    top: -6px;
+}
+
+.myfloatleft{float:left;}
+.myfloatleft h1{
+    height: 10px;
 }

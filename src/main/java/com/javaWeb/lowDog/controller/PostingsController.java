@@ -39,7 +39,6 @@ public class PostingsController {
             temp.put("photo5",postings.getPhoto5());
             temp.put("photo6",postings.getPhoto6());
             temp.put("radio",postings.getRadio());
-
             result.add(temp);
         }
         return result.toString();

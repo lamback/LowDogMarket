@@ -25,12 +25,12 @@ img{
 }
 
 /*header*/
-.header{ 
-	height:184px; 
+.header{
+	height:184px;
 	background:url(../image/index_img/backmenuimg.jpg) repeat;
 	margin:0 auto;
 }
-.header .top{ 
+.header .top{
 	height:32px;
 	background:url(../image/index_img/header_bg.jpg) repeat-x;
 	 margin:0 auto;
@@ -45,24 +45,24 @@ img{
 	 line-height:31px;
 	 float:left;
 	 margin:0 2px;
-	 color:#7f7d7c; 
+	 color:#7f7d7c;
 		 }
 .header .top a:hover{
 	color:#900;
-	
+
 }
 .header .top a img{
-	 height:23px; 
-	 margin:4px 2px 2px 0 ; 
-	 float:left; 
+	 height:23px;
+	 margin:4px 2px 2px 0 ;
+	 float:left;
 	 }
 	 /*logo_search*/
 .header .logobg{
-	 height:111px; 
+	 height:111px;
 	 background:url(../image/index_img/backlogoimg01.jpg)  center no-repeat;
 	 }
 .header .center{
-	 width:1200px; 
+	 width:1200px;
 	 margin:0 auto;
 	  height:112px;
 	  position:relative;
@@ -103,40 +103,40 @@ img{
 	cursor:pointer;/*设置光标*/
 }
 	/*导航部分*/
-.header .bottom{ 
-	width:1200px; height:39px; 
+.header .bottom{
+	width:1200px; height:39px;
 	margin:0 auto;
-	line-height:39px; 
+	line-height:39px;
 	background-image:url(../image/index_img/backmenuimg.jpg);
 	padding:0;
 	position:relative;
 	}
-.header .bottom .nav{ 
+.header .bottom .nav{
 	position:absolute;
 	top:0px;
-	width:990px; height:39px; 
+	width:990px; height:39px;
 	margin:0 auto;
 	margin-left:210px;
-	float:left; 
-	display:inline; 
-	}
-.header .bottom .nav a{ 
-	width:100px; height:39px; 
-	line-height:39px; 
-	color:#fff; 
-	margin:0 10px; 
-	font-size:16px; 
-	font-weight:bold; 
 	float:left;
-	text-align:center; 
+	display:inline;
+	}
+.header .bottom .nav a{
+	width:100px; height:39px;
+	line-height:39px;
+	color:#fff;
+	margin:0 10px;
+	font-size:16px;
+	font-weight:bold;
+	float:left;
+	text-align:center;
 	}
 .header .bottom .nav a.now{
-	 width:100px; height:39px; 
-	 background:#9ada62; 
+	 width:100px; height:39px;
+	 background:#9ada62;
 	 }
 .header .bottom .nav a:hover{
-	 width:100px; height:39px; 
-	 background:#9ada62; 
+	 width:100px; height:39px;
+	 background:#9ada62;
 }
 .header .bottom .menu{
 	width:206px;
@@ -145,7 +145,7 @@ img{
 	top:0;
 	left:0;
 	 background-image:url(../image/index_img/backmenuimg.jpg);
-	
+
 }
 .header .bottom .menu a{
 	color:#fff;
@@ -541,28 +541,7 @@ img{
 	font-size:14px;
 }
 
-.search{
-	 width:168px; height:22px;
-	 background:url(../image/shopdetail/search_bg_24.gif) no-repeat;
-	margin:15px 15px;
-	 float:left;
-	 display:inline;
-	
-		 }
-.search .left{
-	width:92px; height:22px;
-	line-height:31px; 
-	background:url(../image/shopdetail/sea_bg.gif) no-repeat;
-	border:none; 
-	float:left; 
 
-	}
-.search .right{ 
-	width:68px; height:22px; 
-	float:left; 
-	background:url(../image/shopdetail/search.png) no-repeat;
-	border:none;
-	}
 
 .tabbedPanels{
 	float: right;

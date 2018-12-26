@@ -1,7 +1,9 @@
+
+
 window.onload=function ()
 {
+    onGoodsReady();
     var loginText=document.getElementById("loginText");
-
 
     $.ajax({
         type: "POST",//方法类型

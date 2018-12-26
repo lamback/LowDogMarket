@@ -1256,7 +1256,7 @@
     </style>
 </head>
 
-<body >
+<body onload="load()">
 <div class="w-all w-minw bg-cf5f5f5 ovhidden" style="height: 29.6px">
     <div class="w-main m-auto">
         <span class="fs-14 line-h30 ftc-6b6b6b dsblock fl"> 欢迎来到土狗网 </span>
@@ -1377,36 +1377,35 @@
 </div>
 <!-- script -->
 <script>
-    function initAJAX() {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("post","/getAllPostings",true);
-        xmlHttp.onreadystatechange=function(){
-            if (xmlHttp.readyState==4&&xmlHttp.status==200) {
-
-                var dataObj = eval("("+xmlHttp.responseText+")");
-                //xmlHttp.
-                for(var i=0;i<dataObj.data.length;i++){
-                    var text = dataObj.comments;
-                    var Id = dataObj.username;
-                    var time = dataObj.postingsdate;
-                    var PraiseNumber = parseInt(dataObj.praise);
+    function load(){
+        $.ajax( {
+            url:"/getAllPostings",
+            type: "POST",
+            contentType:'application/json;charset=utf-8',
+            dataType:"json",
+            success: function(data){
+                for(var i=data.length-1;i>=0;i--){
+                    var text = data[i].comments;
+                    var Id = data[i].username;
+                    var time = data[i].postingsdate;
+                    var PraiseNumber = parseInt(data[i].praise);
                     var xinId = "xin"+i;
                     document.getElementById("PageContent").innerHTML +=
                         "<article class=\"format-standard type-post hentry\">\n" +
                         "                    <header>\n" +
                         "                        <h3 class=\"post-title\">\n" +
                         "                            <div style=\"float: left\">\n" +
-                        "                                <img class=\"contentDiv\" src=\"\">\n"+
+                        "                                <img class=\"contentDiv\" src=\"image/photo.jpg\">\n"+
                         "                            </div>\n" +
                         "\n" +
                         "                            <div style=\"padding-left: 64px;\">\n" +
-                        "                                <a href=\"static/image/photo.jpg\">"+Id+"</a>\n" +
+                        "                                <a href=\"\">"+Id+"</a>\n" +
                         "                                <p class=\"time-font\">"+time+"</p>\n" +
                         "                            </div>\n" +
                         "                        </h3>\n" +
                         "                    </header>\n" +
                         "                    <p id=\"textQ\">"+text+"</p>\n" +
-                        "                    <div class=\"showImg\">\n"+"</div>\n" +
+                        "                    <div class=\"showImg\">"+"</div>\n" +
                         "                    <div class=\"post-meta clearfix\" style=\"width: 900px\">\n" +
                         "<span class=\"dzs\">"+PraiseNumber+"</span>"+
                         "                        <span class=\"like-count like\" id=" +xinId+
@@ -1416,112 +1415,61 @@
 
                     var PicNumber = 0;
                     Img1 = new Image();
-                    if (typeof (dataObj.photo1)!="undefined"){
-                        Img1.src = dataObj.photo1;
+                    if (typeof (data[i].photo1)!="undefined"){
+                        Img1.src = data[i].photo1;
+                        Img1.height = 100;
+                        Img1.width = 100;
                         PicNumber+=1;
                     }
+                    document.getElementsByClassName("showImg")[i].appendChild(Img1);
                     Img2 = new Image();
-                    if (typeof (dataObj.photo2)!="undefined"){
-                        Img2.src = dataObj.photo2;
+                    if (typeof (data[i].photo2)!="undefined"){
+                        Img2.src = data[i].photo2;
+                        Img2.height = 100;
+                        Img2.width = 100;
+                        document.getElementsByClassName("showImg")[i].appendChild(Img2);
                         PicNumber+=1;
                     }
                     Img3 = new Image();
-                    if (typeof (dataObj.photo3)!="undefined"){
-                        Img3.src = dataObj.photo3;
+                    if (typeof (data[i].photo3)!="undefined"){
+                        Img3.src = data[i].photo3;
+                        Img3.height = 100;
+                        Img3.width = 100;
+                        document.getElementsByClassName("showImg")[i].appendChild(Img3);
                         PicNumber+=1;
                     }
                     Img4 = new Image();
-                    if (typeof (dataObj.photo4)!="undefined"){
-                        Img4.src = dataObj.photo4;
+                    if (typeof (data[i].photo4)!="undefined"){
+                        Img4.src = data[i].photo4;
+                        Img4.height = 100;
+                        Img4.width = 100;
+                        document.getElementsByClassName("showImg")[i].appendChild(Img4);
                         PicNumber+=1;
                     }
                     Img5 = new Image();
-                    if (typeof (dataObj.photo5)!="undefined"){
-                        Img5.src = dataObj.photo5;
+                    if (typeof (data[i].photo5)!="undefined"){
+                        Img5.src = data[i].photo5;
+                        Img5.height = 100;
+                        Img5.width = 100;
+                        document.getElementsByClassName("showImg")[i].appendChild(Img5);
                         PicNumber+=1;
                     }
                     Img6 = new Image();
-                    if (typeof (dataObj.photo6)!="undefined"){
-                        Img6.src = dataObj.photo6;
+                    if (typeof (data[i].photo6)!="undefined"){
+                        Img6.src = data[i].photo6;
+                        Img6.height = 100;
+                        Img6.width = 100;
+                        document.getElementsByClassName("showImg")[i].appendChild(Img6);
                         PicNumber+=1;
                     }
-                    switch (PicNumber) {
-                        case 1:document.getElementsByClassName("showImg")[i].appendChild(Img1);break;
-                        case 2:
-                            Img1.width = 970/2;
-                            Img2.width = Img1.width;
-                            Img1.height = 645;
-                            Img2.height = Img1.height;
-                            document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                            break;
-                        case 3:
-                            Img1.width = 970/3;
-                            Img2.width = 970/3;
-                            Img3.width = 970/3;
-                            Img1.height = 645;
-                            Img2.height = 645;
-                            Img3.height = 645;
-                            document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img3);
-                            break;
-                        case 4:
-                            Img1.width = 970/2;
-                            Img2.width = 970/2;
-                            Img3.width = 970/2;
-                            Img4.width = 970/2;
-                            Img1.height = 645/2;
-                            Img2.height = 645/2;
-                            Img3.height = 645/2;
-                            Img4.height = 645/2;
-                            document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img3);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img4);
-                            break;
-                        case 5:
-                            Img1.width = 970/2;
-                            Img2.width = 970/2;
-                            Img3.width = 970/2;
-                            Img4.width = 970/2;
-                            Img5.width = 970;
-                            Img1.height = 645;
-                            Img2.height = 645;
-                            Img3.height = 645;
-                            Img4.height = 645;
-                            Img5.height = 645;
-                            document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img3);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img4);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img5);
-                            break;
-                        case 6:
-                            Img1.width = 970/3;
-                            Img2.width = 970/3;
-                            Img3.width = 970/3;
-                            Img4.width = 970/3;
-                            Img5.width = 970/3;
-                            Img6.width = 970/3;
-                            Img1.height = 645/2;
-                            Img2.height = 645/2;
-                            Img3.height = 645/2;
-                            Img4.height = 645/2;
-                            Img5.height = 645/2;
-                            document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img3);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img4);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img5);
-                            document.getElementsByClassName("showImg")[i].appendChild(Img6);
-                            break;
-                    }
                 }
+            },
+            error:function(){
+                alert("ERROR !")
             }
-        };
-        xmlHttp.send();
+        })
     }
+
     function dz(i) {
         var xmlHttp2 = new XMLHttpRequest();
         xmlHttp2.open("post","/changePraiseNumber",true);
