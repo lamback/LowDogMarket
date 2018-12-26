@@ -59,13 +59,11 @@ public class OrderListController {
         提交订单
      */
     @RequestMapping(value = "/submitOrder",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
-    public void submitOrder(@RequestBody JSONArray data, HttpSession session) {
+    public void submitOrder(@RequestBody JSONObject temp, HttpSession session) {
         session.setAttribute("username","aaa");
-        for (int i=0;i<data.size();i++){
-            JSONObject temp=data.getJSONObject(i);
 
             int goodsid=temp.getInteger("goodsid");
-            Goods goods=goodsService.getGoodsNewsByGoodsID(goodsid);
+//            Goods goods=goodsService.getGoodsNewsByGoodsID(goodsid);
             int number=shoppingCartService.getNumber(goodsid);
             Orderlist orderlist=new Orderlist();
             orderlist.setGoodsid(goodsid);
@@ -77,5 +75,4 @@ public class OrderListController {
             orderListService.addToOrder(orderlist);
             shoppingCartService.deleteGoodsInCart(goodsid);
         }
-    }
 }

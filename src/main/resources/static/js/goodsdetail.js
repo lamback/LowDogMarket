@@ -1,18 +1,17 @@
-//页面跳转过来的时候获取goodsID
-var goodsID;
+
 //商品详情JSON数据
 var goodsInfoJSON={
     goodsid:'1',
-    name:'特步球鞋',
-    type:'男鞋',
+    name:'华为荣耀',
+    type:'手机',
     photo:'image/product/product1.PNG',
     photo2:'image/product/product2.PNG',
     photo3:'image/product/product3.PNG',
     photo4:'image/product/product5.PNG',
     information:'跳楼大甩卖！',
-    price:'122.98',
-    seller:'商家1',
-    sellnumber:'100',
+    price:'1890',
+    seller:'nohji',
+    sellnumber:'150',
     address:'赣州'
 };
 //评论JSON数据
@@ -64,25 +63,34 @@ function goodsnumber_increase(){
 }
 
 function onGoodsReady(){
+    var url=location.search;
+    var length=url.length;
+    var index=url.indexOf('=');
+    var goodsID=url.substring(index+1,length);
+    console.log(url+":"+goodsID);
 
-    var sendData={ goodsis:goodsID}; //发送给服务器端的JSON数据
 
+    var sendData=JSON.stringify({goodsid:goodsID}); //发送给服务器端的JSON数据
+
+    console.log(sendData);
     $.ajax({
-        url:"getGoodsNewsByGoodsID",
+        url:"/getGoodsNewsByGoodsID",
         type:"post",
         data:sendData,
+        contentType:'application/json;charset=utf-8',
         dataType: "json",
         success: function (data) {
-            var json=JSON.parse(data);
-            goodsInfo(json);
+            alert(data);
+            goodsInfo(data);
             onreadyImage();
         }
     });
 
     $.ajax({
-        url: "getCommentsByGoodsID",
+        url: "/getCommentsByGoodsID",
         type: "post",
         data: sendData,
+        contentType:'application/json;charset=utf-8',
         dataType: "json",
         success: function (data) {
             var json=JSON.parse(data);
@@ -91,7 +99,12 @@ function onGoodsReady(){
     });
 }
 
+
+//测试
 function testReady(){
+    var id=123;
+    var json={goodsid:id};
+    console.log(json);
     goodsInfo(goodsInfoJSON);
     onreadyImage();
     getCommentsInfo(commentsJSON);
@@ -111,6 +124,7 @@ function goodsInfo(json){
     document.getElementById("price").innerHTML="￥"+goodsPrice;   //促销价
     var sellerName=json.seller;
     document.getElementById("shopname").innerHTML=sellerName;  //店铺名
+    document.getElementById("entershop").setAttribute("href","SellerFirstPage?username="+sellerName);
     var information=json.information;
     document.getElementById("information").innerHTML=information;   //店铺优惠
     var sellnumber=json.sellnumber;
@@ -218,7 +232,8 @@ function onreadyImage(){
 
 //添加到购物车
 function add2Cart(){
-    var nu=document.getElementById("goodsnumber");
+    var nu=document.getElementById("goodsnumber").value;
+
     var json={goodsid:goodsID,number:nu};
     $.ajax({
         url: "/addGoodsToCart",
@@ -236,12 +251,9 @@ function add2Cart(){
     });
 }
 
+
 //立即购买
 function buyNow(){
 
 }
 
-//进入店铺
-function enterShop(){
-    document.location.href("/shop.html?shopID="+shopID);
-}

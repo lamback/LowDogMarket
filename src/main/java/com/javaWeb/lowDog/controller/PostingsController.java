@@ -2,15 +2,15 @@ package com.javaWeb.lowDog.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.javaWeb.lowDog.entity.Goods;
-import com.javaWeb.lowDog.entity.Orderlist;
-import com.javaWeb.lowDog.entity.Postings;
+import com.javaWeb.lowDog.entity.*;
 import com.javaWeb.lowDog.service.PostingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
 
 @RestController
 public class PostingsController {
@@ -55,4 +55,25 @@ public class PostingsController {
         postingsService.changePraiseNumber(postingsid);
     }
 
+    /*
+      写评论
+   */
+    @RequestMapping(value = "/addPostings",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
+    public void addPostings(@RequestBody JSONObject data, HttpSession session) {
+       Postings postings=new Postings();
+
+//       session.setAttribute("username","user1");
+        postings.setUsername(session.getAttribute("username").toString());
+        postings.setComments(data.getString("comments"));
+        postings.setPostingsdate(Util.getTime());
+        postings.setPraise(0);
+        postings.setPhoto1(data.getString("photo1"));
+        postings.setPhoto2(data.getString("photo2"));
+        postings.setPhoto3(data.getString("photo3"));
+        postings.setPhoto4(data.getString("photo4"));
+        postings.setPhoto5(data.getString("photo5"));
+        postings.setPhoto6(data.getString("photo6"));
+
+        postingsService.addPostings(postings);
+    }
 }
