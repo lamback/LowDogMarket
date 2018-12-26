@@ -23,4 +23,9 @@ public class Postingsimpl implements PostingsService {
     public Boolean changePraiseNumber(int postingsid) {
         return postingsMapper.changePraiseNumber(postingsid);
     }
+
+    @Override
+    public Boolean addPostings(Postings postings) {
+        return postingsMapper.addPostings(postings);
+    }
 }

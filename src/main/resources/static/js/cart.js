@@ -36,11 +36,13 @@ $.ajax({
         }
         else
         {
+            window.location.href="../login.html";
             loginText.innerHTML+="<a href='#' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
             loginText.innerHTML+="<a href='#' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
         }
     },
     error:function () {
+        window.location.href="../login.html";
         loginText.innerHTML+="<a href='#' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
         loginText.innerHTML+="<a href='#' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
     }
@@ -86,22 +88,27 @@ var vm=new Vue({
 		//点击增加或减少商品数量按钮后修改对应金额
 		changeMoney:function (product,way) {
             var action=1;
+            var goodsid=$("#product.goodsid").val();
 			if (way>0) {
 				product.number++;
+				var data1=JSON.stringify({goodsid:goodsid,action: action});
                 $.ajax({
                     type: "POST",//方法类型
                     dataType: "json",//预期服务器返回的数据类型
                     url: "/changeNumberInCart" ,//url
-                    data: $('#'+product.goodsid).serialize(),action
+                    data: data1,
+                    contentType:"application/json;charset=utf-8",
                 })
 			}else{
 				product.number--;
                 action=0;
+                var data2=JSON.stringify({goodsid:goodsid,action: action});
                 $.ajax({
                     type: "POST",//方法类型
                     dataType: "json",//预期服务器返回的数据类型
                     url: "/changeNumberInCart" ,//url
-                    data: $('#'+product.goodsid).serialize(),action
+                    data: data2,
+                    contentType:"application/json;charset=utf-8",
                 });
 				if (product.number<1) {
 					product.number=1;
@@ -158,29 +165,37 @@ var vm=new Vue({
 			var index=this.productList.indexOf(item);
 			this.productList.splice(index,1);
 			this.getTotalMoney();
+			var action=2;
+            var goodsid=$("#product.goodsid").val();
+            var data3=JSON.stringify({goodsid:goodsid,action: action});
+
             $.ajax({
                 type: "POST",//方法类型
                 dataType: "json",//预期服务器返回的数据类型
                 url: "/changeNumberInCart" ,//url
-                data: $('#'+item.goodsid).serialize()
+                data: data3,
+                contentType:"application/json;charset=utf-8",
             })
 		},
 		//增加订单
 		addorder: function (item) {
             this.productList.forEach(function (item,index) { //所选商品
                 if (item.check) {
+                    var goodsid=$("#product.goodsid").val();
+                    var data4=JSON.stringify({goodsid:goodsid});
                     $.ajax({
                         type: "POST",//方法类型
                         dataType: "json",//预期服务器返回的数据类型
                         url: "/submitOrder" ,//url
-                        data: $('#'+item.goodsid).serialize(),
+                        data: data4,
+                        contentType:"application/json;charset=utf-8",
                         success: function (result) {
                             console.log(result);//打印服务端返回的数据(调试用)
                         }
                     })
                 }
             });
-			window.location.href="//localhost:8080/orderComplete.html";
+			window.location.href="../orderComplete.html";
         }
 	}
 })

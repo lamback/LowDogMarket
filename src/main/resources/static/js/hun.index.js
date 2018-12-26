@@ -23,13 +23,15 @@ function getGoodsType() {           //获取商品种类
 function getGoodsByType(type) {
 
 
+        var type1=JSON.stringify({type:type});
         $.ajax({
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
             url: "/getGoodsByType" ,//url
-            data:type,          //传一个种类过去
+            data:type1,         //传一个种类过去
             contentType:"application/json;charset=utf-8",
             success: function (result) {        //传回该类型所有商品
+                alert(result);
                 var ul1=document.getElementById("piclist1");
                 for(let a=0;a<result.length;a++) ul1.innerHTML+="<li></li>";
                 var lilist1=ul1.getElementsByTagName("li");
@@ -40,10 +42,13 @@ function getGoodsByType(type) {
                     information1=result[i1].information;
                     goodsid1=result[i1].goodsid;
                 lilist1[i1].innerHTML+="<div class='pic f1'><a href='//localhost:8080/goodsdetail.html?goodsid="+goodsid1+"'>";
-                lilist1[i1].innerHTML+="<img src="+photo1+"/></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/good.html?goodsid="+goodsid1+"' class='dsblock w-all fl'> ";
+                lilist1[i1].innerHTML+="<img src="+photo1+"/></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/goodsdetail.html?goodsid="+goodsid1+"' class='dsblock w-all fl'> ";
                 lilist1[i1].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+information1+"</h3></a></div>";
          }
-        }
+        },
+            error:function () {
+                //alert(type);
+            }
     })
 }
 
@@ -65,13 +70,13 @@ window.onload = function () {
 			}
 			else
 			{
-                loginText.innerHTML+="<a href='//localhost:8080/login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
-                loginText.innerHTML+="<a href='//localhost:8080/login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
+                loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
+                loginText.innerHTML+="<a href='../register.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
 			}
         },
 		error:function () {
-            loginText.innerHTML+="<a href='//localhost:8080/login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
-            loginText.innerHTML+="<a href='//localhost:8080/login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
+            loginText.innerHTML+="<a href='../login.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>Hi，请登录</a>";
+            loginText.innerHTML+="<a href='../register.html' class='dsblock fl line-h30 fs-14 ftc-e23435 m-l-40'>注册</a>";
         }
 
     })
@@ -92,7 +97,7 @@ window.onload = function () {
                 lilist[i].innerHTML="<i>"+(i+1)+"</i>";
                 lilist[i].innerHTML+="<div class='pic f1'>";
                 console.log(result);
-                lilist[i].innerHTML+="<a href='#'><img src="+result[i].photo+"></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/good.html?goodsid="+result[i].goodsid+"' class='dsblock w-all fl'> ";
+                lilist[i].innerHTML+="<a href='//localhost:8080/goodsdetail.html?goodsid="+result[i].goodsid+"'><img style='width: 200px;height: 200px' src="+result[i].photo+"></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/goodsdetail.html?goodsid="+result[i].goodsid+"' class='dsblock w-all fl'> ";
                 lilist[i].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+result[i].information+"</h3></a></div>";
 
             }

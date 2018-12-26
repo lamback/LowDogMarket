@@ -69,6 +69,5 @@ public class CommentsController {
         comments.setPhoto6(data.getString("photo6"));
 
         commentsService.writeComment(comments);
-
     }
 }

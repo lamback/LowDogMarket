@@ -1,5 +1,6 @@
 //点击提交按钮发生的事件
 $("#sub").click(function() {
+    // alert(9);
     // alert(1);
     // console.log($(".userInput").val());
     // 输入框为空提示事件
@@ -30,35 +31,80 @@ $("#sub").click(function() {
         // localStorage.setItem(user.name, str);
         
         // ajax传递数据
-        var name = $("#name").val();
+        var name = $("#username").val();
         var password = $("#password").val();
         var phone=$("#phone").val();
         var address=$("#address").val();
         var sex=$("#sex").val();
         var seller=$("#seller").val();
 
-        $.post(
-                "/register",   //处理登录信息的url
-                "json",
-                 {
-                    "name":name,
-                    "password":password,
-                    "phone":phone,
-                    "address":address,
-                    "sex":sex,
-                    "seller":seller,
-                 },
-                 function(status){
-                    var status=this.status;
-                        if(status==0){
-                            alert("该用户名已被注册，请重新注册");
-                        }else{
-                            alert("注册成功，请登录");
-                            // $("#loginForm").submit();
-                            window.location.href="login.html";
-                        }
-                 }
-            )
+        // alert(name);
+        // alert(password);
+        // alert(phone);
+        // alert(address);
+        // alert(sex);
+
+         var data2 = JSON.stringify({username:name,password:password,usertype:"0",gender:sex,phone:phone,address:address});
+        $.ajax({
+            type:"POST",
+            url:"/register",
+            dataType:"JSON",
+            contentType:"application/json;charset=utf-8",
+            data:data2,
+            // data:{
+            //                 // "username":name,
+            //                 // "password":password,
+            //                 // "usertype":0,
+            //                 // "gender":sex,
+            //                 //  "phone":phone,
+            //                 // "address":address,
+            //
+            //     username:"a111111",
+            //     password:"222222",
+            //     usertype:"0",
+            //     gender:"3",
+            //     phone:"4",
+            //     address:"5"
+            //                 // "seller":seller
+            //              },
+            success:function (result) {
+                if(result.status==0){
+                                        alert("该用户名已被注册，请重新注册");
+                                    }else{
+                                        alert("注册成功，请登录");
+                                        // $("#loginForm").submit();
+                                        window.location.href="login.html";
+                                    }
+            },
+            error:function () {
+                alert(43434);
+            }
+        })
+        // $.post(
+        //         "/register",   //处理登录信息的url
+        //         "json",
+        //          {
+        //             "name":name,
+        //             "password":password,
+        //             "phone":phone,
+        //             "address":address,
+        //             "sex":sex,
+        //             "seller":seller
+        //          },
+        //          function(status){
+        //             var status=this.status;
+        //                 if(status==0){
+        //                     alert("该用户名已被注册，请重新注册");
+        //                 }else{
+        //                     alert("注册成功，请登录");
+        //                     // $("#loginForm").submit();
+        //                     window.location.href="login.html";
+        //                 }
+        //          }
+        //
+        //
+        //
+        //     )
     }
 
 

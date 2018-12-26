@@ -10,7 +10,7 @@
     <script src="js/goodsdetail.js"></script>
 </head>
 
-<body onload="testReady()">
+<body onload="onGoodsReady()">
 <!-----header部分------->
 <div class="header">
 <div class="top">
@@ -87,10 +87,7 @@
             <input type="button" value="+" id="increase" class="goods-number" onclick="goodsnumber_increase()"/>
         </div>
 
-        <p class="buy">
-            <button id="firstbuy" onclick="buyNow()">立即购买</button>
-            <button class="add2Cart" onclick="add2Cart()"><img src="image/index_img/cartlogo.PNG" class="cartlogo"/><samp class="cart-font">加入购物车</samp></button>
-        </p>
+        <p class="buy"><a href="#" id="firstbuy">立即购买</a><a href="#" onclick="add2Cart()">加入购物车</a></p>
    		<div class="clear"></div>
 
         <div class="share">
@@ -127,8 +124,8 @@
             <!---------------------------店铺名称--------------------->
         	<p class="name" ><samp class="shopname-font"   id="shopname" >青蛙工艺家居</samp><img src="image/shopdetail/tell01.png" width="22" height="22"></p>
        		 <img src="image/shopdetail/tellbottom.png">
-       		 <p class="sc">收藏店铺</p>
-             <p class="sc"><button class="enterbutton" onclick="enterShop()">进入店铺</button></p>
+            <p class="sc">收藏店铺</p>
+             <p class="sc"><a href="#" id="entershop">进入店铺</a></p>
 	         <div class="search">
 			<input class="left" type="text" />
 			<input class="right" type="button" style=" cursor:pointer;" value=""/>
@@ -176,7 +173,7 @@
 <div class="backf">
 
     <div class="footer-head">
-        <img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/footer/footer1.PNG" class="image"/>
+        <img src="image/footer/footer1.PNG" class="image"/>
     </div>
     <div id="footer">
     <ul>
@@ -216,7 +213,7 @@
 
     <div class="joinus">
         <p class="joinus-font">加入我们</p>
-        <img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/footer/footer2.PNG" class="joinus-image"/>
+        <img src="image/footer/footer2.PNG" class="joinus-image"/>
     </div>
     <div class="clear">
     </div>

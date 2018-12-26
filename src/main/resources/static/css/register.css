@@ -4,8 +4,8 @@ html,body{
 }
 /* 背景图 */
 body{
-	background:url(../img/login_background.jpg) no-repeat;
-	background-position:fixed;
+	background:url(../image/login_background.jpg) no-repeat;
+	/*background-position:fixed;*/
 	background-size:cover;
 }
 /* 左上角图片 */
@@ -47,7 +47,7 @@ body{
 .regFrm{
 	background:#fff;
 	width:400px;
-	height:650px;
+	height:600px;
 	position:absolute;
 	top:20px;
 	right:600px;
