@@ -15,7 +15,7 @@
 		</div>
 		<div id="menu">
 			<ul>
-				<li><a href="deleteSeller.html" onlick = "BusinessDisplay">删除商家</a></li>
+				<li><a href="deleteSeller.html" >删除商家</a></li>
 				<li class="current_page_item"><a href="addTypesToHomePage.html">添加首页种类</a></li>
 				<li><a href="#">销售详情</a></li>>
 				<li><a href="verifyGoods.html">商品审核</a></li>
@@ -26,11 +26,13 @@
 		<div id="AllBusiness">
 			<ul class="style1">
 				<li class="first">
-					<form name = "loginForm">
+					<form name = "loginForm"  id="loginForm">
 					<p class="date"></p>
 					<h3>种类1</h3>
-					<p style='display: inline;'><input type="txt" name="typeName" placeholder="输入添加种类"></p>
+					<p style='display: inline;'><input type="text" name="typeName" placeholder="输入添加种类"
+					id="typeName"></p>
 					<p style='display: inline;'><button type="button" onclick="addTypesToHomePage()">添加</button></p>
+						<p id="resultp"></p>
 					</form>
 				</li>
 			</ul>
