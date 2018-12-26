@@ -1,6 +1,6 @@
 
 
-var goodstype;          //商品类型数组
+var goodstype;          //第一个商品类型
 var typelen;            //类型总数
 function getGoodsType() {           //获取商品种类
 
@@ -10,10 +10,11 @@ function getGoodsType() {           //获取商品种类
         url: "/getTypeListInHomePage" ,//url
         success: function (result) {
             var type=document.getElementById("typeshow");
+            goodstype=result[0].type;
+            getGoodsByType(goodstype);
              typelen=result.length;
             for(var i=0;i<typelen;i++)
             {
-
                 type.innerHTML+="<a class=\"ftc-626262 fs-20 \" href=\"javascript:getGoodsByType('"+result[i].type+"')\">"+result[i].type+"&nbsp;</a>"
 
             }
@@ -31,8 +32,8 @@ function getGoodsByType(type) {
             data:type1,         //传一个种类过去
             contentType:"application/json;charset=utf-8",
             success: function (result) {        //传回该类型所有商品
-                alert(result);
                 var ul1=document.getElementById("piclist1");
+                ul1.innerHTML="";
                 for(let a=0;a<result.length;a++) ul1.innerHTML+="<li></li>";
                 var lilist1=ul1.getElementsByTagName("li");
                 for(var i1=0;i1<result.length;i1++)
@@ -42,7 +43,7 @@ function getGoodsByType(type) {
                     information1=result[i1].information;
                     goodsid1=result[i1].goodsid;
                 lilist1[i1].innerHTML+="<div class='pic f1'><a href='//localhost:8080/goodsdetail.html?goodsid="+goodsid1+"'>";
-                lilist1[i1].innerHTML+="<img src="+photo1+"/></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/goodsdetail.html?goodsid="+goodsid1+"' class='dsblock w-all fl'> ";
+                lilist1[i1].innerHTML+="<img style='height: 200px;width: 200px' src="+photo1+"/></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/goodsdetail.html?goodsid="+goodsid1+"' class='dsblock w-all fl'> ";
                 lilist1[i1].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+information1+"</h3></a></div>";
          }
         },
@@ -94,7 +95,15 @@ window.onload = function () {
             var lilist=ul.getElementsByTagName("li");
             for (var i = 0; i < lilist.length; i++) {          //生成排行榜
                 var photo="",information="",goodsid="";
-                lilist[i].innerHTML="<i>"+(i+1)+"</i>";
+                switch (i%5)
+                {
+                    case 0:lilist[i].innerHTML="<i class='picspan_icon1'>"+(i+1)+"</i>";break;
+                    case 1:lilist[i].innerHTML="<i class='picspan_icon2'>"+(i+1)+"</i>";break;
+                    case 2:lilist[i].innerHTML="<i class='picspan_icon3'>"+(i+1)+"</i>";break;
+                    case 3:lilist[i].innerHTML="<i class='picspan_icon4'>"+(i+1)+"</i>";break;
+                    case 4:lilist[i].innerHTML="<i class='picspan_icon5'>"+(i+1)+"</i>";break;
+
+                }
                 lilist[i].innerHTML+="<div class='pic f1'>";
                 console.log(result);
                 lilist[i].innerHTML+="<a href='//localhost:8080/goodsdetail.html?goodsid="+result[i].goodsid+"'><img style='width: 200px;height: 200px' src="+result[i].photo+"></a></div>"+"<div class='title w-all fl m-t-18'><a href='//localhost:8080/goodsdetail.html?goodsid="+result[i].goodsid+"' class='dsblock w-all fl'> ";
@@ -104,28 +113,8 @@ window.onload = function () {
         }
     });
 
-    var ul = document.getElementById ("piclist");
-    var lis = ul.getElementsByTagName("i");
+    var ul23 = document.getElementById ("piclist");
+    var lis = ul23.getElementsByTagName("i");
 
-	lis[0].className="picspan_icon1";
-	lis[1].className="picspan_icon2";
-	lis[2].className="picspan_icon3";
-	lis[3].className="picspan_icon4";
-	lis[4].className="picspan_icon5";
-	lis[5].className="picspan_icon1";
-	lis[6].className="picspan_icon2";
-	lis[7].className="picspan_icon3";
-	lis[8].className="picspan_icon4";
-	lis[9].className="picspan_icon5";
-	lis[10].className="picspan_icon1";
-	lis[11].className="picspan_icon2";
-	lis[12].className="picspan_icon3";
-	lis[13].className="picspan_icon4";
-	lis[14].className="picspan_icon5";
-	lis[15].className="picspan_icon1";
-	lis[16].className="picspan_icon2";
-	lis[17].className="picspan_icon3";
-	lis[18].className="picspan_icon4";
-	lis[19].className="picspan_icon5";
 	
-}
+};
