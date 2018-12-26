@@ -1405,7 +1405,7 @@
                         "                        </h3>\n" +
                         "                    </header>\n" +
                         "                    <p id=\"textQ\">"+text+"</p>\n" +
-                        "                    <div class=\"showImg\">\n"+"</div>\n" +
+                        "                    <div class=\"showImg\">"+"</div>\n" +
                         "                    <div class=\"post-meta clearfix\" style=\"width: 900px\">\n" +
                         "<span class=\"dzs\">"+PraiseNumber+"</span>"+
                         "                        <span class=\"like-count like\" id=" +xinId+
@@ -1419,9 +1419,9 @@
                         Img1.src = data[i].photo1;
                         Img1.height = 100;
                         Img1.width = 100;
-                        document.getElementsByClassName("showImg")[i].appendChild(Img1);
+
                         PicNumber+=1;
-                    }
+                    }document.getElementsByClassName("showImg")[i].appendChild(Img1);
                     Img2 = new Image();
                     if (typeof (data[i].photo2)!="undefined"){
                         Img2.src = data[i].photo2;
@@ -1462,79 +1462,6 @@
                         document.getElementsByClassName("showImg")[i].appendChild(Img6);
                         PicNumber+=1;
                     }
-                    // switch (PicNumber) {
-                    //     case 1:document.getElementsByClassName("showImg")[i].appendChild(Img1);break;
-                    //     case 2:
-                    //         Img1.width = 970/4;
-                    //         Img2.width = Img1.width;
-                    //         Img1.height = 645/2;
-                    //         Img2.height = Img1.height;
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                    //         break;
-                    //     case 3:
-                    //         Img1.width = 970/6;
-                    //         Img2.width = 970/6;
-                    //         Img3.width = 970/6;
-                    //         Img1.height = 645/2;
-                    //         Img2.height = 645/2;
-                    //         Img3.height = 645/2;
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img3);
-                    //         break;
-                    //     case 4:
-                    //         Img1.width = 970/4;
-                    //         Img2.width = 970/4;
-                    //         Img3.width = 970/4;
-                    //         Img4.width = 970/4;
-                    //         Img1.height = 645/4;
-                    //         Img2.height = 645/4;
-                    //         Img3.height = 645/4;
-                    //         Img4.height = 645/4;
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img3);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img4);
-                    //         break;
-                    //     case 5:
-                    //         Img1.width = 970/4;
-                    //         Img2.width = 970/4;
-                    //         Img3.width = 970/4;
-                    //         Img4.width = 970/4;
-                    //         Img5.width = 970/2;
-                    //         Img1.height = 645/2;
-                    //         Img2.height = 645/2;
-                    //         Img3.height = 645/2;
-                    //         Img4.height = 645/2;
-                    //         Img5.height = 645/2;
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img3);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img4);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img5);
-                    //         break;
-                    //     case 6:
-                    //         Img1.width = 970/6;
-                    //         Img2.width = 970/6;
-                    //         Img3.width = 970/6;
-                    //         Img4.width = 970/6;
-                    //         Img5.width = 970/6;
-                    //         Img6.width = 970/6;
-                    //         Img1.height = 645/4;
-                    //         Img2.height = 645/4;
-                    //         Img3.height = 645/4;
-                    //         Img4.height = 645/4;
-                    //         Img5.height = 645/4;
-                    //         Img6.height = 645/4;
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img1);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img2);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img3);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img4);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img5);
-                    //         document.getElementsByClassName("showImg")[i].appendChild(Img6);
-                    //         break;
-                    // }
                 }
             },
             error:function(){
