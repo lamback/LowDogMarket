@@ -80,7 +80,6 @@ function onGoodsReady(){
         contentType:'application/json;charset=utf-8',
         dataType: "json",
         success: function (data) {
-            alert(data);
             goodsInfo(data);
             onreadyImage();
             console.log(data);
@@ -90,7 +89,7 @@ function onGoodsReady(){
         }
     });
 
-    $.ajax({
+    $.ajax({  //向服务器请求评论数据
         url: "/getCommentsByGoodsID",
         type: "post",
         data: sendData,
@@ -132,7 +131,7 @@ function goodsInfo(json){
     document.getElementById("price").innerHTML="￥"+goodsPrice;   //促销价
     var sellerName=json.seller;
     document.getElementById("shopname").innerHTML=sellerName;  //店铺名
-    document.getElementById("entershop").setAttribute("href","SellerFirstPage?username="+sellerName);
+    document.getElementById("entershop").setAttribute("href","SellerFirstPage.html?username="+sellerName);
     var information=json.information;
     document.getElementById("information").innerHTML=information;   //店铺优惠
     var sellnumber=json.sellnumber;
@@ -159,7 +158,7 @@ function getCommentsInfo(json) {
 
     var commentsDiv=document.getElementById("panel02");
     if(json.length>0){
-        for(var i=0;i<json.length;i++){
+        for(var i=json.length-1;i>=0;i--){
             commentsDiv.innerHTML+='<div class="judge01">' +
                 '<div class="idimg"><img src="image/shopdetail/detail102.png"/></div>' +
                 '<div class="write">' +
@@ -248,24 +247,24 @@ function add2Cart() {
             if (result.status == 1) { //是已登录用户
                 var nu = document.getElementById("goodsnumber").value;
 
-                var json = JSON.stringify({goodsid: goodsID, number: nu});
+                var json = JSON.stringify({goodsid: 1, number: 1});
                 console.log(json);
                 $.ajax({
                     url: "/addGoodsToCart",
                     type: "POST",
                     data: json,
-                    contentType:"application/json:charset=utf-8",
                     dataType: "json",
+                    contentType:"application/json;charset=utf-8",
                     success: function (data) {
-                        var receiveJSON = JSON.parse(data);
-                        if (receiveJSON.status == "1") {
+                        var receiveJSON =data;
+                        if (receiveJSON.status == 1) {
                             alert("已成功加入购物车！");
-                        } else if (receiveJSON.status == "0") {
+                        } else if (receiveJSON.status == 0) {
                             alert("购物车中已存在此商品！");
                         }
                     },
-                    error :function(){
-                        console.log(json);
+                    error: function () {
+                        console.log("加入购物车接口数据失败！");
                     }
                 });
             }
@@ -276,12 +275,8 @@ function add2Cart() {
         error: function () {
             window.location.href = "../login.html";         //未登录则跳转到登录界面
         }
-    }),
-
-
-//立即购买
-        function buyNow() {
-
-        }
+    })
 }
+
+
 

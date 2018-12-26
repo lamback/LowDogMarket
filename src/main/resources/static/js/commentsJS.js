@@ -12,6 +12,7 @@ function onCommentReady(){
     var index=url.indexOf('=');
     goodsID=url.substring(index+1,length);
     getCommentAccount();
+    console.log(goodsID);
 }
 
 //添加图片
@@ -30,22 +31,22 @@ function submitComments(){
         goodsid:goodsID,
         comments:commentgoods
     });
+    console.log(json);
 
     $.ajax({
         url: "/writeComment",
-        type: "post",
+        type: "POST",
         data: json,
         contentType:'application/json;charset=utf-8',
         dataType: "json",
         success: function () {
             alert("评论成功！！");
+            window.location.href="userOrder.html";
         },
         error: function(){
             alert("评论失败！");
         }
     });
-
-    window.location.href="userOrder.html";
 }
 
 

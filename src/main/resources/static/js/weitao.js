@@ -10,6 +10,7 @@ function load(){
                 var Id = data[i].username;
                 var time = data[i].postingsdate;
                 var PraiseNumber = parseInt(data[i].praise);
+                var Postingsid = pdata[i].postingsid;
                 var xinId = "xin"+i;
                 document.getElementById("PageContent").innerHTML +=
                     "<article class=\"format-standard type-post hentry\">\n" +
@@ -30,7 +31,7 @@ function load(){
                     "                    <div class=\"post-meta clearfix\" style=\"width: 900px\">\n" +
                     "<span class=\"dzs\">"+PraiseNumber+"</span>"+
                     "                        <span class=\"like-count like\" id=" +xinId+
-                    "  onclick=\"dz(" +i+ ")\">&#10084;</span>\n" +
+                    "  onclick=\"like("+i+","+Postingsid+")\">&#10084;</span>\n" +
                     "                    </div>\n" +
                     "                </article>";
 
@@ -91,11 +92,35 @@ function load(){
     })
 }
 
-function dz(i) {
-    var xmlHttp2 = new XMLHttpRequest();
-    xmlHttp2.open("post","/changePraiseNumber",true);
-    xmlHttp2.onreadystatechange=function(){
-        if ((xmlHttp2.readyState==4&&xmlHttp2.status==200)){
+// function dz(i) {
+//     var xmlHttp2 = new XMLHttpRequest();
+//     xmlHttp2.open("post","/changePraiseNumber",true);
+//     xmlHttp2.onreadystatechange=function(){
+//         if ((xmlHttp2.readyState==4&&xmlHttp2.status==200)){
+//             var Id = "xin"+i;
+//             var xin = document.getElementById(Id);
+//             var num = parseInt(document.getElementsByClassName("dzs")[i].innerHTML.toString());
+//             if (xin.style.color=="rgb(204, 204, 204)"||xin.style.color==""){
+//                 xin.style.color="#f00";
+//                 document.getElementsByClassName("dzs")[i].innerHTML = (num+1);
+//             }
+//             else{
+//                 //xin.style.color="#ccc";
+//             }
+//         }
+//     };
+//     xmlHttp2.send();
+// }
+
+function like(i,P_id){
+    var data=JSON.stringify({postingsid:P_id})
+    $.ajax( {
+        url:"/changePraiseNumber",
+        type: "POST",
+        data:data,
+        contentType:'application/json;charset=utf-8',
+        dataType:"json",
+        success: function(){
             var Id = "xin"+i;
             var xin = document.getElementById(Id);
             var num = parseInt(document.getElementsByClassName("dzs")[i].innerHTML.toString());
@@ -103,12 +128,11 @@ function dz(i) {
                 xin.style.color="#f00";
                 document.getElementsByClassName("dzs")[i].innerHTML = (num+1);
             }
-            else{
-                //xin.style.color="#ccc";
-            }
+        },
+        error:function(){
+            alert("ERROR !")
         }
-    };
-    xmlHttp2.send();
+    })
 }
 
 window.onload=function ()
