@@ -93,25 +93,6 @@ function load(){
     })
 }
 
-// function dz(i) {
-//     var xmlHttp2 = new XMLHttpRequest();
-//     xmlHttp2.open("post","/changePraiseNumber",true);
-//     xmlHttp2.onreadystatechange=function(){
-//         if ((xmlHttp2.readyState==4&&xmlHttp2.status==250)){
-//             var Id = "xin"+i;
-//             var xin = document.getElementById(Id);
-//             var num = parseInt(document.getElementsByClassName("dzs")[i].innerHTML.toString());
-//             if (xin.style.color=="rgb(204, 204, 204)"||xin.style.color==""){
-//                 xin.style.color="#f00";
-//                 document.getElementsByClassName("dzs")[i].innerHTML = (num+1);
-//             }
-//             else{
-//                 //xin.style.color="#ccc";
-//             }
-//         }
-//     };
-//     xmlHttp2.send();
-// }
 
 function like(i,P_id){
     var data=JSON.stringify({postingsid:P_id})
