@@ -76,3 +76,5 @@ public class OrderListController {
             shoppingCartService.deleteGoodsInCart(goodsid);
         }
 }
+
+

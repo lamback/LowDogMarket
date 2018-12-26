@@ -40,10 +40,10 @@ function getGoodsByType(type) {
                 {
                 var photo1,information1,goodsid1;
                     photo1=result[i1].photo;
-                    information1=result[i1].information;
+                    name1=result[i1].name;
                     goodsid1=result[i1].goodsid;
                 lilist1[i1].innerHTML+="<div class='pic f1'><a href='../goodsdetail.html?goodsid="+goodsid1+"'><img style='height: 200px;width: 200px' src="+photo1+"/></a></div>"+"<div class='title w-all fl m-t-18'><a href='../goodsdetail.html?goodsid="+goodsid1+"' class='dsblock w-all fl'> ";
-                lilist1[i1].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+information1+"</h3></a></div>";
+                lilist1[i1].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+name1+"</h3></a></div>";
          }
         },
             error:function () {
@@ -106,7 +106,7 @@ window.onload = function () {
                 lilist[i].innerHTML+="<div class='pic f1'>";
                 console.log(result);
                 lilist[i].innerHTML+="<a href='../goodsdetail.html?goodsid="+result[i].goodsid+"'><img style='width: 200px;height: 200px' src="+result[i].photo+"></a></div>"+"<div class='title w-all fl m-t-18'><a href='../goodsdetail.html?goodsid="+result[i].goodsid+"' class='dsblock w-all fl'> ";
-                lilist[i].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+result[i].information+"</h3></a></div>";
+                lilist[i].innerHTML+="<h3 class='fs-14 ftc-787878 text-l line-h18 tw_hidden fl'>"+result[i].name+"</h3></a></div>";
 
             }
         }
