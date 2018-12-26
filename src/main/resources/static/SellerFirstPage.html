@@ -85,13 +85,14 @@
                     // alert("ERROR");
                 },
                 success: function (result) {
+                    // alert(result.usertype);
                     if (result.usertype==0){
                         var url=location.search;
                         var length=url.length;
                         var index=url.indexOf('=');
                         var username=url.substring(index+1,length);
-                        console.log(url+":"+username1);
-
+                        console.log(url+":"+username);
+                        alert(username);
                     }
                     else {
                         var username=result.username;
