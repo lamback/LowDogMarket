@@ -1,4 +1,4 @@
-
+var goodsID;
 //商品详情JSON数据
 var goodsInfoJSON={
     goodsid:'1',
@@ -66,7 +66,7 @@ function onGoodsReady(){
     var url=location.search;
     var length=url.length;
     var index=url.indexOf('=');
-    var goodsID=url.substring(index+1,length);
+    goodsID=url.substring(index+1,length);
     console.log(url+":"+goodsID);
 
 
@@ -83,6 +83,10 @@ function onGoodsReady(){
             alert(data);
             goodsInfo(data);
             onreadyImage();
+            console.log(data);
+        },
+        error: function(){
+            console.log("获取商品详情接口信息失败！");
         }
     });
 
@@ -93,8 +97,12 @@ function onGoodsReady(){
         contentType:'application/json;charset=utf-8',
         dataType: "json",
         success: function (data) {
-            var json=JSON.parse(data);
-            getCommentsInfo(json);
+            console.log(data);
+            getCommentsInfo(data);
+
+        },
+        error: function(){
+            console.log("获取商品评论接口信息失败！");
         }
     });
 }
@@ -146,35 +154,35 @@ function goodsInfo(json){
 //将评论详情渲染到HTML中
 function getCommentsInfo(json) {
 
-    document.getElementById("commentsnumber").innerHTML=json.data.length;  //评论数
-    document.getElementById("comment-account").innerHTML=json.data.length;
+    document.getElementById("commentsnumber").innerHTML=json.length;  //评论数
+    document.getElementById("comment-account").innerHTML=json.length;
 
     var commentsDiv=document.getElementById("panel02");
-    if(json.data.length>0){
-        for(var i=0;i<json.data.length;i++){
+    if(json.length>0){
+        for(var i=0;i<json.length;i++){
             commentsDiv.innerHTML+='<div class="judge01">' +
                 '<div class="idimg"><img src="image/shopdetail/detail102.png"/></div>' +
                 '<div class="write">' +
                 '<div>' +
-                '<p class="idname">'+json.data[i].username+'<samp class="comments-time">'+json.data[i].commentsdate+'</samp></p>' +
-                '<p class="which">'+json.data[i].comments+'</p>';
-            if(json.data[i].photo1!=null){
-                commentsDiv.innerHTML+='<img src='+json.data[i].photo2+' style="margin-left:50px;" width="70px" height="70px"/>';
+                '<p class="idname">'+json[i].username+'<samp class="comments-time">'+json[i].commentsdate+'</samp></p>' +
+                '<p class="which">'+json[i].comments+'</p>';
+            if(json[i].photo1!=null){
+                commentsDiv.innerHTML+='<img src='+json[i].photo2+' style="margin-left:50px;" width="70px" height="70px"/>';
             }
-            if(json.data[i].photo2!=null){
-                commentsDiv.innerHTML+='<img src='+json.data[i].photo2+' width="70px" height="70px"/>';
+            if(json[i].photo2!=null){
+                commentsDiv.innerHTML+='<img src='+json[i].photo2+' width="70px" height="70px"/>';
             }
-            if(json.data[i].photo3!=null){
-                commentsDiv.innerHTML+='<img src='+json.data[i].photo3+' width="70px" height="70px"/>';
+            if(json[i].photo3!=null){
+                commentsDiv.innerHTML+='<img src='+json[i].photo3+' width="70px" height="70px"/>';
             }
-            if(json.data[i].photo4!=null){
-                commentsDiv.innerHTML+='<img src='+json.data[i].photo4+' width="70px" height="70px"/>';
+            if(json[i].photo4!=null){
+                commentsDiv.innerHTML+='<img src='+json[i].photo4+' width="70px" height="70px"/>';
             }
-            if(json.data[i].photo5!=null){
+            if(json[i].photo5!=null){
                 commentsDiv.innerHTML+='<img src='+json.data[i].photo5+' width="70px" height="70px"/>';
             }
-            if(json.data[i].photo6!=null){
-                commentsDiv.innerHTML+='<img src='+json.data[i].photo6+' width="70px" height="70px"/>';
+            if(json[i].photo6!=null){
+                commentsDiv.innerHTML+='<img src='+json[i].photo6+' width="70px" height="70px"/>';
             }
 
             commentsDiv.innerHTML+='</div></div></div>';
@@ -231,29 +239,49 @@ function onreadyImage(){
 }
 
 //添加到购物车
-function add2Cart(){
-    var nu=document.getElementById("goodsnumber").value;
-
-    var json={goodsid:goodsID,number:nu};
+function add2Cart() {
     $.ajax({
-        url: "/addGoodsToCart",
-        type: "post",
-        data: json,
-        dataType: "json",
-        success: function (data) {
-            var receiveJSON=JSON.parse(data);
-            if(receiveJSON.status=="1"){
-                alert("已成功加入购物车！");
-            }else if(receiveJSON.status=="0"){
-                alert("购物车中已存在此商品！");
+        type: "POST",//方法类型
+        dataType: "json",//预期服务器返回的数据类型
+        url: "/judgeUser",//url
+        success: function (result) {
+            if (result.status == 1) { //是已登录用户
+                var nu = document.getElementById("goodsnumber").value;
+
+                var json = JSON.stringify({goodsid: goodsID, number: nu});
+                console.log(json);
+                $.ajax({
+                    url: "/addGoodsToCart",
+                    type: "POST",
+                    data: json,
+                    contentType:"application/json:charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        var receiveJSON = JSON.parse(data);
+                        if (receiveJSON.status == "1") {
+                            alert("已成功加入购物车！");
+                        } else if (receiveJSON.status == "0") {
+                            alert("购物车中已存在此商品！");
+                        }
+                    },
+                    error :function(){
+                        console.log(json);
+                    }
+                });
             }
+            else {
+                window.location.href = "../login.html";     //未登录则跳转到登录界面
+            }
+        },
+        error: function () {
+            window.location.href = "../login.html";         //未登录则跳转到登录界面
         }
-    });
-}
+    }),
 
 
 //立即购买
-function buyNow(){
+        function buyNow() {
 
+        }
 }
 

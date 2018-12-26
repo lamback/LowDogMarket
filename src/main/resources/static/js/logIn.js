@@ -36,7 +36,7 @@ creatCodeNums();
 
 //点击提交按钮发生的事件
  $("#sub").click(function(){
-	alert(1);
+	// alert(1);
 	if ($(".userInput").val() == "") {
 		$("#proPhone").text("用户名为必填");
 		$("#proPhone").css("color","#f46");
@@ -67,7 +67,7 @@ creatCodeNums();
 
 //验证码正确则调用账号密码检测
 	if( $("#proCode").text() == "OK"){
-	alert(2);
+	// alert(2);
 		check();
 		
 	}
@@ -78,7 +78,7 @@ creatCodeNums();
 function check(){
 	var name = $("#username").val();
     var password = $("#password").val();
-    alert(123);
+    // alert(123);
     var data2 = JSON.stringify({username:name,password:password});
     $.ajax({
         type:"POST",

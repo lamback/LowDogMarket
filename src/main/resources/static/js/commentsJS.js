@@ -1,4 +1,4 @@
-var goodsID=12;
+var goodsID;
 
 //获取评论数
 function getCommentAccount(){
@@ -16,23 +16,20 @@ function onCommentReady(){
 
 //添加图片
 function addImage(){
-    var fso,file;
-    var path="";
-    fso=new ActiveXObject("Scripting.FileSystemObject");
-    file=fso.GetFile(path);
-    alert(file);
+
 
 }
 
+//提交评论
 function submitComments(){
     //评论商品
     var commentgoods=document.getElementById("commentgoods").value;
     console.log(commentgoods);
 
-    var json={
+    var json=JSON.stringify({
         goodsid:goodsID,
         comments:commentgoods
-    };
+    });
 
     $.ajax({
         url: "/writeComment",
@@ -40,14 +37,19 @@ function submitComments(){
         data: json,
         contentType:'application/json;charset=utf-8',
         dataType: "json",
-        success: function (data) {
-
+        success: function () {
+            alert("评论成功！！");
+        },
+        error: function(){
+            alert("评论失败！");
         }
     });
-    alert("评论成功！！");
+
     window.location.href="userOrder.html";
 }
 
+
+//测试评论
 function testComment(){
     var commentgoods=document.getElementById("commentgoods").value;
     console.log(commentgoods);
@@ -59,9 +61,77 @@ function testComment(){
     alert(json.goodsid+"++++++++"+json.comments);
     window.location.href="userOrder.html";
 }
+
 //重置评论
 function resetComments(){
     document.getElementById("commentgoods").value='';
     document.getElementById("commentservice").value='';
     document.getElementById("add-photo").value='';
+}
+
+function start1(myvalue){
+    for(var i=1;i<=5;i++){//将所有都变白星星
+        document.getElementById("1"+i).innerHTML="<p >☆</p>";
+        document.getElementById("1"+i).setAttribute("style","color:black");
+    }
+    if(myvalue<3){
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("1"+i).innerHTML="<p >★</p>";
+            document.getElementById("1"+i).setAttribute("style","color:gray");
+        }
+    }else if(myvalue<5){
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("1"+i).innerHTML="<p >★</p>";
+            document.getElementById("1"+i).setAttribute("style","color:orange");
+        }
+    }else {
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("1"+i).innerHTML="<p >★</p>";
+            document.getElementById("1"+i).setAttribute("style","color:red");
+        }
+    }
+}
+function start2(myvalue){
+    for(var i=1;i<=5;i++){//将所有都变白星星
+        document.getElementById("2"+i).innerHTML="<p>☆</p>";
+        document.getElementById("2"+i).setAttribute("style","color:black");
+    }
+    if(myvalue<3){
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("2"+i).innerHTML="<p>★</p>";
+            document.getElementById("2"+i).setAttribute("style","color:gray");
+        }
+    }else if(myvalue<5){
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("2"+i).innerHTML="<p>★</p>";
+            document.getElementById("2"+i).setAttribute("style","color:orange");
+        }
+    }else {
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("2"+i).innerHTML="<p>★</p>";
+            document.getElementById("2"+i).setAttribute("style","color:red");
+        }
+    }
+}
+function start3(myvalue){
+    for(var i=1;i<=5;i++){//将所有都变白星星
+        document.getElementById("3"+i).innerHTML="<p>☆</p>";
+        document.getElementById("3"+i).setAttribute("style","color:black");
+    }
+    if(myvalue<3){
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("3"+i).innerHTML="<p>★</p>";
+            document.getElementById("3"+i).setAttribute("style","color:gray");
+        }
+    }else if(myvalue<5){
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("3"+i).innerHTML="<p>★</p>";
+            document.getElementById("3"+i).setAttribute("style","color:orange");
+        }
+    }else {
+        for(var i=1;i<=myvalue;i++){
+            document.getElementById("3"+i).innerHTML="<p>★</p>";
+            document.getElementById("3"+i).setAttribute("style","color:red");
+        }
+    }
 }
