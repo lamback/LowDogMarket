@@ -15,12 +15,12 @@
             color:gold;
         }
     </style>
-<body onload="initAJAX(),showTypesInmaket()">
+<body onload="initAJAX(),showTypesInmaket(),firstType()">
     <div class="headOFall" id="father2">
         <!--<div class="user">user,您好！</div>-->
-        <a href="#">客服</a>&nbsp;&nbsp;
+        <a href="shopManage.html">商店管理</a>&nbsp;&nbsp;
+        <a href="#">文档</a>&nbsp;&nbsp;
         <a href="#">帮助</a>&nbsp;&nbsp;
-        <a href="#">商店管理</a>&nbsp;&nbsp;
         <a href="#">注销</a>
     </div>
 
@@ -76,16 +76,30 @@
 
     <script>
         function showTypesInmaket() {
+            alert(1)
             var username;
             $.ajax({
                 type: "POST",//方法类\
                 dataType: "json",//预期服务器返回的数据类型
                 url: "/judgeUser",//url
                 error:function () {
-                    // alert("ERROR");
+                    alert("ERROR");
                 },
                 success: function (result) {
-                    username=result.username;
+                    // alert(result.usertype);
+                    if (result.usertype==0){
+                        var url=location.search;
+                        var length=url.length;
+                        var index=url.indexOf('=');
+                        var username=url.substring(index+1,length);
+                        // console.log(url+":"+username);
+                        alert(username);
+                    }
+                    else {
+                        var username=result.username;
+                        alert(1)
+                    }
+
                     // alert(username);
                     // alert(username);
                     var data = JSON.stringify({username:username});
@@ -134,7 +148,7 @@
                             "            <div class=\"message\">\n" +
                             "              <strong>"+result[i].name+"</strong>\n" +
                             "                <br>\n" +
-                            "                作者："+result[i].information+"\n" +
+                            "                "+result[i].information+"\n" +
                             "                <br>\n" +
                             "                ¥"+result[i].price+"\n" +
                             "                <br>\n" +
@@ -147,6 +161,36 @@
 
         }
 
+        function firstType() {
+            var username;
+            $.ajax({
+                type: "POST",//方法类\
+                dataType: "json",//预期服务器返回的数据类型
+                url: "/judgeUser",//url
+                error:function () {
+                    // alert("ERROR");
+                },
+                success: function (result) {
+                    username=result.username;
+                    // alert(username);
+                    // alert(username);
+                    var data = JSON.stringify({username:username});
+                    // alert(data);
+                    $.ajax({
+                        type: "POST",//方法类
+                        data:data,
+                        contentType:'application/json;charset=utf-8',
+                        dataType: "json",//预期服务器返回的数据类型
+                        url:"/allTypesInMarket",//url
+                        error:function () {
+                            // alert(2);
+                            alert("ERROR");
+                        },
+                        success: function (result) {
+                            showGoodsInMarket(result[0].type);
+                        }});
+                }});
+        }
     </script>
 
     <!----bottom_页脚部分----->

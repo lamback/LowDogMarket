@@ -35,20 +35,20 @@ public class UserController {
                 {
                     if (user.getUsertype()==1){
                         session.setAttribute("seller",username);     //存入卖家，让商家和普通用户登录时共用部分接口
-                        session.setAttribute("userName",username);
-                        session.setAttribute("userType",user.getUsertype());
+                        session.setAttribute("username",username);
+                        session.setAttribute("usertype",user.getUsertype());
                         result.put("status",1);
                         return result.toString();   //商家
                     }
                     if (user.getUsertype()==2)
                     {
-                        session.setAttribute("userName",username);        //登录成功，将用户名和用户类型存入session
-                        session.setAttribute("userType",user.getUsertype());
+                        session.setAttribute("username",username);        //登录成功，将用户名和用户类型存入session
+                        session.setAttribute("usertype",user.getUsertype());
                         result.put("status",2);
                         return result.toString();      //管理员
                     }
-                    session.setAttribute("userName",username);
-                    session.setAttribute("userType",user.getUsertype());
+                    session.setAttribute("username",username);
+                    session.setAttribute("usertype",user.getUsertype());
                     result.put("status",0);
                     return result.toString(); //普通用户
                 }
