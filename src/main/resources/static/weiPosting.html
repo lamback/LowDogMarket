@@ -1384,7 +1384,7 @@
             contentType:'application/json;charset=utf-8',
             dataType:"json",
             success: function(data){
-                for(var i=0;i<data.length;i++){
+                for(var i=data.length-1;i>=0;i--){
                     var text = data[i].comments;
                     var Id = data[i].username;
                     var time = data[i].postingsdate;
@@ -1395,11 +1395,11 @@
                         "                    <header>\n" +
                         "                        <h3 class=\"post-title\">\n" +
                         "                            <div style=\"float: left\">\n" +
-                        "                                <img class=\"contentDiv\" src=\"\">\n"+
+                        "                                <img class=\"contentDiv\" src=\"static/image/photo.jpg\">\n"+
                         "                            </div>\n" +
                         "\n" +
                         "                            <div style=\"padding-left: 64px;\">\n" +
-                        "                                <a href=\"static/image/photo.jpg\">"+Id+"</a>\n" +
+                        "                                <a href=\"\">"+Id+"</a>\n" +
                         "                                <p class=\"time-font\">"+time+"</p>\n" +
                         "                            </div>\n" +
                         "                        </h3>\n" +
@@ -1447,49 +1447,49 @@
                     switch (PicNumber) {
                         case 1:document.getElementsByClassName("showImg")[i].appendChild(Img1);break;
                         case 2:
-                            Img1.width = 970/2;
+                            Img1.width = 970/4;
                             Img2.width = Img1.width;
-                            Img1.height = 645;
+                            Img1.height = 645/2;
                             Img2.height = Img1.height;
                             document.getElementsByClassName("showImg")[i].appendChild(Img1);
                             document.getElementsByClassName("showImg")[i].appendChild(Img2);
                             break;
                         case 3:
-                            Img1.width = 970/3;
-                            Img2.width = 970/3;
-                            Img3.width = 970/3;
-                            Img1.height = 645;
-                            Img2.height = 645;
-                            Img3.height = 645;
+                            Img1.width = 970/6;
+                            Img2.width = 970/6;
+                            Img3.width = 970/6;
+                            Img1.height = 645/2;
+                            Img2.height = 645/2;
+                            Img3.height = 645/2;
                             document.getElementsByClassName("showImg")[i].appendChild(Img1);
                             document.getElementsByClassName("showImg")[i].appendChild(Img2);
                             document.getElementsByClassName("showImg")[i].appendChild(Img3);
                             break;
                         case 4:
-                            Img1.width = 970/2;
-                            Img2.width = 970/2;
-                            Img3.width = 970/2;
-                            Img4.width = 970/2;
-                            Img1.height = 645/2;
-                            Img2.height = 645/2;
-                            Img3.height = 645/2;
-                            Img4.height = 645/2;
+                            Img1.width = 970/4;
+                            Img2.width = 970/4;
+                            Img3.width = 970/4;
+                            Img4.width = 970/4;
+                            Img1.height = 645/4;
+                            Img2.height = 645/4;
+                            Img3.height = 645/4;
+                            Img4.height = 645/4;
                             document.getElementsByClassName("showImg")[i].appendChild(Img1);
                             document.getElementsByClassName("showImg")[i].appendChild(Img2);
                             document.getElementsByClassName("showImg")[i].appendChild(Img3);
                             document.getElementsByClassName("showImg")[i].appendChild(Img4);
                             break;
                         case 5:
-                            Img1.width = 970/2;
-                            Img2.width = 970/2;
-                            Img3.width = 970/2;
-                            Img4.width = 970/2;
-                            Img5.width = 970;
-                            Img1.height = 645;
-                            Img2.height = 645;
-                            Img3.height = 645;
-                            Img4.height = 645;
-                            Img5.height = 645;
+                            Img1.width = 970/4;
+                            Img2.width = 970/4;
+                            Img3.width = 970/4;
+                            Img4.width = 970/4;
+                            Img5.width = 970/2;
+                            Img1.height = 645/2;
+                            Img2.height = 645/2;
+                            Img3.height = 645/2;
+                            Img4.height = 645/2;
+                            Img5.height = 645/2;
                             document.getElementsByClassName("showImg")[i].appendChild(Img1);
                             document.getElementsByClassName("showImg")[i].appendChild(Img2);
                             document.getElementsByClassName("showImg")[i].appendChild(Img3);
@@ -1497,17 +1497,17 @@
                             document.getElementsByClassName("showImg")[i].appendChild(Img5);
                             break;
                         case 6:
-                            Img1.width = 970/3;
-                            Img2.width = 970/3;
-                            Img3.width = 970/3;
-                            Img4.width = 970/3;
-                            Img5.width = 970/3;
-                            Img6.width = 970/3;
-                            Img1.height = 645/2;
-                            Img2.height = 645/2;
-                            Img3.height = 645/2;
-                            Img4.height = 645/2;
-                            Img5.height = 645/2;
+                            Img1.width = 970/6;
+                            Img2.width = 970/6;
+                            Img3.width = 970/6;
+                            Img4.width = 970/6;
+                            Img5.width = 970/6;
+                            Img6.width = 970/6;
+                            Img1.height = 645/4;
+                            Img2.height = 645/4;
+                            Img3.height = 645/4;
+                            Img4.height = 645/4;
+                            Img5.height = 645/4;
                             document.getElementsByClassName("showImg")[i].appendChild(Img1);
                             document.getElementsByClassName("showImg")[i].appendChild(Img2);
                             document.getElementsByClassName("showImg")[i].appendChild(Img3);
