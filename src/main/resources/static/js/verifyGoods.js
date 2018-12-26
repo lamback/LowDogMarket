@@ -42,6 +42,7 @@ function pass (goodsid) {
         },error:function () {
             alert("审核通过失败");
 
+    }
     })
 }
 
@@ -60,5 +61,6 @@ function unpass (username) {
         },error:function () {
             alert("审核不通过失败");
 
+    }
     })
 }
