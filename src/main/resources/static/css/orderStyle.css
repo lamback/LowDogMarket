@@ -215,3 +215,15 @@
     height: 20px;
 }
 
+#comments-a{
+    display: inline-block;
+    text-align: center;
+    background-color: #ececec;
+    font-size: 16px;
+    width:80px;
+    height: 26px;
+    border: #bfbdbc 1px solid;
+    position: relative;
+    top: 34px;
+}
+

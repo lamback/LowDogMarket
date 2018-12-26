@@ -16,4 +16,9 @@ public interface PostingsService {
         点赞
      */
     Boolean changePraiseNumber(int postingsid);
+
+    /*
+        发帖子
+     */
+    Boolean addPostings(Postings postings);
 }

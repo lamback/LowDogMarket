@@ -4,21 +4,21 @@
     <meta charset="utf-8">
     <title>商品页面</title>
     <link href="css/goodsdetail.css" rel="stylesheet" type="text/css">
-    <link href="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/css/footer.css" rel="stylesheet" type="text/css">
-    <script src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/js/jquery-1.9.1.min.js"></script>
-    <script src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/js/goodsdetailcommon.js"></script>
-    <script src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/js/goodsdetail.js"></script>
+    <link href="css/footer.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/goodsdetailcommon.js"></script>
+    <script src="js/goodsdetail.js"></script>
 </head>
 
-<body onload="testReady()">
+<body onload="onGoodsReady()">
 <!-----header部分------->
 <div class="header">
 <div class="top">
 	<div class="top1">
 		<a href="#">登录</a>
         <a href="#">注册</a>
-		<a href="#"><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/index_img/top1.jpg">我的购物车</a>
-		<a href="#"><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/index_img/top3.jpg">联系我们</a>
+		<a href="#"><img src="image/index_img/top1.jpg">我的购物车</a>
+		<a href="#"><img src="image/index_img/top3.jpg">联系我们</a>
 	</div>
 </div>
 <!-----logo_search部分------->
@@ -87,31 +87,28 @@
             <input type="button" value="+" id="increase" class="goods-number" onclick="goodsnumber_increase()"/>
         </div>
 
-        <p class="buy">
-            <button id="firstbuy" onclick="buyNow()">立即购买</button>
-            <button class="add2Cart" onclick="add2Cart()"><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/index_img/cartlogo.PNG" class="cartlogo"/><samp class="cart-font">加入购物车</samp></button>
-        </p>
+        <p class="buy"><a href="#" id="firstbuy">立即购买</a><a href="#" onclick="add2Cart()">加入购物车</a></p>
    		<div class="clear"></div>
 
         <div class="share">
-            <a href="#" id="sharewithFri" ><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/share.PNG" class="share-image"/><samp class="share-font">分享</samp></a>
-            <a href="#" id="collection" ><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/collection.PNG" class="share-image"/><samp class="share-font">收藏商品（956人气）</samp></a>
+            <a href="#" id="sharewithFri" ><img src="image/shopdetail/share.PNG" class="share-image"/><samp class="share-font">分享</samp></a>
+            <a href="#" id="collection" ><img src="image/shopdetail/collection.PNG" class="share-image"/><samp class="share-font">收藏商品（956人气）</samp></a>
         </div>
         <!--服务承若-->
         <div class="service">
             <samp class="service-main">服务承若：</samp>
-            <img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/serviceprovince1.PNG" class="service-image"/><samp class="service-list">退货补运费</samp>
-            <img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/serviceprovince2.PNG" class="service-image"/><samp class="service-list">7天无理由</samp>
-            <img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/serviceprovince3.PNG" class="service-image"/><samp class="service-list">全国包邮</samp>
-            <img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/serviceprovince4.PNG" class="service-image"/><samp class="service-list">72小时发货</samp>
+            <img src="image/shopdetail/serviceprovince1.PNG" class="service-image"/><samp class="service-list">退货补运费</samp>
+            <img src="image/shopdetail/serviceprovince2.PNG" class="service-image"/><samp class="service-list">7天无理由</samp>
+            <img src="image/shopdetail/serviceprovince3.PNG" class="service-image"/><samp class="service-list">全国包邮</samp>
+            <img src="image/shopdetail/serviceprovince4.PNG" class="service-image"/><samp class="service-list">72小时发货</samp>
         </div>
         <!--支付方式-->
         <div class="pay">
             <samp class="pay-main">支付方式：</samp>
-            <a><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/pay1.PNG" class="pay-image"/></a>
-            <a><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/pay2.PNG" class="pay-image"/></a>
-            <a><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/pay3.PNG" class="pay-image"/></a>
-            <a><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/pay4.PNG" class="pay-image"/></a>
+            <a><img src="image/shopdetail/pay1.PNG" class="pay-image"/></a>
+            <a><img src="image/shopdetail/pay2.PNG" class="pay-image"/></a>
+            <a><img src="image/shopdetail/pay3.PNG" class="pay-image"/></a>
+            <a><img src="image/shopdetail/pay4.PNG" class="pay-image"/></a>
         </div>
     </div>
 
@@ -125,10 +122,10 @@
 	<div class="classify">
     	<div class="shopim">
             <!---------------------------店铺名称--------------------->
-        	<p class="name" ><samp class="shopname-font"   id="shopname" >青蛙工艺家居</samp><img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/tell01.png" width="22" height="22"></p>
-       		 <img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/tellbottom.png">
-       		 <p class="sc">收藏店铺</p>
-             <p class="sc"><button class="enterbutton" onclick="enterShop()">进入店铺</button></p>
+        	<p class="name" ><samp class="shopname-font"   id="shopname" >青蛙工艺家居</samp><img src="image/shopdetail/tell01.png" width="22" height="22"></p>
+       		 <img src="image/shopdetail/tellbottom.png">
+            <p class="sc">收藏店铺</p>
+             <p class="sc"><a href="#" id="entershop">进入店铺</a></p>
 	         <div class="search">
 			<input class="left" type="text" />
 			<input class="right" type="button" style=" cursor:pointer;" value=""/>
@@ -157,7 +154,7 @@
             <!---------评论-------------->
             <div class="panel" id="panel02">
                 <p class="sell">买家评价</p>
-                <img src="../../../../../../../Documents/Tencent%20Files/1461440620/FileRecv/finalTest/static/image/shopdetail/detail101.png">
+                <img src="image/shopdetail/detail101.png">
                 <p class="judge">全部评价(<samp id="commentsnumber"></samp>)</p>
 
             </div>

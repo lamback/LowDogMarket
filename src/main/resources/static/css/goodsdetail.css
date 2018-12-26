@@ -9,7 +9,7 @@ body{
 	   margin:0; padding:0;
 	   }
 a{
-	 text-decoration:none;
+	 text-decoration:none; 
 	 color:#333;
 	  font-size:12px;
 	  }
@@ -344,6 +344,26 @@ img{
 	font-size: 15px;
 	color: #7f7d7c;
 	margin-right: 10px;
+}
+.centerbox .buy{
+	margin-left:30px;
+	margin-top:25px;
+}
+.centerbox .buy a{
+
+	display:block;
+	width:200px;
+	height:50px;
+	color:#000;
+	border:1px solid #ccc;
+	float:left;
+	font-size:16px;
+	font-weight:bold;
+	font-family:Microsoft YaHei,arial;
+	margin-left:10px;
+	background-color:#fff;
+	text-align:center;
+	line-height:50px;
 }
 
 .pay .pay-main{
