@@ -76,22 +76,30 @@
               data: {},
               dataType: "json",        //返回数据形式为json
               success: function (data) {
-                  alert(data);
+                  // alert(data);
                   //请求成功时执行该函数内容，result即为服务器返回的json对象
                   // if (data) {
                       for (var i = 0; i < data.length; i++) {/*-*/
-                          alert(data[i].name);
+                          // alert(data[i].name);
                           names.push(data[i].name);    //挨个取出类别并填入类别数组
                       }
                       for (var i = 0; i < data.length; i++) {
-                          alert(data[i].sellnumber);
+                          // alert(data[i].sellnumber);
                           nums.push(data[i].sellnumber);    //挨个取出销量并填入销量数组
                       }
                       // myChart.hideLoading();    //隐藏加载动画
-                      myChart.setOption({        //加载数据图表
+                      myChart.setOption({
+                          title: {
+                              text: '销量排行榜'
+                          },
+                          tooltip: {},  //悬浮框
+                          legend: {     //图例
+                              data:['销量']
+                          },//加载数据图表
                           xAxis: {
                               data: names
                           },
+                          yAxis: {},
                           series: [{
                               // 根据名字对应到相应的系列
                               name: '销量',

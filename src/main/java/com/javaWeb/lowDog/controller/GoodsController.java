@@ -151,6 +151,7 @@ public class GoodsController {
             temp.put("photo",goods.getPhoto());
             result.add(temp);
         }
+//        System.out.println(result.toString());
         return result.toString();
     }
 
