@@ -76,10 +76,10 @@
 
     <script>
         function showTypesInmaket() {
-            alert(1)
+            // alert(1)
             var username;
             $.ajax({
-                type: "POST",//方法类\
+                type: "POST",//方法类
                 dataType: "json",//预期服务器返回的数据类型
                 url: "/judgeUser",//url
                 error:function () {
@@ -97,7 +97,7 @@
                     }
                     else {
                         var username=result.username;
-                        alert(1)
+                        // alert(1)
                     }
 
                     // alert(username);
