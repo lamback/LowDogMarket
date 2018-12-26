@@ -1378,12 +1378,13 @@
 <!-- script -->
 <script>
     function load(){
-        $.ajax( {
+        $.ajax({
             url:"/getAllPostings",
             type: "POST",
             contentType:'application/json;charset=utf-8',
             dataType:"json",
             success: function(data){
+                alert(data.length)
                 for(var i=0;i<data.length;i++){
                     var text = data[i].comments;
                     var Id = data[i].username;
