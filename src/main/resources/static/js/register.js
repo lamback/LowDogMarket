@@ -1,6 +1,6 @@
 //点击提交按钮发生的事件
 $("#sub").click(function() {
-    alert(9);
+    // alert(9);
     // alert(1);
     // console.log($(".userInput").val());
     // 输入框为空提示事件
@@ -38,11 +38,11 @@ $("#sub").click(function() {
         var sex=$("#sex").val();
         var seller=$("#seller").val();
 
-        alert(name);
-        alert(password);
-        alert(phone);
-        alert(address);
-        alert(sex);
+        // alert(name);
+        // alert(password);
+        // alert(phone);
+        // alert(address);
+        // alert(sex);
 
          var data2 = JSON.stringify({username:name,password:password,usertype:"0",gender:sex,phone:phone,address:address});
         $.ajax({

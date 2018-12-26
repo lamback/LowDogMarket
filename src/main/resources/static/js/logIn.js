@@ -67,7 +67,7 @@ creatCodeNums();
 
 //验证码正确则调用账号密码检测
 	if( $("#proCode").text() == "OK"){
-	
+	alert(2);
 		check();
 		
 	}
@@ -90,9 +90,9 @@ function check(){
             if(result.status==0){
                 window.location.href="index.html";
             }else if(result.status==1){
-                window.location.href="index.html";
+                window.location.href="SellerFirstPage.html";
             }else if(result.status==2){
-                window.location.href="index.html";
+                window.location.href="deleteSeller.html";
             }else{
                 alert("账号或者密码有误，请确认账号和密码");
             }
