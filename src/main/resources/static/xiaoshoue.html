@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>echartDemo1</title>
+
+    <style type="text/css">
+		
+		#main{
+			width: 1000px;
+			height: 500px;
+			margin: 30px  auto;
+		}
+    </style>
+</head>
+<body>
+<!-- 本示例未采用ajax传输，数据直接编写 -->
+    <div id="main" align="center"></div>
+
+    <script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/echarts.common.min.js"></script>
+    <script type="text/javascript">
+    
+    	var myChart = echarts.init(document.getElementById('main'));
+    	option = {
+		    title : {
+		        text: '商城近四年销售额',
+		    },
+		    tooltip : {
+		        // trigger: 'axis'
+		    },
+		    legend: {
+		        // data:['最高气温','最低气温']
+		        data:['2015年','2016年','2017年','2018年']
+		    },
+		    toolbox: {
+		        show : true,
+		        feature : {
+		            mark : {show: true},
+		            dataView : {show: true, readOnly: false},
+		            magicType : {show: true, type: ['line', 'bar','pie']},
+		            restore : {show: true},
+		            saveAsImage : {show: true}
+		        }
+		    },
+		    // calculable : true,
+		    xAxis : [
+		        {
+		            type : 'category',
+		            boundaryGap : true,
+		            data : ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+		            scale: true,
+		            min: '80',
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value',
+		            axisLabel : {
+		                formatter: '{value} 万元'
+		            }
+		        }
+		    ],
+
+
+
+
+		    series : [
+		        {
+		            name:'2015年',
+		            type:'line',
+		            data:[110, 115, 130, 139, 138, 145, 150,160,165,166,170,171],
+		            // markPoint : {
+		            //     data : [
+		            //         {type : 'max', name: '最大值'},
+		            //         {type : 'min', name: '最小值'}
+		            //     ]
+		            // },
+		            markLine : {
+		                data : [
+		                    {type : 'average', name: '平均值'}
+		                ]
+		            }
+		        },
+		        {
+		            name:'2016年',
+		            type:'line',
+		            data:[180, 182, 192, 195, 193, 212, 230,230,225,232,237,240],
+		            // markPoint : {
+		            //     data : [
+		            //         {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+		            //     ]
+		            // },
+		            markLine : {
+		                data : [
+		                    {type : 'average', name : '平均值'}
+		                ]
+		            }
+		        },
+
+		        {
+		            name:'2017年',
+		            type:'line',
+		            data:[231, 235, 236, 247, 249, 248, 250,255,262,270,271,269],
+		            // markPoint : {
+		            //     data : [
+		            //         {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+		            //     ]
+		            // },
+		            markLine : {
+		                data : [
+		                    {type : 'average', name : '平均值'}
+		                ]
+		            }
+		        },
+
+		        {
+		            name:'2018年',
+		            type:'line',
+		            data:[271, 272, 282, 295, 303, 300, 304,310,315,316,323,330],
+		            // markPoint : {
+		            //     data : [
+		            //         {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+		            //     ]
+		            // },
+		            markLine : {
+		                data : [
+		                    {type : 'average', name : '平均值'}
+		                ]
+		            }
+		        }
+		    ]
+		};
+        myChart.setOption(option);
+ 
+    </script>
+    </body>
+</html>

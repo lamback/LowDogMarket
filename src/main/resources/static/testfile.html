@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="importFile" />
+<input type="button" onclick="upload()"/>
+
+<img src="" alt="">
+
+<script>
+    function upload() {
+        var filename = document.getElementById("importFile").value;
+        // 这时的filename不是 importFile 框中的值
+        alert(filename);
+        var img=document.getElementsByTagName("img");
+        img[0].style.src=filename;
+    }
+
+
+</script>
+</body>
+</html>

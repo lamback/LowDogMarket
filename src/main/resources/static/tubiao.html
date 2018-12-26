@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	
+	<div id="main" style="width: 600px;height: 500px"></div>
+
+<!--     <button onclick="chart()">查看饼状图</button> -->
+    
+    <div id="main2" style="width: 600px;height: 500px"></div>
+
+	<script src="js/echarts.common.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript">
+
+
+            //ajax取数据
+            // var data=10;
+            // $.post(
+            //      "url.html",   //存储数据的url
+            //      {},
+            //      function(data){
+            //         data=this.data;
+            //      }
+            // )
+
+            // for(i=0;i<data.length;i++){
+            //     alert(data[i].name);
+
+            //     alert(data[i].value);
+            // }
+
+    //柱形图表内容
+    	var myChart = echarts.init(document.getElementById('main'));
+
+    	var option = {
+            title: {
+                text: '销量排行榜'
+            },
+            tooltip: {},  //悬浮框
+            legend: {     //图例
+                data:['销量']
+            },
+            xAxis: {
+                // data: ["商家1","商家2","商家3","商家4","商家5","商家6"]
+                data: []
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                // data: [500, 2000, 3600, 1000, 1000, 2000]
+                data: []
+            }]
+        };
+        // myChart.setOption(option);
+
+
+        //ajax取数据
+        var names = [];    //类别数组（实际用来盛放X轴坐标值）
+        var nums = [];    //销量数组（实际用来盛放Y坐标值）
+
+        $.ajax({
+              type: "post",
+              async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+              url: "salesRanking",
+              data: {},
+              dataType: "json",        //返回数据形式为json
+              success: function (data) {
+                  //请求成功时执行该函数内容，result即为服务器返回的json对象
+                  // if (data) {
+                      for (var i = 0; i < data.length; i++) {/*-*/
+                          alert(data[i].name);
+                          names.push(data[i].name);    //挨个取出类别并填入类别数组
+                      }
+                      for (var i = 0; i < data.length; i++) {
+                          nums.push(data[i].num);    //挨个取出销量并填入销量数组
+                      }
+                      // myChart.hideLoading();    //隐藏加载动画
+                      myChart.setOption({        //加载数据图表
+                          xAxis: {
+                              data: names
+                          },
+                          series: [{
+                              // 根据名字对应到相应的系列
+                              name: '销量',
+                              data: nums
+                          }]
+                      });
+
+                  // }
+
+              },
+              // error: function (errorMsg) {
+              //     //请求失败时执行该函数
+              //     alert("图表请求数据失败!");
+              //     myChart.hideLoading();
+              // }
+          })
+
+        // 饼状图内容
+        // var myChart2 = echarts.init(document.getElementById('main2'));
+
+        // var option = {
+        //     title: {
+        //         text: '商家销量排行榜'
+        //     },
+        //     tooltip: {},  //悬浮框
+        //     legend: {     //图例,点击可以使date数据隐藏
+        //         data:['销量']
+        //     },
+          
+        //     series: [{
+        //         name: '销量',
+        //         type: 'pie',
+        //         data:[
+        //             {value:5,name:"衬衫"},
+        //             {value:20,name:"羊毛衫"},
+        //             {value:36,name:"雪纺衫"},
+        //             {value:10,name:"裤子"},
+        //             {value:10,name:"高跟鞋"},
+        //             {value:20,name:"袜子"}
+        //             ]
+        //     }]
+        // };
+        // myChart2.setOption(option);
+	</script>
+
+</body>
+</html>
