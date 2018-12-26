@@ -9,6 +9,7 @@ function load(){
                 var text = data[i].comments;
                 var Id = data[i].username;
                 var time = data[i].postingsdate;
+                var H_ImgSrc ="image/TouXiang/"+i+".jpg";
                 var PraiseNumber = parseInt(data[i].praise);
                 var Postingsid = pdata[i].postingsid;
                 var xinId = "xin"+i;
@@ -17,7 +18,7 @@ function load(){
                     "                    <header>\n" +
                     "                        <h3 class=\"post-title\">\n" +
                     "                            <div style=\"float: left\">\n" +
-                    "                                <img class=\"contentDiv\" src=\"image/photo.jpg\">\n"+
+                    "                                <img class=\"contentDiv\" src="+H_ImgSrc+">\n"+
                     "                            </div>\n" +
                     "\n" +
                     "                            <div style=\"padding-left: 64px;\">\n" +
@@ -39,48 +40,48 @@ function load(){
                 Img1 = new Image();
                 if (typeof (data[i].photo1)!="undefined"){
                     Img1.src = data[i].photo1;
-                    Img1.height = 100;
-                    Img1.width = 100;
+                    Img1.height = 250;
+                    Img1.width = 250;
                     document.getElementsByClassName("showImg")[j].appendChild(Img1);
                     PicNumber+=1;
                 }
                 Img2 = new Image();
                 if (typeof (data[i].photo2)!="undefined"){
                     Img2.src = data[i].photo2;
-                    Img2.height = 100;
-                    Img2.width = 100;
+                    Img2.height = 250;
+                    Img2.width = 250;
                     document.getElementsByClassName("showImg")[j].appendChild(Img2);
                     PicNumber+=1;
                 }
                 Img3 = new Image();
                 if (typeof (data[i].photo3)!="undefined"){
                     Img3.src = data[i].photo3;
-                    Img3.height = 100;
-                    Img3.width = 100;
+                    Img3.height = 250;
+                    Img3.width = 250;
                     document.getElementsByClassName("showImg")[j].appendChild(Img3);
                     PicNumber+=1;
                 }
                 Img4 = new Image();
                 if (typeof (data[i].photo4)!="undefined"){
                     Img4.src = data[i].photo4;
-                    Img4.height = 100;
-                    Img4.width = 100;
+                    Img4.height = 250;
+                    Img4.width = 250;
                     document.getElementsByClassName("showImg")[j].appendChild(Img4);
                     PicNumber+=1;
                 }
                 Img5 = new Image();
                 if (typeof (data[i].photo5)!="undefined"){
                     Img5.src = data[i].photo5;
-                    Img5.height = 100;
-                    Img5.width = 100;
+                    Img5.height = 250;
+                    Img5.width = 250;
                     document.getElementsByClassName("showImg")[j].appendChild(Img5);
                     PicNumber+=1;
                 }
                 Img6 = new Image();
                 if (typeof (data[i].photo6)!="undefined"){
                     Img6.src = data[i].photo6;
-                    Img6.height = 100;
-                    Img6.width = 100;
+                    Img6.height = 250;
+                    Img6.width = 250;
                     document.getElementsByClassName("showImg")[j].appendChild(Img6);
                     PicNumber+=1;
                 }
@@ -92,25 +93,6 @@ function load(){
     })
 }
 
-// function dz(i) {
-//     var xmlHttp2 = new XMLHttpRequest();
-//     xmlHttp2.open("post","/changePraiseNumber",true);
-//     xmlHttp2.onreadystatechange=function(){
-//         if ((xmlHttp2.readyState==4&&xmlHttp2.status==200)){
-//             var Id = "xin"+i;
-//             var xin = document.getElementById(Id);
-//             var num = parseInt(document.getElementsByClassName("dzs")[i].innerHTML.toString());
-//             if (xin.style.color=="rgb(204, 204, 204)"||xin.style.color==""){
-//                 xin.style.color="#f00";
-//                 document.getElementsByClassName("dzs")[i].innerHTML = (num+1);
-//             }
-//             else{
-//                 //xin.style.color="#ccc";
-//             }
-//         }
-//     };
-//     xmlHttp2.send();
-// }
 
 function like(i,P_id){
     var data=JSON.stringify({postingsid:P_id})
@@ -137,9 +119,7 @@ function like(i,P_id){
 
 window.onload=function ()
 {
-
     var loginText=document.getElementById("loginText");
-
 
     $.ajax({
         type: "POST",//方法类型
