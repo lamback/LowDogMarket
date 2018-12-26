@@ -88,16 +88,10 @@
     <input type="button"  value="确认图片" onclick="upload()"/>
     <img src="" height="200" title="preview-img" class="showPic">
     <script>
+
         var nowPic = 0;
-        var Data ={
-            photo1:"",
-            photo2:"",
-            photo3:"",
-            photo4:"",
-            photo5:"",
-            photo6:"",
-            comments:""
-        };
+        var ph1,ph2,ph3,ph4,ph5,ph6;
+
         var fileInput = document.querySelector('input[type=file]'),
             previewImg = document.getElementsByClassName("showPic")[0];
         fileInput.addEventListener('change', function () {
@@ -116,12 +110,12 @@
             var s = getPath(document.getElementById("importFile"));
             if (s!="") nowPic+=1;
             switch (nowPic) {
-                case 1: Data.photo1 = s;break;
-                case 2: Data.photo2 = s;break;
-                case 3: Data.photo3 = s;break;
-                case 4: Data.photo4 = s;break;
-                case 5: Data.photo5 = s;break;
-                case 6: Data.photo6 = s;break;
+                case 1: ph1=s;break;
+                case 2: ph2=s;break;
+                case 3: ph3=s;break;
+                case 4: ph4=s;break;
+                case 5: ph5=s;break;
+                case 6: ph6=s;break;
             }
             document.getElementById("importFile").value ="";
             alert("当前已经上传了"+nowPic+"张图片！");
@@ -150,7 +144,11 @@
             }
         }
         function PostTZ() {
-            Data.comments = document.getElementsByTagName('textarea')[0].value;
+            var com = document.getElementsByTagName('textarea')[0].value;
+            var Data = JSON.stringify({
+                comments:com
+                ,photo1:ph1,photo2:ph2,photo3:ph3,photo4:ph4,photo5:ph5,photo6:ph6
+                });
             $.ajax( {
                 url:"/addPostings",
                 type: "POST",

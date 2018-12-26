@@ -10,7 +10,7 @@ function load(){
                 var Id = data[i].username;
                 var time = data[i].postingsdate;
                 var PraiseNumber = parseInt(data[i].praise);
-                var Postingsid = pdata[i].postingsid;
+                var Postingsid = data[i].postingsid;
                 var xinId = "xin"+i;
                 document.getElementById("PageContent").innerHTML +=
                     "<article class=\"format-standard type-post hentry\">\n" +
@@ -31,7 +31,7 @@ function load(){
                     "                    <div class=\"post-meta clearfix\" style=\"width: 900px\">\n" +
                     "<span class=\"dzs\">"+PraiseNumber+"</span>"+
                     "                        <span class=\"like-count like\" id=" +xinId+
-                    "  onclick=\"like("+i+","+Postingsid+")\">&#10084;</span>\n" +
+                    "  onclick=\"like("+i+","+j+","+Postingsid+")\">&#10084;</span>\n" +
                     "                    </div>\n" +
                     "                </article>";
 
@@ -112,7 +112,7 @@ function load(){
 //     xmlHttp2.send();
 // }
 
-function like(i,P_id){
+function like(i,j,P_id){
     var data=JSON.stringify({postingsid:P_id})
     $.ajax( {
         url:"/changePraiseNumber",
@@ -123,10 +123,10 @@ function like(i,P_id){
         success: function(){
             var Id = "xin"+i;
             var xin = document.getElementById(Id);
-            var num = parseInt(document.getElementsByClassName("dzs")[i].innerHTML.toString());
+            var num = parseInt(document.getElementsByClassName("dzs")[j].innerHTML.toString());
             if (xin.style.color=="rgb(204, 204, 204)"||xin.style.color==""){
                 xin.style.color="#f00";
-                document.getElementsByClassName("dzs")[i].innerHTML = (num+1);
+                document.getElementsByClassName("dzs")[j].innerHTML = (num+1);
             }
         },
         error:function(){
