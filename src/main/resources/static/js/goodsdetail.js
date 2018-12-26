@@ -132,7 +132,7 @@ function goodsInfo(json){
     document.getElementById("price").innerHTML="￥"+goodsPrice;   //促销价
     var sellerName=json.seller;
     document.getElementById("shopname").innerHTML=sellerName;  //店铺名
-    document.getElementById("entershop").setAttribute("href","SellerFirstPage?username="+sellerName);
+    document.getElementById("entershop").setAttribute("href","SellerFirstPage.html?username="+sellerName);
     var information=json.information;
     document.getElementById("information").innerHTML=information;   //店铺优惠
     var sellnumber=json.sellnumber;
