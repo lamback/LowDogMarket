@@ -23,7 +23,7 @@
 .scroll_suv .bd{overflow:hidden;}
 .scroll_suv .bd ul{ overflow:hidden; zoom:1; }
 .scroll_suv .bd ul li{ margin:12px 2px 20px 2px; padding:15px 10px 20px 10px;float:left; _display:inline; overflow:hidden; text-align:center; width: 220px; position: relative;}
-#piclist li i{ display: block; width: 47px; position: absolute; top: 16px; right: 11px; height: 47px; font-size: 20px; color: #ffffff; text-indent:20px;font-weight: bold;background-image: url("../Image/icon.png"); background-repeat: no-repeat; }
+#piclist li i{ display: block; width: 47px; position: absolute; top: 16px; right: 11px; height: 47px; font-size: 20px; color: #ffffff; text-indent:20px;font-weight: bold;background-image: url("../image/icon.png"); background-repeat: no-repeat; }
 .scroll_suv .bd ul li .pic{ text-align:center; display: block;overflow: hidden; height: auto; }
 .scroll_suv .bd ul li .pic a{ display: block;border: 1px solid #efefef; width: 218px;overflow: hidden;}
 .scroll_suv .bd ul li .pic img{ width:100%; display:block;}

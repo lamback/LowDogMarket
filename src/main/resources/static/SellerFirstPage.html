@@ -76,13 +76,14 @@
 
     <script>
         function showTypesInmaket() {
+            alert(1)
             var username;
             $.ajax({
                 type: "POST",//方法类\
                 dataType: "json",//预期服务器返回的数据类型
                 url: "/judgeUser",//url
                 error:function () {
-                    // alert("ERROR");
+                    alert("ERROR");
                 },
                 success: function (result) {
                     // alert(result.usertype);
@@ -91,11 +92,12 @@
                         var length=url.length;
                         var index=url.indexOf('=');
                         var username=url.substring(index+1,length);
-                        console.log(url+":"+username);
+                        // console.log(url+":"+username);
                         alert(username);
                     }
                     else {
                         var username=result.username;
+                        alert(1)
                     }
 
                     // alert(username);
