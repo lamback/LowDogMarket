@@ -87,10 +87,9 @@ var vm=new Vue({
 		},
 		//点击增加或减少商品数量按钮后修改对应金额
 		changeMoney:function (product,way) {
-            var goodsid=$('#'+product.goodsid).serialize();
+            var goodsid=$('#'+product.goodsid).val();
 			if (way>0) {
 				product.number++;
-				alert(goodsid);
 				var data1=JSON.stringify({goodsid:goodsid,action: 1});
                 $.ajax({
                     type: "POST",//方法类型
@@ -101,7 +100,6 @@ var vm=new Vue({
                 })
 			}else{
 				product.number--;
-
                 var data2=JSON.stringify({goodsid:goodsid,action: 0});
                 $.ajax({
                     type: "POST",//方法类型
@@ -165,7 +163,8 @@ var vm=new Vue({
 			var index=this.productList.indexOf(item);
 			this.productList.splice(index,1);
 			this.getTotalMoney();
-            var goodsid=$("#product.goodsid").val();
+            var goodsid=$('#'+item.goodsid).val();
+            alert(goodsid);
             var data3=JSON.stringify({goodsid:goodsid,action: 2});
 
             $.ajax({
@@ -180,7 +179,8 @@ var vm=new Vue({
 		addorder: function (item) {
             this.productList.forEach(function (item,index) { //所选商品
                 if (item.check) {
-                    var goodsid=$("#product.goodsid").val();
+                    var goodsid=$('#'+item.goodsid).val();
+                    alert(goodsid);
                     var data4=JSON.stringify({goodsid:goodsid});
                     $.ajax({
                         type: "POST",//方法类型

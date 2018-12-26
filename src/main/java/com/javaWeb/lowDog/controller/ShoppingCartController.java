@@ -55,6 +55,7 @@ public class ShoppingCartController {
             JSONObject temp=new JSONObject();
 //            System.out.println(2);
             System.out.println(goods.toString());
+            temp.put("goodsid",goodsID);
             temp.put("name",goods.getName());
             temp.put("type",goods.getType());
             temp.put("photo",goods.getPhoto());
