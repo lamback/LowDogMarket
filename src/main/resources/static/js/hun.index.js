@@ -33,6 +33,7 @@ function getGoodsByType(type) {
             success: function (result) {        //传回该类型所有商品
                 alert(result);
                 var ul1=document.getElementById("piclist1");
+                ul1.innerHTML="";
                 for(let a=0;a<result.length;a++) ul1.innerHTML+="<li></li>";
                 var lilist1=ul1.getElementsByTagName("li");
                 for(var i1=0;i1<result.length;i1++)

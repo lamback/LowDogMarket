@@ -1,5 +1,6 @@
 window.onload=function ()
 {
+    onGoodsReady();
     var loginText=document.getElementById("loginText");
 
 
