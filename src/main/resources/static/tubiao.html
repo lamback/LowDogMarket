@@ -83,7 +83,7 @@
                           names.push(data[i].name);    //挨个取出类别并填入类别数组
                       }
                       for (var i = 0; i < data.length; i++) {
-                          nums.push(data[i].num);    //挨个取出销量并填入销量数组
+                          nums.push(data[i].sellnumber);    //挨个取出销量并填入销量数组
                       }
                       // myChart.hideLoading();    //隐藏加载动画
                       myChart.setOption({        //加载数据图表
@@ -93,6 +93,7 @@
                           series: [{
                               // 根据名字对应到相应的系列
                               name: '销量',
+                              type: 'bar',
                               data: nums
                           }]
                       });
@@ -100,11 +101,11 @@
                   // }
 
               },
-              // error: function (errorMsg) {
-              //     //请求失败时执行该函数
-              //     alert("图表请求数据失败!");
-              //     myChart.hideLoading();
-              // }
+              error: function () {
+                  //请求失败时执行该函数
+                  alert("图表请求数据失败!");
+                  // myChart.hideLoading();
+              }
           })
 
 
