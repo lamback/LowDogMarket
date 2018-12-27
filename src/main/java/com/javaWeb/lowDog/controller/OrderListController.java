@@ -60,7 +60,7 @@ public class OrderListController {
      */
     @RequestMapping(value = "/submitOrder",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
     public void submitOrder(@RequestBody JSONObject temp, HttpSession session) {
-        session.setAttribute("username","aaa");
+//        session.setAttribute("username","aaa");
 
             int goodsid=temp.getInteger("goodsid");
 //            Goods goods=goodsService.getGoodsNewsByGoodsID(goodsid);
@@ -76,3 +76,5 @@ public class OrderListController {
             shoppingCartService.deleteGoodsInCart(goodsid);
         }
 }
+
+

@@ -42,7 +42,7 @@ public class ShoppingCartController {
     @RequestMapping(value = "/showCart",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
     public String showCart(HttpSession session) {
 
-//        session.setAttribute("username","aaa");
+//        session.setAttribute("username","heizilanjin");
 
         String username=session.getAttribute("username").toString();
         JSONArray result=new JSONArray();
@@ -55,6 +55,7 @@ public class ShoppingCartController {
             JSONObject temp=new JSONObject();
 //            System.out.println(2);
             System.out.println(goods.toString());
+            temp.put("goodsid",goodsID);
             temp.put("name",goods.getName());
             temp.put("type",goods.getType());
             temp.put("photo",goods.getPhoto());
