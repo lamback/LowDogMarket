@@ -4,7 +4,7 @@ html,body{
 }
 /* 背景图 */
 body{
-    background:url(../image/login_background.jpg) no-repeat;
+    background:url(../image/loginbg.jpg) no-repeat;
     /*background-position:fixed;*/
     background-size:cover;
 }
@@ -49,8 +49,8 @@ body{
     width:400px;
     height:550px;
     position:absolute;
-    top:20px;
-    right:600px;
+    top:90px;
+    left:65px;
     box-shadow:0px 0px 7px #666;
     border-top:1px solid #f46;
 }
