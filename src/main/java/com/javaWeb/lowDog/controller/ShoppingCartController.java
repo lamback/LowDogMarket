@@ -26,7 +26,7 @@ public class ShoppingCartController {
         Shoppingcart shoppingcart=new Shoppingcart();
         shoppingcart.setGoodsid(data.getInteger("goodsid"));
         shoppingcart.setNumber(data.getInteger("number"));
-        session.setAttribute("username","heizilanjin");
+//        session.setAttribute("username","heizilanjin");
         shoppingcart.setUsername(session.getAttribute("username").toString());
         if(shoppingCartService.addGoodsToCart(shoppingcart,data.getInteger("goodsid"),session.getAttribute("username").toString())){
             temp.put("status",1);

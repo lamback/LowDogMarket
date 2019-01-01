@@ -180,7 +180,7 @@ var vm=new Vue({
             this.productList.forEach(function (item,index) { //所选商品
                 if (item.check) {
                     var goodsid=$('#'+item.goodsid).val();
-                    alert(goodsid);
+                    // alert(goodsid);
                     var data4=JSON.stringify({goodsid:goodsid});
                     $.ajax({
                         type: "POST",//方法类型

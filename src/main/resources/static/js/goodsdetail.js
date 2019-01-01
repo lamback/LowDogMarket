@@ -153,34 +153,35 @@ function goodsInfo(json){
 //将评论详情渲染到HTML中
 function getCommentsInfo(json) {
 
+    console.log(json);
     document.getElementById("commentsnumber").innerHTML=json.length;  //评论数
     document.getElementById("comment-account").innerHTML=json.length;
 
     var commentsDiv=document.getElementById("panel02");
     if(json.length>0){
-        for(var i=json.length-1;i>=0;i--){
+        for(var i=0;i<json.length;i++){
             commentsDiv.innerHTML+='<div class="judge01">' +
                 '<div class="idimg"><img src="image/shopdetail/detail102.png"/></div>' +
                 '<div class="write">' +
                 '<div>' +
                 '<p class="idname">'+json[i].username+'<samp class="comments-time">'+json[i].commentsdate+'</samp></p>' +
                 '<p class="which">'+json[i].comments+'</p>';
-            if(json[i].photo1!=null){
+            if(json[i].photo1!=undefined){
                 commentsDiv.innerHTML+='<img src='+json[i].photo2+' style="margin-left:50px;" width="70px" height="70px"/>';
             }
-            if(json[i].photo2!=null){
+            if(json[i].photo2!=undefined){
                 commentsDiv.innerHTML+='<img src='+json[i].photo2+' width="70px" height="70px"/>';
             }
-            if(json[i].photo3!=null){
+            if(json[i].photo3!=undefined){
                 commentsDiv.innerHTML+='<img src='+json[i].photo3+' width="70px" height="70px"/>';
             }
-            if(json[i].photo4!=null){
+            if(json[i].photo4!=undefined){
                 commentsDiv.innerHTML+='<img src='+json[i].photo4+' width="70px" height="70px"/>';
             }
-            if(json[i].photo5!=null){
-                commentsDiv.innerHTML+='<img src='+json.data[i].photo5+' width="70px" height="70px"/>';
+            if(json[i].photo5!=undefined){
+                commentsDiv.innerHTML+='<img src='+json[i].photo5+' width="70px" height="70px"/>';
             }
-            if(json[i].photo6!=null){
+            if(json[i].photo6!=undefined){
                 commentsDiv.innerHTML+='<img src='+json[i].photo6+' width="70px" height="70px"/>';
             }
 

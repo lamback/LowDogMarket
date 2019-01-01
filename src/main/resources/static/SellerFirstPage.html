@@ -18,7 +18,7 @@
 <body onload="initAJAX(),showTypesInmaket(),firstType()">
     <div class="headOFall" id="father2">
         <!--<div class="user">user,您好！</div>-->
-        <a href="shopManage.html">商店管理</a>&nbsp;&nbsp;
+        <a href="shopManage.html" id="storeManage">商店管理</a>&nbsp;&nbsp;
         <a href="#">文档</a>&nbsp;&nbsp;
         <a href="#">帮助</a>&nbsp;&nbsp;
         <a href="#">注销</a>
@@ -75,6 +75,37 @@
     </div>
 
     <script>
+
+        function allow() {
+            var username;
+            $.ajax({
+                type: "POST",//方法类
+                dataType: "json",//预期服务器返回的数据类型
+                url: "/judgeUser",//url
+                error:function () {
+
+                    alert("ERROR222");
+                },
+                success: function (result) {
+                    // alert(result.usertype);
+                    if (result.usertype==0){
+                        $("storeManage").hide();
+                        var url=location.search;
+                        var length=url.length;
+                        var index=url.indexOf('=');
+                        var username=url.substring(index+1,length);
+                        // console.log(url+":"+username);
+                        // alert(username);
+                    }
+                    else {
+                        var username=result.username;
+                        // alert(1)
+                    }
+
+
+
+                }});
+        }
         function showTypesInmaket() {
             // alert(1)
             var username;
@@ -101,7 +132,7 @@
                         // alert(1)
                     }
 
-                    alert(username);
+                    // alert(username);
                     // alert(username);
                     var data = JSON.stringify({username:username});
                     // alert(data);
@@ -129,7 +160,7 @@
 
         function showGoodsInMarket(type){
             var data2 = JSON.stringify({type:type});
-            alert(data2);
+            // alert(data2);
             $.ajax({
                 type:"POST",//方法
                 data:data2,
